@@ -1,3 +1,12 @@
+import {Calendar} from '@ionic-native/calendar';
+
+constructor (private calendar: Calendar) {}
+
+this.calendar.createCalendar('MyCalendar').then{
+    (msg) => {console.log(msg); },
+    (err) => {console.log(err);}
+};
+
 <ion-header>
   <ion-toolbar>
     <ion-title>Home</ion-title>
@@ -6,5 +15,6 @@
 
 <ion-content padding>
   The world is your oyster.
+
   <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
 </ion-content>
