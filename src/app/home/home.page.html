@@ -1,19 +1,29 @@
-import {Calendar} from '@ionic-native/calendar';
 
-constructor (private calendar: Calendar) {}
-
-this.calendar.createCalendar('MyCalendar').then{
-    (msg) => {console.log(msg); },
-    (err) => {console.log(err);}
-};
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Home
+    {{ viewTitle }}
+      </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addEvent()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <calendar [eventSource]="eventSource"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            (onEventSelected)="onEventSelected($event)"
+            (onTitleChanged)="onViewTitleChanged"
+            (onTimeSelected)="onTimeSelected($event)"
+            step="30"
+            class="calendar">
+            </calendar>
+
   The world is your oyster.
 
   <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
