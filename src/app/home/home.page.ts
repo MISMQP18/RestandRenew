@@ -13,6 +13,6 @@ export class HomePage {
     }
 
     btnClicked(){
-        alert("Habit Completed");
+        alert('Habit Completed');
     }
 }
