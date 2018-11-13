@@ -15,7 +15,7 @@ export class HomePage {
   calendar = {
     mode: 'month',
     currentDate: this.selectedDay
-}
+};
     constructor(public navCtrl: navController) {
 
   }
