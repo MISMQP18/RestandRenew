@@ -17,7 +17,7 @@ import { HomePageModule } from '../home/home.module';
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,
-    SettingsPageModule
+      SettingsPageModule
   ],
   declarations: [TabsPage]
 })
