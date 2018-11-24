@@ -1,17 +1,24 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { MyApp } from './app/app.component';
+import { NgCalendarModule  } from 'ionic2-calendar';
+import {HomePage } from '../pages/home/home';
+import { CalendarModule } from 'ionic3-calendar-en';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
-  ],
-  declarations: [HomePage]
+    declarations: [
+        MyApp,
+        HomePage
+    ],
+    imports: [
+        NgCalendarModule,
+        CalendarModule,
+        IonicModule.forRoot(MyApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage
+    ]
 })
-export class HomePageModule {}
+export class AppModule {}
