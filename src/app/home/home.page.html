@@ -5,6 +5,25 @@
 </ion-header>
 
 <ion-content padding>
+<script>
+function setColor(btn, color){
+    var count=1;
+    var property = document.getElementById(btn);
+    if (count == 0){
+        property.style.backgroundColor = "#FFFFFF"
+        count=1;        
+    }
+    else{
+        property.style.backgroundColor = "#7FFF00"
+        count=0;
+    }
+
+}
+</script>
+
+<p> <button type="button" onclick="setColor('button', '#00800')"> click me!!! </button><p>
+test test test
+
   The world is your oyster.
 <p> Date: <p>
   <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
