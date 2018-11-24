@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { SettingsPage } from '../settings/settings.page';
+import { EditPage } from '../edit/edit.page';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
         outlet: 'settings',
         component: SettingsPage
       }
+        {
+            path: 'edit',
+            outlet: 'edit',
+            component: EditPage
+        }
     ]
   },
   {

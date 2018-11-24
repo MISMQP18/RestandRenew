@@ -6,6 +6,9 @@
   <ion-tab tab="settings">
     <ion-router-outlet name="settings"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="edit">
+    <ion-router-outlet name="edit"></ion-router-outlet>
+  </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
@@ -17,6 +20,11 @@
     <ion-tab-button tab="settings" href="/tabs/(settings:settings)">
       <ion-icon name="information-circle"></ion-icon>
       <ion-label>Habit Settings</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="edit" href="/tabs/(edit:edit)">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>Edit Habit</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
