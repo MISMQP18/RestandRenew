@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,7 +18,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    Component,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
