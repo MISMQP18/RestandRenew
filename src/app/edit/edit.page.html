@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content padding>
-<p>Blank Edit Habit Page</p>
+<p> Edit Habit </p>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Habit</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Repeat</ion-label>
+      <ion-select [(ngModel)]="repeat">
+        <ion-option value="daily">Daily</ion-option>
+        <ion-option value="Weekly">Weekly</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <div padding>
+    <button block>Sign In</button>
+  </div>
 </ion-content>
