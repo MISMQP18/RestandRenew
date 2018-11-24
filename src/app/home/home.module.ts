@@ -3,7 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app/app.component';
 import { NgCalendarModule  } from 'ionic2-calendar';
 import {HomePage } from '../pages/home/home';
-
+import { CalendarModule } from 'ionic3-calendar-en';
 
 @NgModule({
     declarations: [
@@ -12,6 +12,7 @@ import {HomePage } from '../pages/home/home';
     ],
     imports: [
         NgCalendarModule,
+        CalendarModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
