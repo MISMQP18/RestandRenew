@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {navController} from 'ionic-angular';
-
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -8,28 +7,10 @@ import {navController} from 'ionic-angular';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  eventSource = [];
-  viewTtile: string;
-  selectedDay = new Date();
-
-  calendar = {
-    mode: 'month',
-    currentDate: this.selectedDay
-};
-    constructor(public navCtrl: navController) {
-
-  }
-  onViewTitleChanged(title){
-  this.viewTitle = title;
+  currentDate;
+  constructor(public navCtrl: NavController){
+    this.currentDate = new Date();
   }
 
-  }
-  onTimeSelected(event){
-  this.selectedDay = ev.selectedTime;
 
-  }
-  onEventSelected(event){
 }
-
-
-
