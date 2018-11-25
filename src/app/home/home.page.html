@@ -5,19 +5,21 @@
 </ion-header>
 
 <ion-content padding>
-    <button>Click click click</button>
+    <button ion-button color="dark" round (click)="btnClicked()">Drink Water</button>
+    <button ion-button color="dark" round (click)="btnClicked()">Take a Walk</button>
+    <button ion-button color="dark" round (click)="btnClicked()">Take 3 deep breaths</button>
 
     <script>
         function setColor(btn, color){
-            var count=1;
+            var count = 1;
             var property = document.getElementById(btn);
             if (count == 0){
-                property.style.backgroundColor = "#FFFFFF"
-                count=1;
+                property.style.backgroundColor = "#FFFFFF";
+                count = 1;
             }
             else{
-                property.style.backgroundColor = "#7FFF00"
-                count=0;
+                property.style.backgroundColor = "#7FFF00";
+                count = 0;
             }
 
         }
