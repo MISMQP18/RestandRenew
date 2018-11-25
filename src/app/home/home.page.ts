@@ -7,10 +7,14 @@ import {NavController} from "@ionic/angular";
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  currentDate;
+
+    currentDate;
+
+    btnClicked(){
+        alert('Habit Completed');
+    }
+
   constructor(public navCtrl: NavController){
     this.currentDate = new Date();
   }
-
-
 }
