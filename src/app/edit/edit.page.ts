@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController } from '@ionic/angular';
 //import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 //import { HttpClient } from '@angular/common/http/src/client';
@@ -10,8 +10,13 @@ import { NavController } from 'ionic-angular';
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage {
+/* ADD THIS TO EDIT.PAGE.HTML IN BETWEEN <ION-CONTENT></ION-CONTENT>
+<button ion-button (click)="timePicker()">Time Picker</button>
+*/
 
-/*    jsonData = {
+/*
+
+    jsonData = {
     hours: [
         {description: '12'},
         {description: '1'},

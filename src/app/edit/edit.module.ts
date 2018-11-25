@@ -3,11 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { WheelSelector } from '@ionic-native/wheel-selector';
-import { HttpClientModule } from 'angular/common/http';
-
-
+import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
-
 import { EditPage } from './edit.page';
 
 const routes: Routes = [
