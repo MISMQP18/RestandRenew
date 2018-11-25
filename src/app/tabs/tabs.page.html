@@ -3,11 +3,11 @@
   <ion-tab tab="home">
     <ion-router-outlet name="home"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="about">
-    <ion-router-outlet name="about"></ion-router-outlet>
+  <ion-tab tab="settings">
+    <ion-router-outlet name="settings"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="contact">
-    <ion-router-outlet name="contact"></ion-router-outlet>
+  <ion-tab tab="edit">
+    <ion-router-outlet name="edit"></ion-router-outlet>
   </ion-tab>
 
   <ion-tab-bar slot="bottom">
@@ -17,14 +17,14 @@
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="about" href="/tabs/(about:about)">
+    <ion-tab-button tab="settings" href="/tabs/(settings:settings)">
       <ion-icon name="information-circle"></ion-icon>
-      <ion-label>About</ion-label>
+      <ion-label>Habit Settings</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="contact" href="/tabs/(contact:contact)">
-      <ion-icon name="contacts"></ion-icon>
-      <ion-label>Contact</ion-label>
+    <ion-tab-button tab="edit" href="/tabs/(edit:edit)">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>Edit Habit</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
