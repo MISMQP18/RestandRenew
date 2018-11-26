@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { WheelSelector } from '@ionic-native/wheel-selector';
-import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+//import { WheelSelector } from '@ionic-native/wheel-selector';
+//import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { HttpClient } from '@angular/common/http/src/client';
 
 @Component({
@@ -9,8 +9,9 @@ import { HttpClient } from '@angular/common/http/src/client';
   templateUrl: './edit.page.html',
   styleUrls: ['./edit.page.scss']
 })
-export class EditPage {
 
+export class EditPage {
+/*
     jsonData = {
     hours: [
         {description: '12'},
@@ -67,4 +68,5 @@ export class EditPage {
            toast.present();
        });
     }
+    */
 }
