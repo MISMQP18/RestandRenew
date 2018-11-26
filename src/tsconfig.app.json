@@ -5,6 +5,10 @@
     "baseUrl": "./",
     "module": "es2015"
   },
+  "include": [
+    "../src/**/*",
+    "../node_modules/ionic3-calendar-en/src/**/*"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
