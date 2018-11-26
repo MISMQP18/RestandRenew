@@ -32,4 +32,9 @@
     <p> Date: <p>
     <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
 
+
+    <ion-calendar #calendar></ion-calendar>
+    <ion-calendar #calendar (onDaySelect)="onDaySelect($event)"></ion-calendar>
+
+
 </ion-content>
