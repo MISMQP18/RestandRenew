@@ -19,3 +19,8 @@ export class HomePage {
   }
 
 }
+
+/* ADD TO BOTTOM OF HOME PAGE HTML
+  <ion-calendar #calendar></ion-calendar>
+  <ion-calendar #calendar (onDaySelect)="onDaySelect($event)"></ion-calendar>
+  */

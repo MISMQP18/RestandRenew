@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-//import { WheelSelector } from '@ionic-native/wheel-selector';
-//import { ToastController } from 'ionic-angular/components/toast/toast-controller';
-//import { HttpClient } from '@angular/common/http/src/client';
+import { WheelSelector } from '@ionic-native/wheel-selector';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { HttpClient } from '@angular/common/http/src/client';
 
 @Component({
   selector: 'app-edit',
@@ -10,11 +10,6 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./edit.page.scss']
 })
 export class EditPage {
-/* ADD THIS TO EDIT.PAGE.HTML IN BETWEEN <ION-CONTENT></ION-CONTENT>
-<button ion-button (click)="timePicker()">Time Picker</button>
-*/
-
-/*
 
     jsonData = {
     hours: [
@@ -64,12 +59,12 @@ export class EditPage {
                { index: 2, value: this.jsonData.meridiem[1].description },
            ]
        }).then(result => {
-           let msg = `Selected ${result[0].description} with ${result[1].description} with ${result[2].description}`;
-           let toast = this.toastCtrl.create({
+           const msg = `Selected ${result[0].description} with ${result[1].description} with ${result[2].description}`;
+           const toast = this.toastCtrl.create({
                message: msg,
                duration: 4000
            });
            toast.present();
        });
-    }*/
+    }
 }
