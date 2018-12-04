@@ -5,20 +5,29 @@
 </ion-header>
 
 <ion-content color="primary">
+    <p>
+        <ion-button class="button button-full button-positive" color="light">Today's Date is: </ion-button>
+    </p>
+    <p>
+        <ion-button style="padding: 1%" class="button button-large button-positive" color="light">M</ion-button>
+        <ion-button style="padding: 1%" class="button button-large button-positive" color="light">T</ion-button>
+        <ion-button style="padding: 1%" class="button button-large button-positive" color="light">W</ion-button>
+        <ion-button style="padding: 1%" class="button button-large button-positive" color="light">Th</ion-button>
+        <ion-button style="padding: 1%" class="button button-large button-positive" color="light">F</ion-button>
+    </p>
 
-    <ion-list>
-
-        <ion-item>
-            <button ion-button color="light" block outline (click)="btnClicked()">Drink Water</button>
-        </ion-item>
-        <ion-item>
-            <button ion-button color="dark" (click)="btnClicked()">Take a Walk</button>
-        </ion-item>
-        <ion-item>
-            <button ion-button color="dark" (click)="btnClicked()">Take 3 deep breaths</button>
-        </ion-item>
-
-    </ion-list>
+    <p margin="auto">
+        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Drink Water</ion-button>
+    </p>
+    <p margin="auto">
+        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Take a Walk</ion-button>
+    </p>
+    <p margin="auto">
+        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Deep Breath</ion-button>
+    </p>
+    <p margin="auto">
+        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Add New Habit!</ion-button>
+    </p>
 
     <html ng-app="URL">
     <head>

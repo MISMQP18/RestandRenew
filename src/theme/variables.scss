@@ -5,7 +5,7 @@
 :root {
 
   /** primary **/
-  --ion-color-primary: #a6e4ff;
+  --ion-color-primary: #5ebdff;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -76,4 +76,15 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+}
+
+.block{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #eaebee;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
 }
