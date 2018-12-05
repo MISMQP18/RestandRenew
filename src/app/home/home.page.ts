@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController} from '@ionic/angular';
+//import { SettingsPage } from './settings.page';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomePage {
     btnClicked(){
         alert('Habit Completed');
     }
+
 
   constructor(public navCtrl: NavController){
     this.currentDate = new Date();

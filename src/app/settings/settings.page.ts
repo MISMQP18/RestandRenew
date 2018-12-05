@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+//import { HomePage } from './home.page.html';
 
 @Component({
   selector: 'app-settings',
