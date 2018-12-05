@@ -15,6 +15,10 @@ export class HomePage {
         alert('Habit Completed');
     }
 
+    btnClicked2(){
+        alert('This would bring you to the habit settings page!');
+    }
+
 
   constructor(public navCtrl: NavController){
     this.currentDate = new Date();
