@@ -6,38 +6,39 @@
 
 <ion-content padding>
 
-  <ion-item-group reorder="true">
-    <ion-item-divider color="light">Current Habits</ion-item-divider>
+  <ion-list>
+    <ion-item-group reorder="true">
+      <ion-item-divider color="light">Current Habits</ion-item-divider>
 
-    <ion-item>
-      <ion-label>Drink Water</ion-label>
-      <ion-toggle checked="true"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Meditate at lunchtime</ion-label>
-      <ion-toggle></ion-toggle>
-    </ion-item>
-  </ion-item-group>
+      <ion-item>
+        <ion-label>Drink Water</ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Meditate at lunchtime</ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+    </ion-item-group>
 
-  <ion-item-group>
-    <ion-item-divider color="light">Add Habits</ion-item-divider>
+    <ion-item-group>
+      <ion-item-divider color="light">Add Habits</ion-item-divider>
+      <ion-item>
+        <ion-label>Take 3 deep breaths</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Take a walk</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Get up from your desk</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="dark" round (click)="btnClicked()">Add Custom Habit</button>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 
-
-    <ion-item>
-      <ion-label>Take 3 deep breaths</ion-label>
-      <ion-toggle></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Take a walk</ion-label>
-      <ion-toggle></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Get up from your desk</ion-label>
-      <ion-toggle></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <button ion-button color="dark" round (click)="btnClicked()">Add Custom Habit</button>
-    </ion-item>
-  </ion-item-group>
 
 </ion-content>
