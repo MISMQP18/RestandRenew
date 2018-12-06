@@ -7,9 +7,8 @@
 <ion-content color="primary" padding>
 
   <ion-list>
-    <ion-item-group reorder="true">
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
       <ion-item-divider color="light">Current Habits</ion-item-divider>
-
       <ion-item>
         <ion-label>Drink Water</ion-label>
         <ion-toggle checked="true"></ion-toggle>
@@ -20,7 +19,7 @@
       </ion-item>
     </ion-item-group>
 
-    <ion-item-group>
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
       <ion-item-divider color="light">Add Habits</ion-item-divider>
       <ion-item>
         <ion-label>Take 3 deep breaths</ion-label>
