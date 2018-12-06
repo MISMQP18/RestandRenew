@@ -19,9 +19,9 @@ export class EditPage {
 
     constructor(private router: Router){}
 
-    openHabitSettingsPage(){
+   /* openHabitSettingsPage(){
         this.router.navigate(['/tabs/(settings:settings)']);
-    }
+    }*/
 
         /*
             jsonData = {

@@ -43,9 +43,9 @@ export class SettingsPage {
     }
 */
 
-    openEditHabitPage(){
+    /*openEditHabitPage(){
         this.router.navigate(['/tabs/(edit:edit)']);
-    }
+    }*/
 
 }
 
