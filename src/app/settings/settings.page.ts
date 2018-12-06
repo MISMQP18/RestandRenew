@@ -12,9 +12,7 @@ export class SettingsPage {
     items1: any[];
     items2: any[];
 
-    constructor() {
-        private router: Router;
-
+    constructor(private router: Router) {
         this.items1 = [
             {
                 habit: 'Drink Water'
