@@ -8,16 +8,19 @@ import { reorderArray } from 'ionic-angular';
   styleUrls: ['settings.page.scss'],
 })
 export class SettingsPage {
-    items = [];
+    items1: any[];
+    items2: any[];
 
     constructor() {
-        this.items = [
+        this.items1 = [
             {
                 habit: 'Drink Water'
             },
             {
                 habit: 'Meditate at lunchtime'
-            },
+            }];
+
+        this.items2 = [
             {
                 habit: 'Take 3 deep breaths'
             },
@@ -29,8 +32,9 @@ export class SettingsPage {
             }];
     }
 
-    reorderItems(indexes) {
-        this.items = reorderArray(this.items, indexes);
+    reorderItems(indexes: any) {
+        this.items1 = reorderArray(this.items1, indexes);
+        this.items2 = reorderArray(this.items2, indexes);
     }
 
     btnClicked() {
