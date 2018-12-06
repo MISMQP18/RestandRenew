@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 //import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { ToastController } from 'ionic-angular/components/toast/toast-controller';
@@ -12,8 +13,14 @@ import { NavController } from '@ionic/angular';
 
 export class EditPage {
 
-    btnClicked() {
+    /*btnClicked() {
         alert('Habit Saved');
+    }*/
+
+    constructor(private router: Router){}
+
+    openHabitSettingsPage(){
+        this.router.navigate(["/settings"]);
     }
 
         /*
