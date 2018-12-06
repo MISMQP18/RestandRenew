@@ -20,7 +20,7 @@ export class EditPage {
     constructor(private router: Router){}
 
     openHabitSettingsPage(){
-        this.router.navigate(["/settings"]);
+        this.router.navigate(["/tabs/(settings:settings)"]);
     }
 
         /*

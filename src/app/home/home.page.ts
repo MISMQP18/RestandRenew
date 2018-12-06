@@ -16,7 +16,7 @@ export class HomePage {
     }
 
     openEditHabitPage(){
-        this.router.navigate(["/edit"]);
+        this.router.navigate(["/tabs/(edit:edit)"]);
     }
 
     btnClicked(){
