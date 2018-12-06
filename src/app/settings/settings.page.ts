@@ -11,9 +11,22 @@ export class SettingsPage {
     items = [];
 
     constructor() {
-        for (let x = 0; x < 5; x++) {
-            this.items.push(x);
-        }
+        this.items = [
+            {
+                habit: 'Drink Water'
+            },
+            {
+                habit: 'Meditate at lunchtime'
+            },
+            {
+                habit: 'Take 3 deep breaths'
+            },
+            {
+                habit: 'Take a walk'
+            },
+            {
+                habit: 'Get up from your desk'
+            }];
     }
 
     reorderItems(indexes) {

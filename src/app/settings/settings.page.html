@@ -8,12 +8,8 @@
 
   <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
     <ion-item-divider color="light">Current Habits</ion-item-divider>
-    <ion-item *ngFor="let item of items">{{ item }}</ion-item>
-  </ion-item-group>
-
-  <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
-    <ion-item-divider color="light">Add Habits</ion-item-divider>
-    <ion-item *ngFor="let item of items">{{ item }}</ion-item>
+    <ion-item *ngFor="let item of items">{{ item.habit }}</ion-item>
+    <ion-toggle checked="true"></ion-toggle>
   </ion-item-group>
 
   <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Add Custom Habit</ion-button>
