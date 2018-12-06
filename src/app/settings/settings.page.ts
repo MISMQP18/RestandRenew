@@ -8,22 +8,16 @@ import { reorderArray } from 'ionic-angular';
   styleUrls: ['settings.page.scss'],
 })
 export class SettingsPage {
-    items1 = ['Drink Water', 'Meditate at lunchtime'];
-    items2 = ['Take 3 deep breaths', 'Take a walk', 'Get up from your desk'];
+    items = [];
 
     constructor() {
         for (let x = 0; x < 5; x++) {
-            this.items1.push(x);
-        }
-
-        for (let x = 0; x < 5; x++) {
-            this.items2.push(x);
+            this.items.push(x);
         }
     }
 
     reorderItems(indexes) {
-        this.items1 = reorderArray(this.items1, indexes);
-        this.items2 = reorderArray(this.items2, indexes);
+        this.items = reorderArray(this.items, indexes);
     }
 
     btnClicked() {
