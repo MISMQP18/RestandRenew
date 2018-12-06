@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { reorderArray } from 'ionic-angular';
+import { Router } from '@angular/router';
 //import { HomePage } from './home.page.html';
 
 @Component({
@@ -12,6 +13,8 @@ export class SettingsPage {
     items2: any[];
 
     constructor() {
+        private router: Router;
+
         this.items1 = [
             {
                 habit: 'Drink Water'
@@ -37,8 +40,13 @@ export class SettingsPage {
         this.items2 = reorderArray(this.items2, indexes);
     }
 
-    btnClicked() {
+/*    btnClicked() {
         alert('This will open the "Edit Habits" page');
+    }
+*/
+
+    openEditHabitPage(){
+        this.router.navigate(["/edit"]);
     }
 
 }
