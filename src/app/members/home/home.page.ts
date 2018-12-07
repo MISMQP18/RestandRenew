@@ -12,9 +12,11 @@ import {Router} from '@angular/router';
 export class HomePage implements OnInit {
 
     currentDate;
+    formattedDate;
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
         this.currentDate = new Date();
+        this.getFormattedDate
     }
 
     openEditHabitPage(){
@@ -31,6 +33,17 @@ export class HomePage implements OnInit {
     logout() {
         this.authService.logout();
     }
+
+    getFormattedDate(){
+        var dateObj = new Date()
+
+        var year = dateObj.getFullYear().toString()
+        var month = dateObj.getMonth().toString()
+        var date = dateObj.getDate().toString()
+
+        this.formattedDate = year + month + date;
+    }
+
 
     /*btnClicked2(){
         alert('This would bring you to the habit settings page!');
