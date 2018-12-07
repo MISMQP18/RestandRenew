@@ -11,7 +11,10 @@ import {Router} from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-    constructor(/*public navCtrl: NavController,*/ private router: Router, private authService: AuthenticationService){
+    currentDate;
+
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
+        this.currentDate = new Date();
     }
 
     openEditHabitPage(){
