@@ -28,7 +28,7 @@ export class AppComponent {
 
             this.authenticationService.authenticationState.subscribe(state => {
                 if (state) {
-                    this.router.navigate(['members', 'home']);
+                    this.router.navigate(['/tabs/(home:home)']);
                 } else {
                     this.router.navigate(['login']);
                 }
