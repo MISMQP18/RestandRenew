@@ -127,8 +127,3 @@ export class HomePage implements OnInit {
 
 
 }
-
-/* ADD TO BOTTOM OF HOME PAGE HTML
-  <ion-calendar #calendar></ion-calendar>
-  <ion-calendar #calendar (onDaySelect)="onDaySelect($event)"></ion-calendar>
-  */
