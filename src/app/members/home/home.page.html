@@ -10,9 +10,10 @@
 </ion-header>
 
 <ion-content color="primary">
-    <p>
-        <ion-button class="button button-full button-positive" color="light">Today's Date is: </ion-button>
-    </p>
+    <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
     <p>
         <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">M</ion-button>
         <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">T</ion-button>
