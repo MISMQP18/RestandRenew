@@ -12,7 +12,9 @@ export class HomePage implements OnInit {
 
     currentDate;
     formattedDate;
-    ionicNamedColor: string = 'primary';
+    ionicNamedColor: string = 'light';
+    ionicNamedColor2: string = 'light';
+    ionicNamedColor3: string = 'light';
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
         this.currentDate = new Date();
@@ -47,6 +49,22 @@ export class HomePage implements OnInit {
     }
 
     public toggleNamedColor(): void {
+        if(this.ionicNamedColor === 'medium') {
+            this.ionicNamedColor = 'light'
+        } else {
+            this.ionicNamedColor = 'medium'
+        }
+    }
+
+    public toggleNamedColor2(): void {
+        if(this.ionicNamedColor === 'medium') {
+            this.ionicNamedColor = 'light'
+        } else {
+            this.ionicNamedColor = 'medium'
+        }
+    }
+
+    public toggleNamedColor3(): void {
         if(this.ionicNamedColor === 'medium') {
             this.ionicNamedColor = 'light'
         } else {
