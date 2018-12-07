@@ -16,25 +16,24 @@
 
 
     <p>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">M</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">T</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">W</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">Th</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">F</ion-button>
+        <ion-button style="padding: 2%" class="button button-large button-positive" color="light">M</ion-button>
+        <ion-button style="padding: 2%" class="button button-large button-positive" color="light">T</ion-button>
+        <ion-button style="padding: 2%" class="button button-large button-positive" color="light">W</ion-button>
+        <ion-button style="padding: 2%" class="button button-large button-positive" color="light">Th</ion-button>
+        <ion-button style="padding: 2%" class="button button-large button-positive" color="light">F</ion-button>
     </p>
 
     <p margin="auto">
         <ion-button class="button button-block button-positive" (click)="toggleNamedColor()" [color]="ionicNamedColor">Drink Water</ion-button>
     </p>
     <p margin="auto">
-        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Take a Walk</ion-button>
+        <ion-button class="button button-block button-positive" (click)="toggleNamedColor()" [color]="ionicNamedColor" (click)="btnClicked()">Take a Walk</ion-button>
     </p>
     <p margin="auto">
-        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Deep Breath</ion-button>
+        <ion-button class="button button-block button-positive" (click)="toggleNamedColor()" [color]="ionicNamedColor">Deep Breath</ion-button>
     </p>
     <p margin="auto">
         <ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add New Habit!</ion-button>
     </p>
-    <p><ion-button (click)="toggleNamedColor()" [color]="ionicNamedColor">Click me!</ion-button></p>
 
 </ion-content>

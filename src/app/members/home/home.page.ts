@@ -47,10 +47,10 @@ export class HomePage implements OnInit {
     }
 
     public toggleNamedColor(): void {
-        if(this.ionicNamedColor === 'light') {
-            this.ionicNamedColor = 'medium'
-        } else {
+        if(this.ionicNamedColor === 'medium') {
             this.ionicNamedColor = 'light'
+        } else {
+            this.ionicNamedColor = 'medium'
         }
     }
 
