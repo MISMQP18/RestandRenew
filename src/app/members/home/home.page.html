@@ -42,14 +42,11 @@
 <p></p>
 
 <ion-content padding>
-    <ion-item-divider>
         <ion-row class="calendar-month">
             <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
             <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
             <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
         </ion-row>
-    </ion-item-divider>
-    <ion-item-divider>
         <ion-grid>
             <ion-row class="calendar-weekday">
                 <ion-col>Su</ion-col>
@@ -69,5 +66,4 @@
                 <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
             </ion-row>
         </ion-grid>
-    </ion-item-divider>
 </ion-content>
