@@ -41,7 +41,9 @@ export class HomePage implements OnInit {
         var month = dateObj.getMonth().toString()
         var date = dateObj.getDate().toString()
 
-        this.formattedDate = year +" "+ month +" "+ date;
+        var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+        this.formattedDate = year +" "+ monthArray[month] +" "+ date;
     }
 
 
