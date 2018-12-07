@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import {Router} from '@angular/router';
 //import { SettingsPage } from './settings.page';
@@ -8,11 +9,9 @@ import {Router} from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage {
-    currentDate;
+export class HomePage implements OnInit {
 
-    constructor(public navCtrl: NavController, private router: Router){
-        this.currentDate = new Date();
+    constructor(/*public navCtrl: NavController,*/ private router: Router, private authService: AuthenticationService){
     }
 
     openEditHabitPage(){
@@ -21,6 +20,13 @@ export class HomePage {
 
     btnClicked(){
         alert('Habit Completed');
+    }
+
+    ngOnInit() {
+    }
+
+    logout() {
+        this.authService.logout();
     }
 
     /*btnClicked2(){

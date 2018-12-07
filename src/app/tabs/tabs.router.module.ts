@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { HomePage } from '../home/home.page';
+import { HomePage } from '../members/home/home.page';
 import { SettingsPage } from '../settings/settings.page';
+import { LoginPage } from '../login/login.page';
 import { EditPage } from '../edit/edit.page';
 
 const routes: Routes = [

@@ -8,7 +8,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { SettingsPageModule } from '../settings/settings.module';
-import { HomePageModule } from '../home/home.module';
+import { HomePageModule } from '../members/home/home.module';
 //import { EditPageModule } from '../edit/edit.module';
 
 @NgModule({
