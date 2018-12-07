@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { TabsPageRoutingModule } from './tabs.router.module';
+import { MemberRoutingModule } from '../members/member-routing.module';
 
 import { TabsPage } from './tabs.page';
 import { SettingsPageModule } from '../settings/settings.module';
@@ -17,6 +18,7 @@ import { HomePageModule } from '../members/home/home.module';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
+      MemberRoutingModule,
     HomePageModule,
       //EditPageModule,
       SettingsPageModule
