@@ -2,7 +2,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import {Router} from '@angular/router';
-//import { SettingsPage } from './settings.page';
 
 @Component({
   selector: 'app-home',
@@ -46,10 +45,6 @@ export class HomePage implements OnInit {
         this.formattedDate = monthArray[month] +" "+ date +", "+ year;
     }
 
-
-    /*btnClicked2(){
-        alert('This would bring you to the habit settings page!');
-    }*/
 
 }
 
