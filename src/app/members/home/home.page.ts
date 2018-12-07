@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
         this.currentDate = new Date();
-        this.getFormattedDate
+        this.getFormattedDate()
     }
 
     openEditHabitPage(){
@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
         var month = dateObj.getMonth().toString()
         var date = dateObj.getDate().toString()
 
-        this.formattedDate = year + month + date;
+        this.formattedDate = year +" "+ month +" "+ date;
     }
 
 
