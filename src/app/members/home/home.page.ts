@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
 
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-        this.formattedDate = year +" "+ monthArray[month] +" "+ date;
+        this.formattedDate = monthArray[month] +" "+ date +" "+ year;
     }
 
 
