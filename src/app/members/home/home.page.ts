@@ -78,7 +78,7 @@ export class HomePage implements OnInit {
             this.ionicNamedColor3 = 'medium'
         }
     }
-
+/*
     getDaysOfMonth() {
         this.daysInThisMonth = new Array();
         this.daysInLastMonth = new Array();
@@ -124,6 +124,7 @@ export class HomePage implements OnInit {
         this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
         this.getDaysOfMonth();
     }
+*/
 
 
 }
