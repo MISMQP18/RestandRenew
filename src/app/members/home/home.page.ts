@@ -12,6 +12,7 @@ export class HomePage implements OnInit {
 
     currentDate;
     formattedDate;
+    ionicNamedColor: string = 'primary';
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
         this.currentDate = new Date();
@@ -43,6 +44,14 @@ export class HomePage implements OnInit {
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
         this.formattedDate = monthArray[month] +" "+ date +", "+ year;
+    }
+
+    public toggleNamedColor(): void {
+        if(this.ionicNamedColor === 'primary') {
+            this.ionicNamedColor = 'secondary'
+        } else {
+            this.ionicNamedColor = 'primary'
+        }
     }
 
 
