@@ -15,9 +15,9 @@ export class HomePage {
         this.currentDate = new Date();
     }
 
-    /*openEditHabitPage(){
+    openEditHabitPage(){
         this.router.navigate(['/tabs/(edit:edit)']);
-    }*/
+    }
 
     btnClicked(){
         alert('Habit Completed');

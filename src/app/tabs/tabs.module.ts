@@ -9,7 +9,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { TabsPage } from './tabs.page';
 import { SettingsPageModule } from '../settings/settings.module';
 import { HomePageModule } from '../home/home.module';
-import { EditPageModule } from '../edit/edit.module';
+//import { EditPageModule } from '../edit/edit.module';
 
 @NgModule({
   imports: [
@@ -18,8 +18,8 @@ import { EditPageModule } from '../edit/edit.module';
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,
-      SettingsPageModule,
-      EditPageModule
+      //EditPageModule,
+      SettingsPageModule
   ],
   declarations: [TabsPage]
 })

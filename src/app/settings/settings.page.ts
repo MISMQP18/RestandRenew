@@ -38,13 +38,12 @@ export class SettingsPage {
         this.items2 = reorderArray(this.items2, indexes);
     }
 
-/*    btnClicked() {
-        alert('This will open the "Edit Habits" page');
-    }
-*/
-
-    /*openEditHabitPage(){
+    openEditHabitPage(){
         this.router.navigate(['/tabs/(edit:edit)']);
+    }
+
+    /*btnClicked() {
+        alert('This will open the "Edit Habits" page');
     }*/
 
 }

@@ -25,12 +25,12 @@ const routes: Routes = [
         path: 'settings',
         outlet: 'settings',
         component: SettingsPage
-      },
+      }/*,
         {
             path: 'edit',
             outlet: 'edit',
             component: EditPage
-        }
+        }*/
     ]
   },
   {
