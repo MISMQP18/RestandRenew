@@ -10,13 +10,13 @@
 
     <ion-item-divider color="light">Current Habits</ion-item-divider>
     <ion-item *ngFor="let item of items1">
-      {{ item.habit }}
+      <ion-label>{{ item.habit }}</ion-label>
       <ion-toggle checked="true"></ion-toggle>
     </ion-item>
 
     <ion-item-divider color="light">Add Habits</ion-item-divider>
     <ion-item *ngFor="let item of items2">
-      {{ item.habit }}
+      <ion-label>{{ item.habit }}</ion-label>
       <ion-toggle (ionChange)="openEditHabitPage()"></ion-toggle>
     </ion-item>
 
