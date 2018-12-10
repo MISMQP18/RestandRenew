@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
-
+/*
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
@@ -23,7 +23,7 @@ const firebaseConfig = {
     storageBucket: "rest-and-renew.appspot.com",
     messagingSenderId: "888747261921"
 };
-
+*/
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -31,13 +31,13 @@ const firebaseConfig = {
       IonicModule.forRoot(),
       AppRoutingModule,
       IonicStorageModule.forRoot(),
-      HttpModule,
-      AngularFireDatabaseModule,
-      AngularFireModule.initializeApp(firebaseConfig),],
+      //HttpModule,
+      //AngularFireDatabaseModule,
+      //AngularFireModule.initializeApp(firebaseConfig),],
   providers: [
     StatusBar,
     SplashScreen,
-      FirebaseProvider,
+    //  FirebaseProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
