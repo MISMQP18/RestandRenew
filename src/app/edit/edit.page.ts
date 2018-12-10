@@ -13,10 +13,6 @@ import { NavController } from '@ionic/angular';
 
 export class EditPage {
 
-    /*btnClicked() {
-        alert('Habit Saved');
-    }*/
-
     constructor(private router: Router){}
 
    /* openHabitSettingsPage(){

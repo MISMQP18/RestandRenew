@@ -6,12 +6,16 @@ const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-    {
+    /*{
         path: 'members',
         canActivate: [AuthGuardService],
         loadChildren: './members/member-routing.module#MemberRoutingModule'
+    },*/
+    {
+        path: '',
+        canActivate: [AuthGuardService],
+        loadChildren: './tabs/tabs.module#TabsPageModule'
     },
-    { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
     { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
     { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' },
 ];
