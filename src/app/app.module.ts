@@ -30,7 +30,7 @@ const firebaseConfig = {
   imports: [BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
-      IonicStorageModule.forRoot(),
+      IonicStorageModule.forRoot()],
       //HttpModule,
       //AngularFireDatabaseModule,
       //AngularFireModule.initializeApp(firebaseConfig),],
