@@ -16,14 +16,12 @@
 
     </ion-list>
 
-    <ion-item>
-    <ion-label>pepperoni</ion-label>
-    <ion-toggle [(ngModel)]="pepperoni" (ionChange)="change()"></ion-toggle>
-    </ion-item>
+    <ion-label>notifications</ion-label>
+    <ion-toggle checked="true"></ion-toggle>
 
 
     <label class = "item item-input item-select">
-        <div *ngif="pepperoni" class = "input-label">
+        <div class = "input-label">
             Repeat
         </div>
 

@@ -12,16 +12,19 @@ import { NavController } from '@ionic/angular';
 
 })
 
-export class EditPage {
 
+export class EditPage {
+/*
     public pepperoni:boolean = true;
+    change(){
+        console.log(this.pepperoni);
+    }
+    */
     constructor(private router: Router){
 
     }
 
-    change(){
-        console.log(this.pepperoni);
-    }
+
 
    /* openHabitSettingsPage(){
         this.router.navigate(['/tabs/(settings:settings)']);
