@@ -16,9 +16,13 @@
 
     </ion-list>
 
+    <ion-item>
+    <ion-toggle [(ngModel)]="pepperoni" (ionChange)="change()"></ion-toggle>
+    </ion-item>
+
 
     <label class = "item item-input item-select">
-        <div class = "input-label">
+        <div *ngif="pepperoni" class = "input-label">
             Repeat
         </div>
 
