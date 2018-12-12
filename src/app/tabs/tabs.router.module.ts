@@ -6,6 +6,7 @@ import { HomePage } from '../members/home/home.page';
 import { SettingsPage } from '../settings/settings.page';
 import { LoginPage } from '../login/login.page';
 import { EditPage } from '../edit/edit.page';
+import {SummaryPage} from '../summary/summary.page';
 
 const routes: Routes = [
   {
@@ -26,7 +27,14 @@ const routes: Routes = [
         path: 'settings',
         outlet: 'settings',
         component: SettingsPage
-      }/*,
+      },
+      {
+        path: 'summary',
+        outlet: 'summary',
+        component: SummaryPage
+      },
+
+      /*,
         {
             path: 'edit',
             outlet: 'edit',
