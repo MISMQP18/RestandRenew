@@ -44,6 +44,10 @@ export class SettingsPage {
             }];
     }
 
+    openFeedback(){
+        alert('This will bring you to the feedback survey');
+    }
+
     /* * THIS IS NOT A GOOD IMPLEMENTATION OF HIDE() --> NEED TO FIND A WAY TO USE ONE FUNCTION FOR ANY HABIT * */
     hidewater() {
         if (this.water2) {

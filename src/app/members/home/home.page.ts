@@ -36,6 +36,10 @@ export class HomePage implements OnInit {
         alert('Habit Completed');
     }
 
+    openFeedback(){
+        alert('This will bring you to the feedback survey');
+    }
+
     goPreviousWeek(){
         alert('This will show the previous week');
     }
