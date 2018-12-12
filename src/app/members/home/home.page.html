@@ -19,17 +19,22 @@
         <ion-label style="text-align: center">Welcome Back! <br> Today's Date: {{formattedDate}}</ion-label>
     </ion-item>
 
-
-    <p>
-        <ion-icon slot="icon-only" name="arrow-back" style="zoom:2.0;"></ion-icon>
-        <ion-button class="button button-small button-positive" color="light">Su</ion-button>
-        <ion-button class="button button-small button-positive" color="light">M</ion-button>
-        <ion-button class="button button-small button-positive" color="light">T</ion-button>
-        <ion-button class="button button-small  button-positive" color="light">W</ion-button>
-        <ion-button class="button button-small  button-positive" color="light">Th</ion-button>
-        <ion-button class="button button-small button-positive" color="light">F</ion-button>
-        <ion-button class="button button-small button-positive" color="light">Sa</ion-button>
-        <ion-icon slot="icon-only" name="arrow-forward" style="zoom:2.0;"></ion-icon>
+    <p margin="auto">
+        <ion-buttons class="button button-block">
+            <ion-button (click)=goPreviousWeek()>
+                <ion-icon slot="icon-only" name="arrow-back" style="zoom:2.0;"></ion-icon>
+            </ion-button>
+            <ion-button class="button button-small button-positive" color="light">Su</ion-button>
+            <ion-button class="button button-small button-positive" color="light">M</ion-button>
+            <ion-button class="button button-small button-positive" color="light">T</ion-button>
+            <ion-button class="button button-small  button-positive" color="light">W</ion-button>
+            <ion-button class="button button-small  button-positive" color="light">Th</ion-button>
+            <ion-button class="button button-small button-positive" color="light">F</ion-button>
+            <ion-button class="button button-small button-positive" color="light">Sa</ion-button>
+            <ion-button (click)=goNextWeek()>
+                <ion-icon slot="icon-only" name="arrow-forward" style="zoom:2.0;"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </p>
 
     <p margin="auto">

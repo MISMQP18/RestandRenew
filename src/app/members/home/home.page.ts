@@ -36,6 +36,14 @@ export class HomePage implements OnInit {
         alert('Habit Completed');
     }
 
+    goPreviousWeek(){
+        alert('This will show the previous week');
+    }
+
+    goNextWeek(){
+        alert('This will show the next week');
+    }
+
     ngOnInit() {
     }
 
