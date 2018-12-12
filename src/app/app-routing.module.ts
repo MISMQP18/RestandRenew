@@ -19,6 +19,7 @@ const routes: Routes = [
     { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
     { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' },
   { path: 'add', loadChildren: './add/add.module#AddPageModule' },
+  { path: 'summary', loadChildren: './summary/summary.module#SummaryPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
