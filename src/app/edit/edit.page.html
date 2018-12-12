@@ -10,18 +10,22 @@
 </ion-header>
 
 <ion-content color="primary" padding>
-    <ion-list>
+    <ion-item-group>
         <ion-item>
             <ion-input type="text" placeholder="Habit"></ion-input>
         </ion-item>
-    </ion-list>
+    </ion-item-group>
 
-    <ion-list>
+    <p></p>
+
+    <ion-item-group>
         <ion-item>
             <ion-label>Notifications</ion-label>
             <ion-toggle checked="true"></ion-toggle>
         </ion-item>
-    </ion-list>
+    </ion-item-group>
+
+    <p></p>
 
     <ion-item-group>
         <ion-item>
@@ -49,26 +53,25 @@
     <p></p>
 
     <ion-item-group>
-    <label class = "item item-input item-select">
-        <div class = "input-label">
-            Alerts Per Day
-        </div>
-
-        <select>
-            <option selected>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </label>
+            <label class = "item item-input item-select">
+                <div class = "input-label">
+                    <ion-label>Alerts Per Day</ion-label>
+                </div>
+                <select>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </label>
     </ion-item-group>
 
     <p></p>
@@ -76,7 +79,7 @@
     <ion-item-group>
         <label class = "item item-input item-select">
             <div class = "input-label">
-                Time
+                <ion-label>Time</ion-label>
             </div>
 
             <select>
@@ -107,7 +110,6 @@
             </select>
         </label>
     </ion-item-group>
-
 
     <p>
         <ion-button color="light" class="button button-block button-positive" href="/tabs/(settings:settings)">Save Habit</ion-button>
