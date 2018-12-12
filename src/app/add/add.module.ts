@@ -2,28 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-//import { WheelSelector } from '@ionic-native/wheel-selector';
-//import { HttpClientModule } from '@angular/common/http';
+
 import { IonicModule } from '@ionic/angular';
-import { EditPage } from './edit.page';
+
+import { AddPage } from './add.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditPage
+    component: AddPage
   }
 ];
 
 @NgModule({
   imports: [
-      CommonModule,
+    CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-//      WheelSelector,
-//      HttpClientModule
-
+    RouterModule.forChild(routes)
   ],
-  declarations: [EditPage]
+  declarations: [AddPage]
 })
-export class EditPageModule {}
+export class AddPageModule {}
