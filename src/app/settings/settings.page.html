@@ -22,57 +22,67 @@
 <ion-content color="primary" padding>
 
   <ion-list>
-    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-reorder-group>
       <ion-item-divider color="light">Current Habits</ion-item-divider>
-        <ion-item *ngIf="water">
-          <ion-label>Drink Water</ion-label>
-          <ion-toggle [(ngModel)]="water"></ion-toggle>
-        </ion-item>
-        <ion-item *ngIf="meditate">
-          <ion-label>Meditate at lunchtime</ion-label>
-          <ion-toggle [(ngModel)]="meditate"></ion-toggle>
-        </ion-item>
-        <ion-item *ngIf="breathe">
-          <ion-label>Take 3 deep breaths</ion-label>
-          <ion-toggle [(ngModel)]="breathe"></ion-toggle>
-        </ion-item>
-        <ion-item *ngIf="walk">
-          <ion-label>Take a walk</ion-label>
-          <ion-toggle [(ngModel)]="walk"></ion-toggle>
-        </ion-item>
-        <ion-item *ngIf="getup">
-          <ion-label>Get up from your desk</ion-label>
-          <ion-toggle [(ngModel)]="getup"></ion-toggle>
-        </ion-item>
-    </ion-item-group>
+      <ion-item *ngIf="water">
+        <ion-label>Drink Water</ion-label>
+        <ion-toggle [(ngModel)]="water"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="meditate">
+        <ion-label>Meditate at lunchtime</ion-label>
+        <ion-toggle [(ngModel)]="meditate"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="breathe">
+        <ion-label>Take 3 deep breaths</ion-label>
+        <ion-toggle [(ngModel)]="breathe"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="walk">
+        <ion-label>Take a walk</ion-label>
+        <ion-toggle [(ngModel)]="walk"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="getup">
+        <ion-label>Get up from your desk</ion-label>
+        <ion-toggle [(ngModel)]="getup"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
   </ion-list>
 
   <p></p>
 
   <ion-list>
-    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-reorder-group>
       <ion-item-divider color="light">Add Habits</ion-item-divider>
       <ion-item *ngIf="!water">
         <ion-label>Drink Water</ion-label>
         <ion-toggle [(ngModel)]="water2" (ionChange)="hidewater(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
       </ion-item>
       <ion-item *ngIf="!meditate">
         <ion-label>Meditate at lunchtime</ion-label>
         <ion-toggle [(ngModel)]="meditate2" (ionChange)="hidemeditate(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
       </ion-item>
       <ion-item *ngIf="!breathe">
         <ion-label>Take 3 deep breaths</ion-label>
         <ion-toggle [(ngModel)]="breathe2" (ionChange)="hidebreathe(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
       </ion-item>
       <ion-item *ngIf="!walk">
         <ion-label>Take a walk</ion-label>
         <ion-toggle [(ngModel)]="walk2" (ionChange)="hidewalk(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
       </ion-item>
       <ion-item *ngIf="!getup">
         <ion-label>Get up from your desk</ion-label>
         <ion-toggle [(ngModel)]="getup2" (ionChange)="hidegetup(); openEditHabitPage()"></ion-toggle>
-      </ion-item>-->
-    </ion-item-group>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
   </ion-list>
 
   <!--<ion-list>

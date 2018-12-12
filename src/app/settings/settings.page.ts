@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { reorderArray } from 'ionic-angular';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-//import { HomePage } from './home.page.html';
+import { reorderArray } from 'ionic-angular';
 
 @Component({
   selector: 'app-settings',
@@ -104,11 +103,6 @@ export class SettingsPage {
         }
     }
 
-    reorderItems(indexes: any) {
-        this.items1 = reorderArray(this.items1, indexes);
-        this.items2 = reorderArray(this.items2, indexes);
-    }
-
     openAddHabitPage(){
         this.router.navigate(['/edit']);
     }
@@ -116,6 +110,20 @@ export class SettingsPage {
     openEditHabitPage(){
         this.router.navigate(['edit']);
     }
+
+    /*reorderGroup.addEventListener('ionItemReorder', (ev) => {
+    console.log(`Moving item from ${ev.detail.from} to ${ev.detail.to}`);
+
+    this.dataList = reorderArray(this.dataList, ev.detail.from, ev.detail.to);
+    ev.detail.complete();
+    });
+
+    this.dataList = reorderGroup.complete(this.dataList);*/
+
+    /*reorderItems(indexes: any) {
+        this.items1 = reorderArray(this.items1, indexes);
+        this.items2 = reorderArray(this.items2, indexes);
+    }*/
 
 }
 
