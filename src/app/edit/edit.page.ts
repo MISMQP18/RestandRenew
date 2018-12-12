@@ -16,7 +16,7 @@ import {ifTrue} from 'codelyzer/util/function';
 
 export class EditPage {
 
-    public notifications:boolean = false;
+    public notifications = false;
 
     /*
     public pepperoni:boolean = true;

@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class SettingsPage {
     items1: any[];
     items2: any[];
+    public currentHabits = true;
+    //public addHabits = false;
 
     constructor(private router: Router) {
         this.items1 = [
@@ -31,6 +33,14 @@ export class SettingsPage {
             {
                 habit: 'Get up from your desk'
             }];
+    }
+
+    hide() {
+        if (this.currentHabits) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     reorderItems(indexes: any) {
