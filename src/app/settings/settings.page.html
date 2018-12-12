@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Habit Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openEditHabitPage()">
+        <ion-icon slot="icon-only" name="add" style="zoom:2.0"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,6 +27,6 @@
 
   </ion-item-group>
 
-  <ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add Custom Habit</ion-button>
-
+  <!--<ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add Custom Habit</ion-button>
+-->
 </ion-content>
