@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { reorderArray } from 'ionic-angular';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 //import { HomePage } from './home.page.html';
 
 @Component({
@@ -23,7 +24,7 @@ export class SettingsPage {
     public walk2 = false;
     public getup2 = false;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private authService: AuthenticationService) {
         this.items1 = [
             {
                 habit: 'Drink Water'
@@ -46,6 +47,10 @@ export class SettingsPage {
 
     openFeedback(){
         alert('This will bring you to the feedback survey');
+    }
+
+    logout() {
+        this.authService.logout();
     }
 
     /* * THIS IS NOT A GOOD IMPLEMENTATION OF HIDE() --> NEED TO FIND A WAY TO USE ONE FUNCTION FOR ANY HABIT * */
