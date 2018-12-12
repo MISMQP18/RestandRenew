@@ -28,13 +28,13 @@
             <ion-button (click)=goPreviousWeek()>
                 <ion-icon slot="icon-only" name="arrow-back" style="zoom:2.0;"></ion-icon>
             </ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">Su</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">M</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">T</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">W</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">Th</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">F</ion-button>
-            <ion-button expand="block" size="large" fill="solid" color="light">Sa</ion-button>
+            <ion-button expand="block" fill="solid" color="light">Su</ion-button>
+            <ion-button expand="block" fill="solid" color="light">M</ion-button>
+            <ion-button expand="block" fill="solid" color="light">T</ion-button>
+            <ion-button expand="block" fill="solid" color="light">W</ion-button>
+            <ion-button expand="block" fill="solid" color="light">Th</ion-button>
+            <ion-button expand="block" fill="solid" color="light">F</ion-button>
+            <ion-button expand="block" fill="solid" color="light">Sa</ion-button>
             <ion-button (click)=goNextWeek()>
                 <ion-icon slot="icon-only" name="arrow-forward" style="zoom:2.0;"></ion-icon>
             </ion-button>
@@ -43,17 +43,15 @@
 
     <p></p>
 
-    <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
-
-    <p></p>
-
-    <p>
+    <ion-item-group>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
+        <p></p>
         <ion-button expand="block" fill="solid" (click)="toggleNamedColor2(); btnClicked()" [color]="ionicNamedColor2">Take a Walk</ion-button>
-    </p>
+        <p></p>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
+    </ion-item-group>
 
     <p></p>
-
-    <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="openEditHabitPage()">
