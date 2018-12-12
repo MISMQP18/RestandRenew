@@ -15,7 +15,9 @@ import { NavController } from '@ionic/angular';
 export class EditPage {
 
     public pepperoni:boolean = true;
-    constructor(private router: Router){}
+    constructor(private router: Router){
+
+    }
 
     change(){
         console.log(this.pepperoni);
