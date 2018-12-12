@@ -14,12 +14,16 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
-    <ion-item>
-        <ion-label style="text-align: center">Welcome Back! <br> Today's Date: {{formattedDate}}</ion-label>
-    </ion-item>
+<ion-content color="primary" padding>
+    <ion-item-group>
+        <ion-item>
+            <ion-label style="text-align: center">Welcome Back! <br> Today's Date: {{formattedDate}}</ion-label>
+        </ion-item>
+    </ion-item-group>
 
-    <p margin="auto">
+    <p></p>
+
+    <ion-item-group>
         <ion-buttons>
             <ion-button (click)=goPreviousWeek()>
                 <ion-icon slot="icon-only" name="arrow-back" style="zoom:2.0;"></ion-icon>
@@ -35,17 +39,21 @@
                 <ion-icon slot="icon-only" name="arrow-forward" style="zoom:2.0;"></ion-icon>
             </ion-button>
         </ion-buttons>
-    </p>
+    </ion-item-group>
 
-    <p margin="auto">
-        <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
-    </p>
-    <p margin="auto">
+    <p></p>
+
+    <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
+
+    <p></p>
+
+    <p>
         <ion-button expand="block" fill="solid" (click)="toggleNamedColor2(); btnClicked()" [color]="ionicNamedColor2">Take a Walk</ion-button>
     </p>
-    <p margin="auto">
-        <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
-    </p>
+
+    <p></p>
+
+    <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="openEditHabitPage()">
