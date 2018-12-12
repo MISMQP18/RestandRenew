@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import {ifTrue} from 'codelyzer/util/function';
 //import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 //import { HttpClient } from '@angular/common/http/src/client';
@@ -14,7 +15,10 @@ import { NavController } from '@ionic/angular';
 
 
 export class EditPage {
-/*
+
+    public notifications:boolean = false;
+
+    /*
     public pepperoni:boolean = true;
     change(){
         console.log(this.pepperoni);
@@ -24,6 +28,13 @@ export class EditPage {
 
     }
 
+    hide() {
+        if (this.notifications) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
    /* openHabitSettingsPage(){
