@@ -109,6 +109,10 @@ export class SettingsPage {
         this.items2 = reorderArray(this.items2, indexes);
     }
 
+    openAddHabitPage(){
+        this.router.navigate(['/edit']);
+    }
+
     openEditHabitPage(){
         this.router.navigate(['edit']);
     }

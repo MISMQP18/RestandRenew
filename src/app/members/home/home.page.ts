@@ -28,8 +28,12 @@ export class HomePage implements OnInit {
         this.getFormattedDate()
     }
 
+    openAddHabitPage(){
+        this.router.navigate(['/add']);
+    }
+
     openEditHabitPage(){
-        this.router.navigate(["/edit"]);
+        this.router.navigate(['/edit']);
     }
 
     btnClicked(){
