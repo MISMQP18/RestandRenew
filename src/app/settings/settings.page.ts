@@ -11,8 +11,17 @@ import { Router } from '@angular/router';
 export class SettingsPage {
     items1: any[];
     items2: any[];
-    public currentHabits = true;
-    //public addHabits = false;
+    public water = false;
+    public meditate = false;
+    public breathe = false;
+    public walk = false;
+    public getup = false;
+
+    public water2 = false;
+    public meditate2 = false;
+    public breathe2 = false;
+    public walk2 = false;
+    public getup2 = false;
 
     constructor(private router: Router) {
         this.items1 = [
@@ -35,9 +44,52 @@ export class SettingsPage {
             }];
     }
 
-    hide() {
-        if (this.currentHabits) {
-            return true;
+    /* * THIS IS NOT A GOOD IMPLEMENTATION OF HIDE() --> NEED TO FIND A WAY TO USE ONE FUNCTION FOR ANY HABIT * */
+    hidewater() {
+        if (this.water2) {
+            this.water2 = false;
+            this.water = true;
+            return this.water;
+        } else {
+            return false;
+        }
+    }
+
+    hidemeditate() {
+        if (this.meditate2) {
+            this.meditate2 = false;
+            this.meditate = true;
+            return this.meditate;
+        } else {
+            return false;
+        }
+    }
+
+    hidebreathe() {
+        if (this.breathe2) {
+            this.breathe2 = false;
+            this.breathe = true;
+            return this.breathe;
+        } else {
+            return false;
+        }
+    }
+
+    hidewalk() {
+        if (this.walk2) {
+            this.walk2 = false;
+            this.walk = true;
+            return this.walk;
+        } else {
+            return false;
+        }
+    }
+
+    hidegetup() {
+        if (this.getup2) {
+            this.getup2 = false;
+            this.getup = true;
+            return this.getup;
         } else {
             return false;
         }
