@@ -29,6 +29,7 @@
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "^2.2.0",
     "@ngtools/webpack": "^7.0.6",
+    "angularfire2": "^4.0.0-rc0",
     "cordova-ios": "~4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase": "2.0.5",

@@ -5,6 +5,16 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+/*import * as firebase from 'firebase';
+
+const config = {
+    apiKey: "AIzaSyC-_TjGZ3Sl_JYWSg3uag4IyiQHhIH8Yds",
+    authDomain: "rest-and-renew.firebaseapp.com",
+    databaseURL: "https://rest-and-renew.firebaseio.com",
+    projectId: "rest-and-renew",
+    storageBucket: "rest-and-renew.appspot.com",
+    messagingSenderId: "888747261921"
+};*/
 
 @Component({
     selector: 'app-root',
@@ -35,5 +45,6 @@ export class AppComponent {
             });
 
         });
+        //firebase.initializeApp(config);
     }
 }

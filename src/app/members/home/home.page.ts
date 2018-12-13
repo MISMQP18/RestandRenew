@@ -1,7 +1,9 @@
 import { AuthenticationService } from '../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
-import {Router} from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'Firebase';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +24,17 @@ export class HomePage implements OnInit {
     monthNames: string[];
     currentMonth: any;
     currentYear: any;
+    //infos = [];
+    //ref = firebase.database().ref('infos/');
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService){
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private alertCtrl: AlertController){
         this.currentDate = new Date();
-        this.getFormattedDate()
+        this.getFormattedDate();
+        //this.ref.on('value', resp => {
+          //  this.infos = [];
+            //this.infos = snapshotToArray(resp);
+       // });
+
     }
 
     openAddHabitPage(){
@@ -38,10 +47,6 @@ export class HomePage implements OnInit {
 
     btnClicked(){
         alert('Habit Completed');
-    }
-
-    openFeedback(){
-        alert('This will bring you to the feedback survey');
     }
 
     goPreviousWeek(){
@@ -95,52 +100,49 @@ export class HomePage implements OnInit {
         }
     }
 /*
-    getDaysOfMonth() {
-        this.daysInThisMonth = new Array();
-        this.daysInLastMonth = new Array();
-        this.daysInNextMonth = new Array();
-        this.currentMonth = this.monthNames[this.date.getMonth()];
-        this.currentYear = this.date.getFullYear();
-        if(this.date.getMonth() === new Date().getMonth()) {
-            this.currentDate = new Date().getDate();
-        } else {
-            this.currentDate = 999;
-        }
-
-        var firstDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
-        var prevNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
-        for(var i = prevNumOfDays-(firstDayThisMonth-1); i <= prevNumOfDays; i++) {
-            this.daysInLastMonth.push(i);
-        }
-
-        var thisNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDate();
-        for (var i = 0; i < thisNumOfDays; i++) {
-            this.daysInThisMonth.push(i+1);
-        }
-
-        var lastDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDay();
-        var nextNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0).getDate();
-        for (var i = 0; i < (6-lastDayThisMonth); i++) {
-            this.daysInNextMonth.push(i+1);
-        }
-        var totalDays = this.daysInLastMonth.length+this.daysInThisMonth.length+this.daysInNextMonth.length;
-        if(totalDays<36) {
-            for(var i = (7-lastDayThisMonth); i < ((7-lastDayThisMonth)+7); i++) {
-                this.daysInNextMonth.push(i);
-            }
-        }
+    addInfo() {
+        this.router.navigate(['/add-info']);
     }
 
-    goToLastMonth() {
-        this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
-        this.getDaysOfMonth();
+    edit(key) {
+        this.router.navigate(['/edit/'+key]);
     }
 
-    goToNextMonth() {
-        this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
-        this.getDaysOfMonth();
+    async delete(key) {
+        const alert = await this.alertCtrl.create({
+            header: 'Confirm!',
+            message: 'Are you sure want to delete this info?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: (blah) => {
+                        console.log('cancel');
+                    }
+                }, {
+                    text: 'Okay',
+                    handler: () => {
+                        firebase.database().ref('infos/'+key).remove();
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
     }
-*/
-
-
 }
+
+export const snapshotToArray = snapshot => {
+    let returnArr = [];
+
+    snapshot.forEach(childSnapshot => {
+        let item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        returnArr.push(item);
+    });
+
+    return returnArr;
+};
+
+*/
