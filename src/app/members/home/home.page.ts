@@ -27,33 +27,32 @@ export class HomePage implements OnInit {
     //infos = [];
     //ref = firebase.database().ref('infos/');
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private alertCtrl: AlertController){
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private alertCtrl: AlertController) {
         this.currentDate = new Date();
         this.getFormattedDate();
         //this.ref.on('value', resp => {
-          //  this.infos = [];
-            //this.infos = snapshotToArray(resp);
-       // });
-
+        //  this.infos = [];
+        //this.infos = snapshotToArray(resp);
+        // });
     }
 
-    openAddHabitPage(){
+    openAddHabitPage() {
         this.router.navigate(['/add']);
     }
 
-    openEditHabitPage(){
+    openEditHabitPage() {
         this.router.navigate(['/edit']);
     }
 
-    btnClicked(){
+    btnClicked() {
         alert('Habit Completed');
     }
 
-    goPreviousWeek(){
+    goPreviousWeek() {
         alert('This will show the previous week');
     }
 
-    goNextWeek(){
+    goNextWeek() {
         alert('This will show the next week');
     }
 
@@ -64,7 +63,7 @@ export class HomePage implements OnInit {
         this.authService.logout();
     }
 
-    getFormattedDate(){
+    getFormattedDate() {
         var dateObj = new Date()
 
         var year = dateObj.getFullYear().toString()
@@ -73,11 +72,11 @@ export class HomePage implements OnInit {
 
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-        this.formattedDate = monthArray[month] +" "+ date +", "+ year;
+        this.formattedDate = monthArray[month] + " " + date + ", " + year;
     }
 
     public toggleNamedColor(): void {
-        if(this.ionicNamedColor === 'medium') {
+        if (this.ionicNamedColor === 'medium') {
             this.ionicNamedColor = 'light'
         } else {
             this.ionicNamedColor = 'medium'
@@ -85,7 +84,7 @@ export class HomePage implements OnInit {
     }
 
     public toggleNamedColor2(): void {
-        if(this.ionicNamedColor2 === 'medium') {
+        if (this.ionicNamedColor2 === 'medium') {
             this.ionicNamedColor2 = 'light'
         } else {
             this.ionicNamedColor2 = 'medium'
@@ -93,12 +92,14 @@ export class HomePage implements OnInit {
     }
 
     public toggleNamedColor3(): void {
-        if(this.ionicNamedColor3 === 'medium') {
+        if (this.ionicNamedColor3 === 'medium') {
             this.ionicNamedColor3 = 'light'
         } else {
             this.ionicNamedColor3 = 'medium'
         }
     }
+
+}
 /*
     addInfo() {
         this.router.navigate(['/add-info']);
