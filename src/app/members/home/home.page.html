@@ -95,7 +95,53 @@
         </ion-fab-button>
     </ion-fab>
 
-    <!--<p margin="auto">
+    <p></p>
+    <p></p>start of "to do list"
+    <p></p>
+    <p></p>
+
+    <ion-list>
+
+        <ng-container *ngIf="!habits || habits.length == 0">
+            <div *ngFor="let n of [0,1,2]" padding>
+                <ion-skeleton-text></ion-skeleton-text>
+                <p>
+                    <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+                </p>
+            </div>
+        </ng-container>
+
+        <ion-item-sliding *ngFor="let item of habits">
+            <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+                <ion-label>
+                    {{ item.task }}
+                    <p>{{ item.createdAt | date:'short' }}</p>
+                </ion-label>
+                <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option (click)="remove(item)" color="secondary">
+                    Check
+                    <ion-icon name="checkmark" slot="end"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="/details" routerDirection="forward">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
+
+<!-- 12/20
+
+
+    <p margin="auto">
         <ion-icon slot="icon-only" (click)="openEditHabitPage()" name="add" style="zoom:7.0"></ion-icon>
         <ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add New Habit!</ion-button>
     </p>
@@ -104,10 +150,8 @@
         <ion-col width-50 style="text-align: center">
                 <ion-icon (click)="openEditHabitPage()" slot="icon-only" name="add" style="zoom:5.0"></ion-icon>
         </ion-col>
-    </ion-row>-->
-</ion-content>
+    </ion-row>
 
-<!--
 <ion-content padding>
     <ion-item>
         <ion-grid>

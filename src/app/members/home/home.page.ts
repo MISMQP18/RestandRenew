@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as firebase from 'Firebase';
+import { Habit, HabitService } from '../../services/habit.service';
 
 @Component({
   selector: 'app-home',
@@ -17,23 +17,13 @@ export class HomePage implements OnInit {
     ionicNamedColor: string = 'light';
     ionicNamedColor2: string = 'light';
     ionicNamedColor3: string = 'light';
-    date: any;
-    daysInThisMonth: any;
-    daysInLastMonth: any;
-    daysInNextMonth: any;
-    monthNames: string[];
-    currentMonth: any;
-    currentYear: any;
-    //infos = [];
-    //ref = firebase.database().ref('infos/');
+    habits: Habit[];
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private alertCtrl: AlertController) {
+
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService) {
         this.currentDate = new Date();
         this.getFormattedDate();
-        //this.ref.on('value', resp => {
-        //  this.infos = [];
-        //this.infos = snapshotToArray(resp);
-        // });
+
     }
 
     openAddHabitPage() {
@@ -57,6 +47,13 @@ export class HomePage implements OnInit {
     }
 
     ngOnInit() {
+        this.habitService.getHabits().subscribe(res => {
+            this.habits = res;
+        });
+    }
+
+    remove(item) {
+        this.habitService.removeHabit(item.id);
     }
 
     logout() {
@@ -100,7 +97,26 @@ export class HomePage implements OnInit {
     }
 
 }
-/*
+
+
+/*test test test 12/20 will clean when positive i dont need this
+    date: any;
+    daysInThisMonth: any;
+    daysInLastMonth: any;
+    daysInNextMonth: any;
+    monthNames: string[];
+    currentMonth: any;
+    currentYear: any;
+
+
+    //infos = [];
+    //ref = firebase.database().ref('infos/');
+
+ //this.ref.on('value', resp => {
+        //  this.infos = [];
+        //this.infos = snapshotToArray(resp);
+        // });
+
     addInfo() {
         this.router.navigate(['/add-info']);
     }
