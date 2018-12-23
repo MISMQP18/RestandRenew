@@ -8,6 +8,16 @@ export interface Habit {
     task: string;
     priority: number;
     createdAt: number;
+    name: string;
+    notifications: boolean;
+    sunday: boolean;
+    monday: boolean;
+    tuesday: boolean;
+    wednesday: boolean;
+    thursday: boolean;
+    friday: boolean;
+    saturday: boolean;
+    time: number;
 }
 
 @Injectable({

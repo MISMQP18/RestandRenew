@@ -21,13 +21,23 @@ export class EditPage implements OnInit {
 
     habit: Habit = {
         task: '',
+        priority: null,
+        name: '',
         createdAt: new Date().getTime(),
-        priority: null
+        notifications: null,
+        sunday: null,
+        monday: null,
+        tuesday: null,
+        wednesday: null,
+        thursday: null,
+        friday: null,
+        saturday: null,
+        time: null
     };
 
     habitId = null;
 
-    constructor(private route: ActivatedRoute, private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
+    constructor(private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
 
     ngOnInit() {
         this.habitId = this.route.snapshot.params['id'];
@@ -58,12 +68,12 @@ export class EditPage implements OnInit {
         if (this.habitId) {
             this.habitService.updateHabit(this.habit, this.habitId).then(() => {
                 loading.dismiss();
-                this.nav.goBack(true);
+                this.router.navigateByUrl('/tabs/(settings:settings)');
             });
         } else {
             this.habitService.addHabit(this.habit).then(() => {
                 loading.dismiss();
-                this.nav.goBack(true);
+                this.router.navigateByUrl('/tabs/(settings:settings)');
             });
         }
     }
@@ -76,16 +86,16 @@ export class EditPage implements OnInit {
         }
     }
 
+    openHabitSettingsPage(){
+        this.router.navigateByUrl('/tabs/(settings:settings)');
+    }
+
     /*
 public pepperoni:boolean = true;
 change(){
     console.log(this.pepperoni);
 }
 */
-
-   /* openHabitSettingsPage(){
-        this.router.navigate(['/tabs/(settings:settings)']);
-    }*/
 
         /*
             jsonData = {

@@ -96,7 +96,7 @@
     </ion-fab>
 
     <p></p>
-    <p></p>start of "to do list"
+    <p></p> Test 'Habit List' Below
     <p></p>
     <p></p>
 
@@ -112,12 +112,13 @@
         </ng-container>
 
         <ion-item-sliding *ngFor="let item of habits">
-            <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+            <ion-item lines="inset" button [routerLink]="['/edit', item.id]">
                 <ion-label>
-                    {{ item.task }}
+                    {{ item.name }}
                     <p>{{ item.createdAt | date:'short' }}</p>
+                    <p>{{ item.time }}</p>
                 </ion-label>
-                <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+                <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
             </ion-item>
 
             <ion-item-options side="end">
@@ -131,7 +132,7 @@
     </ion-list>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button routerLink="/details" routerDirection="forward">
+        <ion-fab-button routerLink="/edit" routerDirection="forward">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>

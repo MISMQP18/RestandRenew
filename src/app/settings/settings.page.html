@@ -85,6 +85,39 @@
     </ion-reorder-group>
   </ion-list>
 
+  <p></p>
+
+  <ion-list>
+
+    <ng-container *ngIf="!habits || habits.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+    <ion-item-sliding *ngFor="let item of habits">
+      <ion-item lines="inset" button [routerLink]="['/edit', item.id]">
+        <ion-label>
+          {{ item.name }}
+          <p>{{ item.createdAt | date:'short' }}</p>
+          <p>{{ item.time }}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Complete
+          <ion-icon name="checkmark-circle" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
   <!--<ion-list>
     <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
       <ion-item-divider color="light">Current Habits</ion-item-divider>

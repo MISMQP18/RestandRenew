@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { Component, OnInit } from '@angular/core';
+import {NavController} from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Habit, HabitService } from '../services/habit.service';
 import { reorderArray } from 'ionic-angular';
 
 @Component({
@@ -8,9 +11,7 @@ import { reorderArray } from 'ionic-angular';
   templateUrl: 'settings.page.html',
   styleUrls: ['settings.page.scss'],
 })
-export class SettingsPage {
-    items1: any[];
-    items2: any[];
+export class SettingsPage implements OnInit {
     public water = false;
     public meditate = false;
     public breathe = false;
@@ -23,29 +24,19 @@ export class SettingsPage {
     public walk2 = false;
     public getup2 = false;
 
-    constructor(private router: Router, private authService: AuthenticationService) {
-        this.items1 = [
-            {
-                habit: 'Drink Water'
-            },
-            {
-                habit: 'Meditate at lunchtime'
-            }];
+    habits: Habit[];
 
-        this.items2 = [
-            {
-                habit: 'Take 3 deep breaths'
-            },
-            {
-                habit: 'Take a walk'
-            },
-            {
-                habit: 'Get up from your desk'
-            }];
+    constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService) {
     }
 
-    openFeedback(){
-        alert('This will bring you to the feedback survey');
+    ngOnInit() {
+        this.habitService.getHabits().subscribe(res => {
+            this.habits = res;
+        });
+    }
+
+    remove(item) {
+        this.habitService.removeHabit(item.id);
     }
 
     logout() {

@@ -13,8 +13,18 @@ export class HabitDetailsPage implements OnInit {
 
     habit: Habit = {
         task: '',
+        priority: null,
+        name: '',
         createdAt: new Date().getTime(),
-        priority: null
+        notifications: null,
+        sunday: null,
+        monday: null,
+        tuesday: null,
+        wednesday: null,
+        thursday: null,
+        friday: null,
+        saturday: null,
+        time: null
     };
 
     habitId = null;

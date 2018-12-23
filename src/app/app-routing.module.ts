@@ -16,6 +16,7 @@ const routes: Routes = [
     { path: 'details', loadChildren: './page/habit-details/habit-details.module#HabitDetailsPageModule' },
     { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
     { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' },
+    { path: 'edit/:id', loadChildren: './edit/edit.module#EditPageModule' },
   { path: 'add', loadChildren: './add/add.module#AddPageModule' },
   { path: 'summary', loadChildren: './summary/summary.module#SummaryPageModule' },
   { path: 'habitDetails', loadChildren: './page/habit-details/habit-details.module#HabitDetailsPageModule' },
