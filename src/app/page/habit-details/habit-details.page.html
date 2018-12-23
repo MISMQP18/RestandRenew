@@ -13,7 +13,7 @@
       <ion-input required type="text" placeholder="Task" [(ngModel)]="habit.task"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input required type="number" placeholder="Priority" [(ngModel)]="habit.priority"></ion-input>
+      <ion-input required type="number" placeholder="Priority (1, 2, 3, ...)" [(ngModel)]="habit.priority"></ion-input>
     </ion-item>
   </ion-list>
   <ion-button expand="full" (click)="saveHabit()">Save</ion-button>

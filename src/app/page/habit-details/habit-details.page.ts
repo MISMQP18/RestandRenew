@@ -12,9 +12,9 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class HabitDetailsPage implements OnInit {
 
     habit: Habit = {
-        task: 'test',
+        task: '',
         createdAt: new Date().getTime(),
-        priority: 2
+        priority: null
     };
 
     habitId = null;
