@@ -2,34 +2,36 @@
   <ion-toolbar>
       <ion-title>Edit Habit</ion-title>
       <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
+          <ion-button href="/tabs/(settings:settings)">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary" padding>
-    <ion-list>
-
+    <ion-item-group>
         <ion-item>
-            <ion-input type="text" placeholder="Habit"></ion-input>
+            <ion-input required type="text" placeholder="Habit Name" [(ngModel)]="habit.task"></ion-input>
         </ion-item>
+    </ion-item-group>
 
-    </ion-list>
-
-
-    <label class = "item item-input item-select">
-        <div class = "input-label">
-            Repeat
-        </div>
-
-        <select>
-            <option>Daily</option>
-            <option selected>Weekly</option>
-        </select>
-    </label>
-
+    <p></p>
 
     <ion-item-group>
+        <ion-item>
+            <ion-label>Notifications</ion-label>
+            <ion-toggle [(ngModel)]="notifications" (ionChange)="hide()"></ion-toggle>
+        </ion-item>
+    </ion-item-group>
+
+    <p></p>
+
+    <ion-item-group *ngIf="notifications">
+        <ion-item>
+            <ion-label>Sunday</ion-label>
+            <ion-checkbox color="dark"></ion-checkbox>
+        </ion-item>
         <ion-item>
             <ion-label>Monday</ion-label>
             <ion-checkbox color="dark"></ion-checkbox>
@@ -50,39 +52,42 @@
             <ion-label>Friday</ion-label>
             <ion-checkbox color="dark"></ion-checkbox>
         </ion-item>
+        <ion-item>
+            <ion-label>Saturday</ion-label>
+            <ion-checkbox color="dark"></ion-checkbox>
+        </ion-item>
     </ion-item-group>
 
     <p></p>
 
-    <ion-item-group>
-    <label class = "item item-input item-select">
-        <div class = "input-label">
-            Alerts Per Day
-        </div>
-
-        <select>
-            <option selected>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </label>
+    <ion-item-group *ngIf="notifications">
+            <label class = "item item-input item-select">
+                <div class = "input-label">
+                    <ion-label>Alerts Per Day</ion-label>
+                </div>
+                <select>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </label>
     </ion-item-group>
 
     <p></p>
 
-    <ion-item-group>
+    <ion-item-group *ngIf="notifications">
         <label class = "item item-input item-select">
             <div class = "input-label">
-                Time
+                <ion-label>Time</ion-label>
             </div>
 
             <select>
@@ -110,14 +115,12 @@
                 <option>9:00 PM</option>
                 <option>10:00 PM</option>
                 <option>11:00 PM</option>
-
             </select>
         </label>
     </ion-item-group>
 
-
-    <p><ion-button color="light" class="button button-block button-positive" href="/tabs/(settings:settings)">Save Habit</ion-button></p>
+    <p>
+        <ion-button color="light" class="button button-block button-positive" href="/tabs/(settings:settings)" (click)="saveHabit()">Save Habit</ion-button>
+    </p>
 
 </ion-content>
-
-

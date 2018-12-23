@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Habit</ion-title>
+    <ion-buttons slot="start">
+      <ion-button href="/tabs/(settings:settings)">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary" padding>
+  <ion-item-group>
+    <ion-item>
+      <ion-input type="text" placeholder="Habit"></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <p></p>
+
+  <ion-item-group>
+    <ion-item>
+      <ion-label>Notifications</ion-label>
+      <ion-toggle [(ngModel)]="notifications" (ionChange)="hide()"></ion-toggle>
+    </ion-item>
+  </ion-item-group>
+
+  <p></p>
+
+  <ion-item-group *ngIf="notifications">
+    <ion-item>
+      <ion-label>Sunday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Monday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tuesday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Wednesday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Thursday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Friday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Saturday</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+  </ion-item-group>
+
+  <p></p>
+
+  <ion-item-group *ngIf="notifications">
+    <label class = "item item-input item-select">
+      <div class = "input-label">
+        <ion-label>Alerts Per Day</ion-label>
+      </div>
+      <select>
+        <option selected>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+    </label>
+  </ion-item-group>
+
+  <p></p>
+
+  <ion-item-group *ngIf="notifications">
+    <label class = "item item-input item-select">
+      <div class = "input-label">
+        <ion-label>Time</ion-label>
+      </div>
+
+      <select>
+        <option selected>12:00 AM</option>
+        <option>1:00 AM</option>
+        <option>2:00 AM</option>
+        <option>3:00 AM</option>
+        <option>4:00 AM</option>
+        <option>5:00 AM</option>
+        <option>6:00 AM</option>
+        <option>7:00 AM</option>
+        <option>8:00 AM</option>
+        <option>9:00 AM</option>
+        <option>10:00 AM</option>
+        <option>11:00 AM</option>
+        <option>12:00 PM</option>
+        <option>1:00 PM</option>
+        <option>2:00 PM</option>
+        <option>3:00 PM</option>
+        <option>4:00 PM</option>
+        <option>5:00 PM</option>
+        <option>6:00 PM</option>
+        <option>7:00 PM</option>
+        <option>8:00 PM</option>
+        <option>9:00 PM</option>
+        <option>10:00 PM</option>
+        <option>11:00 PM</option>
+      </select>
+    </label>
+  </ion-item-group>
+
+  <p>
+    <ion-button color="light" class="button button-block button-positive" href="/tabs/(settings:settings)">Save Habit</ion-button>
+  </p>
+
+</ion-content>

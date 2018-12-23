@@ -1,27 +1,119 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Habit Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="http://wpi.qualtrics.com/jfe/form/SV_8wCVNUzfr8zUMdL">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--<ion-buttons slot="end">
+      <ion-button (click)="openEditHabitPage()">
+        <ion-icon slot="icon-only" name="add" style="zoom:2.0"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary" padding>
 
-  <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+  <ion-list>
+    <ion-reorder-group>
+      <ion-item-divider color="light">Current Habits</ion-item-divider>
+      <ion-item *ngIf="water">
+        <ion-label>Drink Water</ion-label>
+        <ion-toggle [(ngModel)]="water"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="meditate">
+        <ion-label>Meditate at lunchtime</ion-label>
+        <ion-toggle [(ngModel)]="meditate"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="breathe">
+        <ion-label>Take 3 deep breaths</ion-label>
+        <ion-toggle [(ngModel)]="breathe"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="walk">
+        <ion-label>Take a walk</ion-label>
+        <ion-toggle [(ngModel)]="walk"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="getup">
+        <ion-label>Get up from your desk</ion-label>
+        <ion-toggle [(ngModel)]="getup"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
 
-    <ion-item-divider color="light">Current Habits</ion-item-divider>
-    <ion-item *ngFor="let item of items1">
-      {{ item.habit }}
-      <ion-toggle checked="true"></ion-toggle>
-    </ion-item>
+  <p></p>
 
-    <ion-item-divider color="light">Add Habits</ion-item-divider>
-    <ion-item *ngFor="let item of items2">
-      {{ item.habit }}
-      <ion-toggle></ion-toggle>
-    </ion-item>
+  <ion-list>
+    <ion-reorder-group>
+      <ion-item-divider color="light">Add Habits</ion-item-divider>
+      <ion-item *ngIf="!water">
+        <ion-label>Drink Water</ion-label>
+        <ion-toggle [(ngModel)]="water2" (ionChange)="hidewater(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="!meditate">
+        <ion-label>Meditate at lunchtime</ion-label>
+        <ion-toggle [(ngModel)]="meditate2" (ionChange)="hidemeditate(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="!breathe">
+        <ion-label>Take 3 deep breaths</ion-label>
+        <ion-toggle [(ngModel)]="breathe2" (ionChange)="hidebreathe(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="!walk">
+        <ion-label>Take a walk</ion-label>
+        <ion-toggle [(ngModel)]="walk2" (ionChange)="hidewalk(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item *ngIf="!getup">
+        <ion-label>Get up from your desk</ion-label>
+        <ion-toggle [(ngModel)]="getup2" (ionChange)="hidegetup(); openEditHabitPage()"></ion-toggle>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
 
-  </ion-item-group>
+  <!--<ion-list>
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-item-divider color="light">Current Habits</ion-item-divider>
+      <ion-item *ngFor="let item of items1">
+        <ion-label>{{ item.habit }}</ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 
-  <ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add Custom Habit</ion-button>
+      <p></p>
 
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Add Habits</ion-item-divider>
+      <ion-item *ngFor="let item of items2">
+        <ion-label>{{ item.habit }}</ion-label>
+        <ion-toggle (ionChange)="openEditHabitPage()"></ion-toggle>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>-->
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openAddHabitPage()">
+      <ion-icon name="add" style="zoom:2.0"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!--<ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add Custom Habit</ion-button>
+-->
 </ion-content>

@@ -10,6 +10,7 @@ import { MemberRoutingModule } from '../members/member-routing.module';
 import { TabsPage } from './tabs.page';
 import { SettingsPageModule } from '../settings/settings.module';
 import { HomePageModule } from '../members/home/home.module';
+import {SummaryPageModule} from "../summary/summary.module";
 //import { EditPageModule } from '../edit/edit.module';
 
 @NgModule({
@@ -18,10 +19,11 @@ import { HomePageModule } from '../members/home/home.module';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-      MemberRoutingModule,
+    MemberRoutingModule,
     HomePageModule,
       //EditPageModule,
-      SettingsPageModule
+    SettingsPageModule,
+    SummaryPageModule,
   ],
   declarations: [TabsPage]
 })

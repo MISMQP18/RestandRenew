@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { Habit, HabitService } from '../services/habit.service';
+//import {ifTrue} from 'codelyzer/util/function';
 //import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 //import { HttpClient } from '@angular/common/http/src/client';
@@ -9,15 +12,76 @@ import { NavController } from '@ionic/angular';
   selector: 'app-edit',
   templateUrl: './edit.page.html',
   styleUrls: ['./edit.page.scss']
+
 })
 
-export class EditPage {
+export class EditPage implements OnInit {
 
-    /*btnClicked() {
-        alert('Habit Saved');
-    }*/
+    public notifications = false;
 
-    constructor(private router: Router){}
+    habit: Habit = {
+        task: '',
+        createdAt: new Date().getTime(),
+        priority: null
+    };
+
+    habitId = null;
+
+    constructor(private route: ActivatedRoute, private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
+
+    ngOnInit() {
+        this.habitId = this.route.snapshot.params['id'];
+        if (this.habitId)  {
+            this.loadHabit();
+        }
+    }
+
+    async loadHabit() {
+        const loading = await this.loadingController.create({
+            message: 'Loading Habit..'
+        });
+        await loading.present();
+
+        this.habitService.getHabit(this.habitId).subscribe(res => {
+            loading.dismiss();
+            this.habit = res;
+        });
+    }
+
+    async saveHabit() {
+
+        const loading = await this.loadingController.create({
+            message: 'Saving Habit..'
+        });
+        await loading.present();
+
+        if (this.habitId) {
+            this.habitService.updateHabit(this.habit, this.habitId).then(() => {
+                loading.dismiss();
+                this.nav.goBack(true);
+            });
+        } else {
+            this.habitService.addHabit(this.habit).then(() => {
+                loading.dismiss();
+                this.nav.goBack(true);
+            });
+        }
+    }
+
+    hide() {
+        if (this.notifications) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+public pepperoni:boolean = true;
+change(){
+    console.log(this.pepperoni);
+}
+*/
 
    /* openHabitSettingsPage(){
         this.router.navigate(['/tabs/(settings:settings)']);

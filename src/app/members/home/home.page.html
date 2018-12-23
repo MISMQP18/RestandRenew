@@ -6,32 +6,178 @@
             </ion-button>
         </ion-buttons>
         <ion-title>Habit Tracker</ion-title>
+        <ion-buttons slot="end">
+            <ion-button href="http://wpi.qualtrics.com/jfe/form/SV_8wCVNUzfr8zUMdL">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
-    <p>
-        <ion-button class="button button-full button-positive" color="light">Today's Date is: </ion-button>
-    </p>
-    <p>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">M</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">T</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">W</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">Th</ion-button>
-        <ion-button style="padding: 2%" class="button button-large button-positive" color="medium">F</ion-button>
-    </p>
+<ion-content color="primary" padding>
+    <ion-item-group>
+        <ion-item>
+            <ion-label style="text-align: center">Welcome Back!<br>Today's Date: {{formattedDate}}</ion-label>
+        </ion-item>
+    </ion-item-group>
+
+    <p></p>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div>
+                    <ion-button (click)=goPreviousWeek()>
+                        <ion-icon name="arrow-back" style="zoom:1.5"></ion-icon>
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">Su</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">M</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">T</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">W</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">Th</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">F</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button expand="block" fill="solid" color="light">Sa</ion-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-button (click)=goNextWeek()>
+                        <ion-icon name="arrow-forward" style="zoom:1.5"></ion-icon>
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <p></p>
+
+    <ion-item-group>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
+        <p></p>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor2(); btnClicked()" [color]="ionicNamedColor2">Take a Walk</ion-button>
+        <p></p>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
+    </ion-item-group>
+
+    <p></p>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="openAddHabitPage()">
+            <ion-icon name="add" style="zoom:2.0"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <p></p>
+    <p></p>start of "to do list"
+    <p></p>
+    <p></p>
+
+    <ion-list>
+
+        <ng-container *ngIf="!habits || habits.length == 0">
+            <div *ngFor="let n of [0,1,2]" padding>
+                <ion-skeleton-text></ion-skeleton-text>
+                <p>
+                    <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+                </p>
+            </div>
+        </ng-container>
+
+        <ion-item-sliding *ngFor="let item of habits">
+            <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+                <ion-label>
+                    {{ item.task }}
+                    <p>{{ item.createdAt | date:'short' }}</p>
+                </ion-label>
+                <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option (click)="remove(item)" color="secondary">
+                    Complete
+                    <ion-icon name="checkmark-circle" slot="end"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="/details" routerDirection="forward">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
+
+<!-- 12/20
+
 
     <p margin="auto">
-        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Drink Water</ion-button>
-    </p>
-    <p margin="auto">
-        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Take a Walk</ion-button>
-    </p>
-    <p margin="auto">
-        <ion-button class="button button-block button-positive" color="light" (click)="btnClicked()">Deep Breath</ion-button>
-    </p>
-    <p margin="auto">
+        <ion-icon slot="icon-only" (click)="openEditHabitPage()" name="add" style="zoom:7.0"></ion-icon>
         <ion-button class="button button-block button-positive" color="light" (click)="openEditHabitPage()">Add New Habit!</ion-button>
     </p>
 
+    <ion-row>
+        <ion-col width-50 style="text-align: center">
+                <ion-icon (click)="openEditHabitPage()" slot="icon-only" name="add" style="zoom:5.0"></ion-icon>
+        </ion-col>
+    </ion-row>
+
+<ion-content padding>
+    <ion-item>
+        <ion-grid>
+            <ion-row class="calendar-month">
+                <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+                <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+                <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+            </ion-row>
+            <ion-row class="calendar-weekday">
+                <ion-col>Su</ion-col>
+                <ion-col>Mo</ion-col>
+                <ion-col>Tu</ion-col>
+                <ion-col>We</ion-col>
+                <ion-col>Th</ion-col>
+                <ion-col>Fr</ion-col>
+                <ion-col>Sa</ion-col>
+            </ion-row>
+            <ion-row class="calendar-date">
+                <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+                <ion-col col-1 *ngFor="let day of daysInThisMonth">
+                    <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+                    <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+                </ion-col>
+                <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
 </ion-content>
+-->
