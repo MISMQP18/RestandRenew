@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-    imgSrc = 'https://www.wpi.edu/sites/default/files/inline-image/Offices/Marketing-Communications/WPI_Inst_Prim_FulClr.png';
-    image = 'https://reliantmedicalgroup.org/wp-content/themes/premise/img/reliant-brand-2016-small.png?x20341';
+    imgSrc = 'https://trello-attachments.s3.amazonaws.com/5be071b1dbe32d8252ae07bd/5c114a1a42e8df46da86acd3/25716ec329e1f409b50e70a1ada6d940/WPI_Inst_Prim_FulClr_PREVIEW.png';
+    image = 'https://trello-attachments.s3.amazonaws.com/5be071b1dbe32d8252ae07bd/5c114a1a42e8df46da86acd3/9579d734e59aedfd8654f1095a024455/reliant-brand-2016-small.png';
 
 
     constructor(private authService: AuthenticationService) { }

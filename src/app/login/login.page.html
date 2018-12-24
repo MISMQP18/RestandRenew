@@ -5,6 +5,18 @@
 </ion-header>
 
 <ion-content padding color="primary">
+  <ion-row justify-content-evenly>
+    <ion-col col-lg-1>
+      <img [src]="imgSrc" alt="WPI Logo"/>
+    </ion-col>
+    <ion-col col-lg-1>
+      <img [src]="image" alt="Reliant Medical Group"/>
+    </ion-col>
+  </ion-row>
+
+  <p></p>
+  <p></p>
+
   <ion-item>
     <ion-input type="text" placeholder="Username"></ion-input>
   </ion-item>
@@ -13,14 +25,14 @@
   </ion-item>
 
   <ion-button (click)="login()" class="button button-block button-positive" color="light">Login</ion-button>
-  <ion-button class="button button-block button-positive" color="light" href="/register" routerDirection="forward">Register</ion-button>
+  <ion-button class="button button-block button-positive button-small" color="warning" href="/register" routerDirection="forward">Forgot Password?</ion-button>
 
-  <ion-item>
-    <img [src]="imgSrc" alt="WPI Logo" />
-  </ion-item>
-  <ion-item>
-    <img [src]="image" alt="Reliant Medical Group" />
-  </ion-item>
 
 
 </ion-content>
+
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <ion-button class="button button-block button-positive" color="light" href="/register" routerDirection="forward">Create New Account</ion-button>
+  </ion-toolbar>
+</ion-footer>
