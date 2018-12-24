@@ -34,13 +34,3 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 })
 export class AppModule {}
 
-
-/*------testing
- //HttpModule,
-      //AngularFireDatabaseModule,
-      //AngularFireModule.initializeApp(firebaseConfig),],
-
-
-    //  FirebaseProvider,
-
- */

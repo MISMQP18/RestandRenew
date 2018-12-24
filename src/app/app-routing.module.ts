@@ -27,12 +27,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-
-/*testing 12/20
-{
-        path: 'members',
-        canActivate: [AuthGuardService],
-        loadChildren: './members/member-routing.module#MemberRoutingModule'
-    },
-
-*/

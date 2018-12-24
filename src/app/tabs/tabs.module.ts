@@ -21,7 +21,6 @@ import {SummaryPageModule} from "../summary/summary.module";
     TabsPageRoutingModule,
     MemberRoutingModule,
     HomePageModule,
-      //EditPageModule,
     SettingsPageModule,
     SummaryPageModule,
   ],
