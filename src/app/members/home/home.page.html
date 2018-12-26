@@ -17,7 +17,7 @@
 <ion-content color="primary" padding>
     <ion-item-group>
         <ion-item>
-            <ion-label style="text-align: center">Welcome Back!<br>Today's Date: {{formattedDate}}</ion-label>
+            <ion-label extend="block" style="text-align: center">Welcome Back!<br>Today's Date: {{formattedDate}}</ion-label>
         </ion-item>
     </ion-item-group>
 
@@ -61,30 +61,14 @@
         </ion-row>
     </ion-grid>
 
-    <p></p>
-
-    <ion-item-group>
-        <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
-        <p></p>
-        <ion-button expand="block" fill="solid" (click)="toggleNamedColor2(); btnClicked()" [color]="ionicNamedColor2">Take a Walk</ion-button>
-        <p></p>
-        <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
-    </ion-item-group>
-
-    <p></p>
-
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="openAddHabitPage()">
             <ion-icon name="add" style="zoom:2.0"></ion-icon>
         </ion-fab-button>
     </ion-fab>
 
-    <p></p>
-    <p></p> Test 'Habit List' Below
-    <p></p>
-    <p></p>
-
-
+    <ion-card>
+        <ion-card-header color="light">Today's Habits</ion-card-header>
 
         <ng-container *ngIf="!habits || habits.length == 0">
             <div *ngFor="let n of [0,1,2]" padding>
@@ -99,8 +83,6 @@
             <ion-item lines="inset" button [routerLink]="['/edit', item.id]">
                 <ion-label>
                     {{ item.name }}
-                    <p>{{ item.createdAt | date:'short' }}</p>
-                    <p>{{ item.time }}</p>
                 </ion-label>
                 <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
             </ion-item>
@@ -113,5 +95,21 @@
             </ion-item-options>
         </ion-item-sliding>
 
+    </ion-card>
+
+    <p></p>
+
 
 </ion-content>
+
+<!-- original button design --
+
+    <ion-item-group>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor(); btnClicked()" [color]="ionicNamedColor">Drink Water</ion-button>
+        <p></p>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor2(); btnClicked()" [color]="ionicNamedColor2">Take a Walk</ion-button>
+        <p></p>
+        <ion-button expand="block" fill="solid" (click)="toggleNamedColor3(); btnClicked()" [color]="ionicNamedColor3">Deep Breath</ion-button>
+    </ion-item-group>
+
+-->
