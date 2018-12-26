@@ -21,44 +21,45 @@
         </ion-item>
     </ion-item-group>
 
-    <p></p>
-
     <ion-grid>
         <ion-row>
-            <ion-col col-1 col-sm>
-                <ion-button (click)=goPreviousWeek()>
+            <ion-col>
+                <ion-button (click)=goPreviousWeek() expand="block" fill="solid" size="small" style="text-align: left">
                     <ion-icon name="arrow-back" style="zoom:1.5"></ion-icon>
+                     Previous Week
                 </ion-button>
             </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">Su</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">M</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">T</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">W</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">Th</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">F</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button button-small expand="block" fill="solid" color="light">Sa</ion-button>
-            </ion-col>
-            <ion-col col-1 col-sm>
-                <ion-button (click)=goNextWeek()>
+            <ion-col>
+                <ion-button (click)=goNextWeek() expand="block" fill="solid" size="small" style="text-align: right">
+                    Next Week
                     <ion-icon name="arrow-forward" style="zoom:1.5"></ion-icon>
                 </ion-button>
             </ion-col>
         </ion-row>
+        <ion-row>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Su</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">M</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">T</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">W</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Th</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">F</ion-button>
+            </ion-col>
+            <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Sa</ion-button>
+            </ion-col>
+        </ion-row>
     </ion-grid>
-
 
     <p></p>
 
@@ -83,7 +84,7 @@
     <p></p>
     <p></p>
 
-    <ion-list>
+
 
         <ng-container *ngIf="!habits || habits.length == 0">
             <div *ngFor="let n of [0,1,2]" padding>
@@ -112,12 +113,5 @@
             </ion-item-options>
         </ion-item-sliding>
 
-    </ion-list>
-
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button routerLink="/edit" routerDirection="forward">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
 
 </ion-content>
