@@ -56,6 +56,7 @@ export class SettingsPage implements OnInit {
 
     habitOn(item) {
         item.on = true;
+        item.incomplete = true;
 
         this.habitService.updateHabit(item, item.id).then(() => {
             this.router.navigateByUrl('/tabs/(settings:settings)');
