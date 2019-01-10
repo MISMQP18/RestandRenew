@@ -25,7 +25,8 @@ export class HabitDetailsPage implements OnInit {
         friday: null,
         saturday: null,
         time: null,
-        on: null
+        on: null,
+        off: null
     };
 
     habitId = null;

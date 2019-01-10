@@ -1,6 +1,6 @@
 import { AuthenticationService } from '../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import {NavController} from '@ionic/angular';
+import {LoadingController, NavController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../services/habit.service';
@@ -27,7 +27,8 @@ export class SettingsPage implements OnInit {
         friday: null,
         saturday: null,
         time: null,
-        on: null
+        on: null,
+        off: null
     };
 
     habitId = null;
@@ -35,7 +36,7 @@ export class SettingsPage implements OnInit {
     habits: Habit[];
 
 
-    constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService) {
+    constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
     }
 
     ngOnInit() {
@@ -52,11 +53,32 @@ export class SettingsPage implements OnInit {
         this.authService.logout();
     }
 
+
     habitOn() {
-        if (this.habit.on) {
-            return true;
+        this.habit.on = true;
+    }
+
+    habitOff() {
+        this.habit.on = false;
+    }
+
+    async saveHabit() {
+
+        const loading = await this.loadingController.create({
+            message: 'Saving Habit..'
+        });
+        await loading.present();
+
+        if (this.habitId) {
+            this.habitService.updateHabit(this.habit, this.habitId).then(() => {
+                loading.dismiss();
+                this.router.navigateByUrl('/tabs/(settings:settings)');
+            });
         } else {
-            return false;
+            this.habitService.addHabit(this.habit).then(() => {
+                loading.dismiss();
+                this.router.navigateByUrl('/tabs/(settings:settings)');
+            });
         }
     }
 

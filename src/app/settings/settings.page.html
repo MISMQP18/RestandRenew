@@ -28,23 +28,17 @@
         </div>
       </ng-container>
 
-      <ion-list *ngFor="let item of habits" >
+      <ion-list *ngFor="let item of habits">
         <ion-item *ngIf="item.on" lines="inset" button [routerLink]="['/edit', item.id]">
             <ion-label>
               {{ item.name }}
               <p>{{ item.time }}</p>
             </ion-label>
             <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn()"></ion-toggle>
+          <ion-toggle slot="end" [(ngModel)]="item.on"></ion-toggle>
         </ion-item>
-
-        <ion-item-options side="end">
-          <ion-item-option (click)="remove(item)" color="secondary">
-            Complete
-            <ion-icon name="checkmark-circle" slot="end"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
       </ion-list>
+
     </ion-list>
   </ion-card>
 
@@ -68,16 +62,10 @@
             <p>{{ item.time }}</p>
           </ion-label>
           <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn()"></ion-toggle>
+          <ion-toggle slot="end" [(ngModel)]="item.on"></ion-toggle>
         </ion-item>
-
-        <ion-item-options side="end">
-          <ion-item-option (click)="remove(item)" color="secondary">
-            Complete
-            <ion-icon name="checkmark-circle" slot="end"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
       </ion-list>
+
     </ion-list>
   </ion-card>
 
