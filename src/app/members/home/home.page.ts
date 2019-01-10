@@ -27,7 +27,6 @@ export class HomePage implements OnInit {
         saturday: null,
         time: null,
         on: null,
-        off: null,
         incomplete: true
     };
 
@@ -48,7 +47,7 @@ export class HomePage implements OnInit {
 
     }
 
-    async hideHabit(item) {
+    hideHabit(item) {
         item.incomplete = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {

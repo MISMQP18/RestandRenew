@@ -34,7 +34,6 @@ export class EditPage implements OnInit {
         saturday: null,
         time: null,
         on: null,
-        off: null,
         incomplete: true
     };
 

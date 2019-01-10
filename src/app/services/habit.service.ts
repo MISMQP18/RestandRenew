@@ -19,7 +19,6 @@ export interface Habit {
     saturday: boolean;
     time: number;
     on: boolean;
-    off: boolean;
     incomplete: boolean;
 }
 
