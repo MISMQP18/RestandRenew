@@ -12,19 +12,28 @@ import { reorderArray } from 'ionic-angular';
   styleUrls: ['settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-    public water = false;
-    public meditate = false;
-    public breathe = false;
-    public walk = false;
-    public getup = false;
 
-    public water2 = false;
-    public meditate2 = false;
-    public breathe2 = false;
-    public walk2 = false;
-    public getup2 = false;
+    habit: Habit = {
+        task: '',
+        priority: null,
+        name: '',
+        createdAt: new Date().getTime(),
+        notifications: null,
+        sunday: null,
+        monday: null,
+        tuesday: null,
+        wednesday: null,
+        thursday: null,
+        friday: null,
+        saturday: null,
+        time: null,
+        on: null
+    };
+
+    habitId = null;
 
     habits: Habit[];
+
 
     constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService) {
     }
@@ -43,7 +52,29 @@ export class SettingsPage implements OnInit {
         this.authService.logout();
     }
 
-    /* * THIS IS NOT A GOOD IMPLEMENTATION OF HIDE() --> NEED TO FIND A WAY TO USE ONE FUNCTION FOR ANY HABIT * */
+    habitOn() {
+        if (this.habit.on) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    public water = false;
+    public meditate = false;
+    public breathe = false;
+    public walk = false;
+    public getup = false;
+
+    public water2 = false;
+    public meditate2 = false;
+    public breathe2 = false;
+    public walk2 = false;
+    public getup2 = false;
+
+    * THIS IS NOT A GOOD IMPLEMENTATION OF HIDE() --> NEED TO FIND A WAY TO USE ONE FUNCTION FOR ANY HABIT *
+
     hidewater() {
         if (this.water2) {
             this.water2 = false;
@@ -93,6 +124,7 @@ export class SettingsPage implements OnInit {
             return false;
         }
     }
+    */
 
     openAddHabitPage(){
         this.router.navigate(['/edit']);

@@ -18,6 +18,7 @@ export interface Habit {
     friday: boolean;
     saturday: boolean;
     time: number;
+    on: boolean;
 }
 
 @Injectable({
