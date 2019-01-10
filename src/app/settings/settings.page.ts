@@ -137,11 +137,11 @@ export class SettingsPage implements OnInit {
     */
 
     openAddHabitPage(){
-        this.router.navigate(['/edit']);
+        this.router.navigate(['/add']);
     }
 
     openEditHabitPage(){
-        this.router.navigate(['edit']);
+        this.router.navigate(['/edit']);
     }
 
     /*reorderGroup.addEventListener('ionItemReorder', (ev) => {
