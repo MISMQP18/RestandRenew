@@ -1,6 +1,6 @@
 import { AuthenticationService } from '../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import {NavController} from '@ionic/angular';
+import {LoadingController, NavController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../../services/habit.service';
@@ -12,18 +12,48 @@ import { Habit, HabitService } from '../../services/habit.service';
 })
 export class HomePage implements OnInit {
 
+    habit: Habit = {
+        task: '',
+        priority: null,
+        name: '',
+        createdAt: new Date().getTime(),
+        notifications: null,
+        sunday: null,
+        monday: null,
+        tuesday: null,
+        wednesday: null,
+        thursday: null,
+        friday: null,
+        saturday: null,
+        time: null,
+        on: null,
+        off: null,
+        incomplete: true
+    };
+
+    habitId = null;
+
+    habits: Habit[];
+
     currentDate;
     formattedDate;
     ionicNamedColor: string = 'light';
     ionicNamedColor2: string = 'light';
     ionicNamedColor3: string = 'light';
-    habits: Habit[];
 
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService) {
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
         this.currentDate = new Date();
         this.getFormattedDate();
 
+    }
+
+    async hideHabit(item) {
+        item.incomplete = false;
+
+        this.habitService.updateHabit(item, item.id).then(() => {
+                this.router.navigateByUrl('/tabs/(home:home)');
+        });
     }
 
     openAddHabitPage() {

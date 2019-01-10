@@ -28,7 +28,8 @@ export class SettingsPage implements OnInit {
         saturday: null,
         time: null,
         on: null,
-        off: null
+        off: null,
+        incomplete: true
     };
 
     habitId = null;
@@ -54,12 +55,20 @@ export class SettingsPage implements OnInit {
     }
 
 
-    habitOn() {
-        this.habit.on = true;
+    habitOn(item) {
+        item.on = true;
+
+        this.habitService.updateHabit(item, item.id).then(() => {
+            this.router.navigateByUrl('/tabs/(settings:settings)');
+        });
     }
 
-    habitOff() {
-        this.habit.on = false;
+    habitOff(item) {
+        item.on = false;
+
+        this.habitService.updateHabit(item, item.id).then(() => {
+            this.router.navigateByUrl('/tabs/(settings:settings)');
+        });
     }
 
     async saveHabit() {

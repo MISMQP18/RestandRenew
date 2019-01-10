@@ -34,7 +34,8 @@ export class EditPage implements OnInit {
         saturday: null,
         time: null,
         on: null,
-        off: null
+        off: null,
+        incomplete: true
     };
 
     habitId = null;

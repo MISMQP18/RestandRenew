@@ -20,6 +20,7 @@ export interface Habit {
     time: number;
     on: boolean;
     off: boolean;
+    incomplete: boolean;
 }
 
 @Injectable({

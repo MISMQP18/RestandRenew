@@ -35,7 +35,7 @@
               <p>{{ item.time }}</p>
             </ion-label>
             <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on"></ion-toggle>
+          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOff(item)"></ion-toggle>
         </ion-item>
       </ion-list>
 
@@ -62,7 +62,7 @@
             <p>{{ item.time }}</p>
           </ion-label>
           <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on"></ion-toggle>
+          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn(item)"></ion-toggle>
         </ion-item>
       </ion-list>
 
