@@ -39,6 +39,7 @@ export class HomePage implements OnInit {
     ionicNamedColor: string = 'light';
     ionicNamedColor2: string = 'light';
     ionicNamedColor3: string = 'light';
+    matchDate;
 
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
@@ -101,22 +102,42 @@ export class HomePage implements OnInit {
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
         if (day == 0) {
-            dayText = "Sunday";
+            dayText = 'Sunday';
         } else if (day == 1) {
-            dayText = "Monday";
+            dayText = 'Monday';
         } else if (day == 2) {
-            dayText = "Tuesday"
+            dayText = 'Tuesday';
         } else if (day == 3) {
-            dayText = "Wednesday";
+            dayText = 'Wednesday';
         } else if (day == 4) {
-            dayText = "Thursday";
+            dayText = 'Thursday';
         } else if (day == 5 ) {
-            dayText = "Friday"
+            dayText = 'Friday';
         } else {
-            dayText = "Saturday"
+            dayText = 'Saturday';
         }
 
+        this.matchDate = day;
+
         this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year;
+    }
+
+    checkDay(item) {
+        if (this.matchDate == 0) {
+            return item.sunday;
+        } else if (this.matchDate == 1) {
+            return item.monday;
+        } else if (this.matchDate == 2) {
+            return item.tuesday;
+        } else if (this.matchDate == 3) {
+            return item.wednesday;
+        } else if (this.matchDate == 4) {
+            return item.thursday;
+        } else if (this.matchDate == 5 ) {
+            return item.friday;
+        } else {
+            return item.saturday;
+        }
     }
 
     public toggleNamedColor(): void {

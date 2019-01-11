@@ -80,7 +80,7 @@
         </ng-container>
 
         <ion-item-sliding *ngFor="let item of habits">
-            <ion-item *ngIf="item.incomplete && item.on" lines="inset" button [routerLink]="['/edit', item.id]">
+            <ion-item *ngIf="item.incomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
                 <ion-label>
                     {{ item.name }}
                 </ion-label>
