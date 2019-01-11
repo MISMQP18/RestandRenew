@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
         saturday: null,
         time: null,
         on: null,
+        archive: false,
         incomplete: true
     };
 
@@ -52,9 +53,9 @@ export class HomePage implements OnInit {
         item.incomplete = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
-                this.router.navigateByUrl('/tabs/(home:home)');
         });
     }
+
 
     openAddHabitPage() {
         this.router.navigate(['/add']);

@@ -28,6 +28,7 @@ export class SettingsPage implements OnInit {
         saturday: null,
         time: null,
         on: null,
+        archive: false,
         incomplete: true
     };
 
@@ -59,7 +60,6 @@ export class SettingsPage implements OnInit {
         item.incomplete = true;
 
         this.habitService.updateHabit(item, item.id).then(() => {
-            this.router.navigateByUrl('/tabs/(settings:settings)');
         });
     }
 
@@ -67,7 +67,13 @@ export class SettingsPage implements OnInit {
         item.on = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
-            this.router.navigateByUrl('/tabs/(settings:settings)');
+        });
+    }
+
+    archiveHabit(item) {
+        item.archive = true;
+
+        this.habitService.updateHabit(item, item.id).then(() => {
         });
     }
 

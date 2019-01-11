@@ -28,8 +28,8 @@
         </div>
       </ng-container>
 
-      <ion-list *ngFor="let item of habits">
-        <ion-item *ngIf="item.on" lines="inset" button [routerLink]="['/edit', item.id]">
+      <ion-item-sliding *ngFor="let item of habits">
+        <ion-item *ngIf="item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
             <ion-label>
               {{ item.name }}
               <p>{{ item.time }}</p>
@@ -37,7 +37,14 @@
             <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
           <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOff(item)"></ion-toggle>
         </ion-item>
-      </ion-list>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="archiveHabit(item)" color="danger">
+            Archive
+            <ion-icon name="close-circle" slot="end"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
 
     </ion-list>
   </ion-card>
@@ -55,8 +62,8 @@
         </div>
       </ng-container>
 
-      <ion-list *ngFor="let item of habits">
-        <ion-item *ngIf="!item.on" lines="inset" button [routerLink]="['/edit', item.id]">
+      <ion-item-sliding *ngFor="let item of habits">
+        <ion-item *ngIf="!item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
           <ion-label>
             {{ item.name }}
             <p>{{ item.time }}</p>
@@ -64,7 +71,14 @@
           <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
           <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn(item)"></ion-toggle>
         </ion-item>
-      </ion-list>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="archiveHabit(item)" color="danger">
+            Archive
+            <ion-icon name="close-circle" slot="end"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
 
     </ion-list>
   </ion-card>

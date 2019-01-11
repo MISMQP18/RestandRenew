@@ -29,6 +29,7 @@ export class AddPage implements OnInit {
         saturday: null,
         time: null,
         on: null,
+        archive: false,
         incomplete: true
     };
 
