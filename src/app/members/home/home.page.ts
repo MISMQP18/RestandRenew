@@ -95,10 +95,28 @@ export class HomePage implements OnInit {
         var year = dateObj.getFullYear().toString()
         var month = dateObj.getMonth().toString()
         var date = dateObj.getDate().toString()
+        var day = dateObj.getDay()
+        var dayText
 
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-        this.formattedDate = monthArray[month] + " " + date + ", " + year;
+        if (day == 0) {
+            dayText = "Sunday";
+        } else if (day == 1) {
+            dayText = "Monday";
+        } else if (day == 2) {
+            dayText = "Tuesday"
+        } else if (day == 3) {
+            dayText = "Wednesday";
+        } else if (day == 4) {
+            dayText = "Thursday";
+        } else if (day == 5 ) {
+            dayText = "Friday"
+        } else {
+            dayText = "Saturday"
+        }
+
+        this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year;
     }
 
     public toggleNamedColor(): void {
