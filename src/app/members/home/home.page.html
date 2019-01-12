@@ -36,27 +36,34 @@
                 </ion-button>
             </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngFor="let item of habits">
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">Su</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Su</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Su</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">M</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">M</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">M</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">T</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">T</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">T</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">W</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">W</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">W</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">Th</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Th</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Th</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">F</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">F</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">F</ion-button>
             </ion-col>
             <ion-col col->
-                <ion-button expand="block" fill="solid" size="small" color="light">Sa</ion-button>
+                <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Sa</ion-button>
+                <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Sa</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>

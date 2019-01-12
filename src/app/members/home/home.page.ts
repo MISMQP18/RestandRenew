@@ -37,6 +37,7 @@ export class HomePage implements OnInit {
 
     currentDate;
     formattedDate;
+    shortDate;
     ionicNamedColor: string = 'light';
     ionicNamedColor2: string = 'light';
     ionicNamedColor3: string = 'light';
@@ -118,9 +119,12 @@ export class HomePage implements OnInit {
             dayText = 'Saturday';
         }
 
+        var dayArray = ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
+
         this.matchDate = day;
 
         this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year;
+        this.shortDate = dayArray[day];
     }
 
     checkDay(item) {
@@ -140,6 +144,7 @@ export class HomePage implements OnInit {
             return item.saturday;
         }
     }
+
 
     public toggleNamedColor(): void {
         if (this.ionicNamedColor === 'medium') {
