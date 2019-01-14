@@ -72,6 +72,7 @@ export class SettingsPage implements OnInit {
 
     archiveHabit(item) {
         item.archive = true;
+        item.on = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
