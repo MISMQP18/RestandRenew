@@ -36,32 +36,39 @@
                 </ion-button>
             </ion-col>
         </ion-row>
-        <ion-row *ngFor="let item of habits">
+        <ion-row *ngFor="let item of habitListQuery()">
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Su</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Su</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Su</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">M</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">M</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">M</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">T</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">T</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">T</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">W</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">W</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">W</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Th</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Th</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Th</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">F</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">F</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">F</ion-button>
             </ion-col>
             <ion-col col->
+                <ion-button expand="block" fill="solid" size="small" color="light">Sa</ion-button>
                 <ion-button *ngIf="item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="light">Sa</ion-button>
                 <ion-button *ngIf="!item.incomplete && item.on && checkDay(item)" expand="block" fill="solid" size="small" color="success">Sa</ion-button>
             </ion-col>
@@ -74,7 +81,7 @@
         </ion-fab-button>
     </ion-fab>
 
-    <ion-card>
+    <!--<ion-card>
         <ion-card-header color="light">Today's Habits</ion-card-header>
 
         <ng-container *ngIf="!habits || habits.length == 0">
@@ -102,9 +109,39 @@
             </ion-item-options>
         </ion-item-sliding>
 
-    </ion-card>
+    </ion-card>-->
 
     <p></p>
+
+    <ion-card>
+        <ion-card-header color="light">Today's Habits</ion-card-header>
+
+        <ng-container *ngIf="!habits || habits.length == 0">
+            <div *ngFor="let n of [0,1,2]" padding>
+                <ion-skeleton-text></ion-skeleton-text>
+                <p>
+                    <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+                </p>
+            </div>
+        </ng-container>
+
+        <ion-item-sliding *ngFor="let item of habitListQuery()">
+            <ion-item *ngIf="item.incomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
+                <ion-label>
+                    {{ item.name }}
+                </ion-label>
+                <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option (click)="hideHabit(item)" color="secondary">
+                    Complete
+                    <ion-icon name="checkmark-circle" slot="end"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+
+    </ion-card>
 
 
 </ion-content>

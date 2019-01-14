@@ -4,6 +4,9 @@ import {LoadingController, NavController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../../services/habit.service';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +37,13 @@ export class HomePage implements OnInit {
     habitId = null;
 
     habits: Habit[];
+    sundayHabits: Habit[];
+    mondayHabits: Habit[];
+    tuesdayHabits: Habit[];
+    wednesdayHabits: Habit[];
+    thursdayHabits: Habit[];
+    fridayHabits: Habit[];
+    saturdayHabits: Habit[];
 
     currentDate;
     formattedDate;
@@ -47,7 +57,40 @@ export class HomePage implements OnInit {
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
         this.currentDate = new Date();
         this.getFormattedDate();
+    }
 
+    ngOnInit() {
+        this.habitService.getHabits().subscribe(res => {
+            this.habits = res;
+        });
+
+        this.habitService.getBySunday().subscribe(res => {
+            this.sundayHabits = res;
+        });
+
+        this.habitService.getByMonday().subscribe(res => {
+            this.mondayHabits = res;
+        });
+
+        this.habitService.getByTuesday().subscribe(res => {
+            this.tuesdayHabits = res;
+        });
+
+        this.habitService.getByWednesday().subscribe(res => {
+            this.wednesdayHabits = res;
+        });
+
+        this.habitService.getByThursday().subscribe(res => {
+            this.thursdayHabits = res;
+        });
+
+        this.habitService.getByFriday().subscribe(res => {
+            this.fridayHabits = res;
+        });
+
+        this.habitService.getBySaturday().subscribe(res => {
+            this.saturdayHabits = res;
+        });
     }
 
     hideHabit(item) {
@@ -76,12 +119,6 @@ export class HomePage implements OnInit {
 
     goNextWeek() {
         alert('This will show the next week');
-    }
-
-    ngOnInit() {
-        this.habitService.getHabits().subscribe(res => {
-            this.habits = res;
-        });
     }
 
     remove(item) {
@@ -142,6 +179,24 @@ export class HomePage implements OnInit {
             return item.friday;
         } else {
             return item.saturday;
+        }
+    }
+
+    habitListQuery() {
+        if (this.matchDate == 0) {
+            return this.sundayHabits;
+        } else if (this.matchDate == 1) {
+            return this.mondayHabits;
+        } else if (this.matchDate == 2) {
+            return this.tuesdayHabits;
+        } else if (this.matchDate == 3) {
+            return this.wednesdayHabits;
+        } else if (this.matchDate == 4) {
+            return this.thursdayHabits;
+        } else if (this.matchDate == 5 ) {
+            return this.fridayHabits;
+        } else {
+            return this.saturdayHabits;
         }
     }
 
