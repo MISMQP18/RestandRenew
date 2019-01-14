@@ -37,6 +37,7 @@ export class HomePage implements OnInit {
     habitId = null;
 
     habits: Habit[];
+
     sundayHabits: Habit[];
     mondayHabits: Habit[];
     tuesdayHabits: Habit[];
@@ -44,6 +45,14 @@ export class HomePage implements OnInit {
     thursdayHabits: Habit[];
     fridayHabits: Habit[];
     saturdayHabits: Habit[];
+
+    sundayIncompleteHabits: Habit[];
+    mondayIncompleteHabits: Habit[];
+    tuesdayIncompleteHabits: Habit[];
+    wednesdayIncompleteHabits: Habit[];
+    thursdayIncompleteHabits: Habit[];
+    fridayIncompleteHabits: Habit[];
+    saturdayIncompleteHabits: Habit[];
 
     currentDate;
     formattedDate;
@@ -90,6 +99,34 @@ export class HomePage implements OnInit {
 
         this.habitService.getBySaturday().subscribe(res => {
             this.saturdayHabits = res;
+        });
+
+        this.habitService.sundayIncomplete().subscribe(res => {
+            this.sundayIncompleteHabits = res;
+        });
+
+        this.habitService.mondayIncomplete().subscribe(res => {
+            this.mondayIncompleteHabits = res;
+        });
+
+        this.habitService.tuesdayIncomplete().subscribe(res => {
+            this.tuesdayIncompleteHabits = res;
+        });
+
+        this.habitService.wednesdayIncomplete().subscribe(res => {
+            this.wednesdayIncompleteHabits = res;
+        });
+
+        this.habitService.thursdayIncomplete().subscribe(res => {
+            this.thursdayIncompleteHabits = res;
+        });
+
+        this.habitService.fridayIncomplete().subscribe(res => {
+            this.fridayIncompleteHabits = res;
+        });
+
+        this.habitService.saturdayIncomplete().subscribe(res => {
+            this.saturdayIncompleteHabits = res;
         });
     }
 
@@ -183,6 +220,9 @@ export class HomePage implements OnInit {
     }
 
     habitListQuery() {
+
+        this.matchDate = 0;
+
         if (this.matchDate == 0) {
             return this.sundayHabits;
         } else if (this.matchDate == 1) {
@@ -199,7 +239,6 @@ export class HomePage implements OnInit {
             return this.saturdayHabits;
         }
     }
-
 
     public toggleNamedColor(): void {
         if (this.ionicNamedColor === 'medium') {

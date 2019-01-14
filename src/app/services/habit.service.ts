@@ -30,6 +30,7 @@ export class HabitService {
     private habitsCollection: AngularFirestoreCollection<Habit>;
 
     private habits: Observable<Habit[]>;
+
     private sundayHabits: Observable<Habit[]>;
     private mondayHabits: Observable<Habit[]>;
     private tuesdayHabits: Observable<Habit[]>;
@@ -37,6 +38,14 @@ export class HabitService {
     private thursdayHabits: Observable<Habit[]>;
     private fridayHabits: Observable<Habit[]>;
     private saturdayHabits: Observable<Habit[]>;
+
+    private sundayIncompleteHabits: Observable<Habit[]>;
+    private mondayIncompleteHabits: Observable<Habit[]>;
+    private tuesdayIncompleteHabits: Observable<Habit[]>;
+    private wednesdayIncompleteHabits: Observable<Habit[]>;
+    private thursdayIncompleteHabits: Observable<Habit[]>;
+    private fridayIncompleteHabits: Observable<Habit[]>;
+    private saturdayIncompleteHabits: Observable<Habit[]>;
 
     constructor(private db: AngularFirestore) {
         this.habitsCollection = this.db.collection<Habit>('habits');
@@ -182,6 +191,139 @@ export class HabitService {
         );
 
         return this.saturdayHabits;
+    }
+
+    sundayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('sunday', '==', true)
+                .where('incomplete','==',true));
+
+        this.sundayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.sundayIncompleteHabits;
+    }
+
+    mondayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('monday', '==', true)
+                .where('incomplete','==',true));
+
+        this.mondayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.mondayIncompleteHabits;
+    }
+
+    tuesdayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('tuesday', '==', true)
+                .where('incomplete','==',true));
+
+        this.tuesdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.tuesdayIncompleteHabits;
+    }
+
+    wednesdayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('wednesday', '==', true)
+                .where('incomplete','==',true));
+
+        this.wednesdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.wednesdayIncompleteHabits;
+    }
+
+    thursdayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('thursday', '==', true)
+                .where('incomplete','==',true));
+
+        this.thursdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.thursdayIncompleteHabits;
+    }
+
+    fridayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('friday', '==', true)
+                .where('incomplete','==',true));
+
+        this.fridayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.fridayIncompleteHabits;
+    }
+
+    saturdayIncomplete() {
+        this.habitsCollection = this.db.collection('habits', ref =>
+            ref
+                .where('saturday', '==', true)
+                .where('incomplete','==',true));
+
+        this.saturdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
+        return this.saturdayIncompleteHabits;
     }
 
     /**
