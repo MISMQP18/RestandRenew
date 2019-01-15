@@ -29,6 +29,22 @@ export interface Habit {
 export class HabitService {
     private habitsCollection: AngularFirestoreCollection<Habit>;
 
+    private sundayCollection: AngularFirestoreCollection<Habit>;
+    private mondayCollection: AngularFirestoreCollection<Habit>;
+    private tuesdayCollection: AngularFirestoreCollection<Habit>;
+    private wednesdayCollection: AngularFirestoreCollection<Habit>;
+    private thursdayCollection: AngularFirestoreCollection<Habit>;
+    private fridayCollection: AngularFirestoreCollection<Habit>;
+    private saturdayCollection: AngularFirestoreCollection<Habit>;
+
+    private sundayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private mondayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private tuesdayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private wednesdayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private thursdayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private fridayIncompleteCollection: AngularFirestoreCollection<Habit>;
+    private saturdayIncompleteCollection: AngularFirestoreCollection<Habit>;
+
     private habits: Observable<Habit[]>;
 
     private sundayHabits: Observable<Habit[]>;
@@ -62,6 +78,16 @@ export class HabitService {
     }
 
     getHabits() {
+        this.habits = this.habitsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                });
+            })
+        );
+
         return this.habits;
     }
 
@@ -81,10 +107,14 @@ export class HabitService {
         return this.habitsCollection.doc(id).delete();
     }
 
-    getBySunday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('sunday', '==', true));
+    /*
+    QUERIES
+     */
 
-        this.sundayHabits = this.habitsCollection.snapshotChanges().pipe(
+    getBySunday() {
+        this.sundayCollection = this.db.collection('habits', ref => ref.where('sunday', '==', true));
+
+        this.sundayHabits = this.sundayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -98,9 +128,9 @@ export class HabitService {
     }
 
     getByMonday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('monday', '==', true));
+        this.mondayCollection = this.db.collection('habits', ref => ref.where('monday', '==', true));
 
-        this.mondayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.mondayHabits = this.mondayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -114,9 +144,9 @@ export class HabitService {
     }
 
     getByTuesday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('tuesday', '==', true));
+        this.tuesdayCollection = this.db.collection('habits', ref => ref.where('tuesday', '==', true));
 
-        this.tuesdayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.tuesdayHabits = this.tuesdayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -130,9 +160,9 @@ export class HabitService {
     }
 
     getByWednesday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('wednesday', '==', true));
+        this.wednesdayCollection = this.db.collection('habits', ref => ref.where('wednesday', '==', true));
 
-        this.wednesdayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.wednesdayHabits = this.wednesdayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -146,9 +176,9 @@ export class HabitService {
     }
 
     getByThursday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('thursday', '==', true));
+        this.thursdayCollection = this.db.collection('habits', ref => ref.where('thursday', '==', true));
 
-        this.thursdayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.thursdayHabits = this.thursdayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -162,9 +192,9 @@ export class HabitService {
     }
 
     getByFriday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('friday', '==', true));
+        this.fridayCollection = this.db.collection('habits', ref => ref.where('friday', '==', true));
 
-        this.fridayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.fridayHabits = this.fridayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -178,9 +208,9 @@ export class HabitService {
     }
 
     getBySaturday() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('saturday', '==', true));
+        this.saturdayCollection = this.db.collection('habits', ref => ref.where('saturday', '==', true));
 
-        this.saturdayHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.saturdayHabits = this.saturdayCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -194,12 +224,12 @@ export class HabitService {
     }
 
     sundayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.sundayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
                 .where('incomplete','==',true));
 
-        this.sundayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.sundayIncompleteHabits = this.sundayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -213,12 +243,12 @@ export class HabitService {
     }
 
     mondayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.mondayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
                 .where('incomplete','==',true));
 
-        this.mondayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.mondayIncompleteHabits = this.mondayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -232,12 +262,12 @@ export class HabitService {
     }
 
     tuesdayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.tuesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
                 .where('incomplete','==',true));
 
-        this.tuesdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.tuesdayIncompleteHabits = this.tuesdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -251,12 +281,12 @@ export class HabitService {
     }
 
     wednesdayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.wednesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
                 .where('incomplete','==',true));
 
-        this.wednesdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.wednesdayIncompleteHabits = this.wednesdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -270,12 +300,12 @@ export class HabitService {
     }
 
     thursdayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.thursdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
                 .where('incomplete','==',true));
 
-        this.thursdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.thursdayIncompleteHabits = this.thursdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -289,12 +319,12 @@ export class HabitService {
     }
 
     fridayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.fridayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
                 .where('incomplete','==',true));
 
-        this.fridayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.fridayIncompleteHabits = this.fridayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -308,12 +338,12 @@ export class HabitService {
     }
 
     saturdayIncomplete() {
-        this.habitsCollection = this.db.collection('habits', ref =>
+        this.saturdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
                 .where('incomplete','==',true));
 
-        this.saturdayIncompleteHabits = this.habitsCollection.snapshotChanges().pipe(
+        this.saturdayIncompleteHabits = this.saturdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();

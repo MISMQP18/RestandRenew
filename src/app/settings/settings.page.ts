@@ -36,7 +36,6 @@ export class SettingsPage implements OnInit {
 
     habits: Habit[];
 
-
     constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
     }
 
@@ -53,7 +52,6 @@ export class SettingsPage implements OnInit {
     logout() {
         this.authService.logout();
     }
-
 
     habitOn(item) {
         item.on = true;
