@@ -220,9 +220,6 @@ export class HomePage implements OnInit {
     }
 
     habitListQuery() {
-
-        this.matchDate = 0;
-
         if (this.matchDate == 0) {
             return this.sundayHabits;
         } else if (this.matchDate == 1) {
