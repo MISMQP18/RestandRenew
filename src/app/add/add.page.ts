@@ -38,13 +38,9 @@ export class AddPage implements OnInit {
     constructor(private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
 
     ngOnInit() {
-        this.habitId = this.route.snapshot.params['id'];
-        if (this.habitId)  {
-            this.loadHabit();
-        }
     }
 
-    async loadHabit() {
+    /*async loadHabit() {
         const loading = await this.loadingController.create({
             message: 'Loading Habit..'
         });
@@ -54,7 +50,7 @@ export class AddPage implements OnInit {
             loading.dismiss();
             this.habit = res;
         });
-    }
+    }*/
 
     async saveHabit() {
 
