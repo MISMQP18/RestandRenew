@@ -65,6 +65,7 @@ export class SettingsPage implements OnInit {
 
     habitOff(item) {
         item.on = false;
+        item.notifications = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
@@ -74,6 +75,13 @@ export class SettingsPage implements OnInit {
         item.archive = true;
         item.on = false;
         item.notifications = false;
+        item.sunday = false;
+        item.monday = false;
+        item.tuesday = false;
+        item.wednesday = false;
+        item.thursday = false;
+        item.friday = false;
+        item.saturday = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
