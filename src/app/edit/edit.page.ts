@@ -12,7 +12,6 @@ import { Habit, HabitService } from '../services/habit.service';
   selector: 'app-edit',
   templateUrl: './edit.page.html',
   styleUrls: ['./edit.page.scss']
-
 })
 
 export class EditPage implements OnInit {

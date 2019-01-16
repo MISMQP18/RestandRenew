@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Journals</ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="http://wpi.qualtrics.com/jfe/form/SV_8wCVNUzfr8zUMdL">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary" padding>
+  <ion-card>
+    <ion-card-header color="light">Journal Entries</ion-card-header>
+
+    <ng-container *ngIf="!journals || journals.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+    <ion-list #slidingList>
+      <ion-item-sliding *ngFor="let item of journals">
+        <ion-item *ngIf="!item.archive" lines="inset" button [routerLink]="['/edit-journal', item.id]">
+          <ion-label>
+            {{ item.title }}
+            <p>{{ item.date }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="archiveJournal(item)" color="danger">
+            Delete
+            <ion-icon name="close-circle" slot="end"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openAddJournalPage()">
+      <ion-icon name="book" style="zoom:2.0"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

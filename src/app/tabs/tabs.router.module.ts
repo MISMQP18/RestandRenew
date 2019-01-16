@@ -5,6 +5,8 @@ import { TabsPage } from './tabs.page';
 import { HomePage } from '../members/home/home.page';
 import { SettingsPage } from '../settings/settings.page';
 import {SummaryPage} from '../summary/summary.page';
+import { JournalsPage} from '../journals/journals.page';
+
 
 const routes: Routes = [
   {
@@ -31,6 +33,11 @@ const routes: Routes = [
         outlet: 'summary',
         component: SummaryPage
       },
+        {
+            path: 'journals',
+            outlet: 'journals',
+            component: JournalsPage
+        },
 
     ]
   },
