@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "888747261921",
+    "firebase_url": "https://rest-and-renew.firebaseio.com",
+    "project_id": "rest-and-renew",
+    "storage_bucket": "rest-and-renew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888747261921:android:e175b28afbc336b3",
+        "android_client_info": {
+          "package_name": "com.restandrenew.wpi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888747261921-6f74ap4b1sgn5er5r63og6379rdhpg85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjFEIGxd_G6PFP7L2BSIy4oy2TPgapv-s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
