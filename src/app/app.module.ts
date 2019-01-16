@@ -15,8 +15,10 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { FcmService } from "./fcm1.service";
+import { FcmService } from './fcm1.service';
 import { ToastService } from './toast.service';
+
+import { App, Config, Platform } from 'ionic-angular';
 
 
 /*const config = {
@@ -46,6 +48,9 @@ import { ToastService } from './toast.service';
       FcmService,
       ToastService,
       ToastController,
+      App,
+      Config,
+      Platform,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FcmService } from './fcm1.service';
 import { ToastService } from './toast.service';
 
+import { App } from 'ionic-angular';
+
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html'
@@ -24,7 +26,7 @@ export class AppComponent {
         private toastr: ToastService,
         private authenticationService: AuthenticationService,
         private router: Router,
-        public toastController: ToastController
+        private toastController: ToastController
     ) {
         this.initializeApp();
     }

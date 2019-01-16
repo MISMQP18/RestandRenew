@@ -8,12 +8,12 @@ export class ToastService {
     toast: Toast;
     constructor(private toastCtrl: ToastController) { }
 
-    /*create(message, ok = false, duration = 2000) {
+    create(message, ok = false, duration = 2000) {
         if (this.toast) {
             this.toast.dismiss();
         }
 
-        let toast = this.toastCtrl.create({
+        const toast = this.toastCtrl.create({
             message,
             duration: ok ? null : duration,
             position: 'bottom',
@@ -21,9 +21,9 @@ export class ToastService {
             closeButtonText: 'OK'
         });
         this.toast.present();
-    }*/
+    }
 
-    presentToast() {
+    /*presentToast() {
         let toast = this.toastCtrl.create({
             message: 'User was added successfully',
             duration: 3000,
@@ -35,5 +35,5 @@ export class ToastService {
         });
 
         toast.present();
-    }
+    }*/
 }
