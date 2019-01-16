@@ -29,7 +29,7 @@
 
     <ion-list #slidingList>
       <ion-item-sliding *ngFor="let item of journals">
-        <ion-item *ngIf="!item.archive" lines="inset" button [routerLink]="['/edit-journal', item.id]">
+        <ion-item *ngIf="!item.archive" lines="inset" button [routerLink]="['/view-journal', item.id]">
           <ion-label>
             {{ item.title }}
             <p>{{ item.date }}</p>
@@ -37,6 +37,10 @@
         </ion-item>
 
         <ion-item-options side="end">
+          <ion-item-option button [routerLink]="['/view-journal', item.id]" color="secondary">
+            Edit
+            <ion-icon name="construct" slot="end"></ion-icon>
+          </ion-item-option>
           <ion-item-option (click)="archiveJournal(item)" color="danger">
             Delete
             <ion-icon name="close-circle" slot="end"></ion-icon>

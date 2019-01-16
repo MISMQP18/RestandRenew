@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: 'add-journal', loadChildren: './add-journal/add-journal.module#AddJournalPageModule' },
   { path: 'edit-journal', loadChildren: './edit-journal/edit-journal.module#EditJournalPageModule' },
     { path: 'edit-journal/:id', loadChildren: './edit-journal/edit-journal.module#EditJournalPageModule' },
+  { path: 'view-journal', loadChildren: './view-journal/view-journal.module#ViewJournalPageModule' },
+    { path: 'view-journal/:id', loadChildren: './view-journal/view-journal.module#ViewJournalPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

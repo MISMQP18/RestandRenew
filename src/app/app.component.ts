@@ -14,6 +14,7 @@ import { ToastService } from './toast.service';
     selector: 'app-root',
     templateUrl: 'app.component.html'
 })
+
 export class AppComponent {
     constructor(
         private platform: Platform,
@@ -26,6 +27,23 @@ export class AppComponent {
         public toastController: ToastController
     ) {
         this.initializeApp();
+    }
+
+    initializeApp() {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+            this.notificationSetup();
+
+            this.authenticationService.authenticationState.subscribe(state => {
+                if (state) {
+                    this.router.navigateByUrl('/tabs/(home:home)');
+                } else {
+                    this.router.navigate(['login']);
+                }
+            });
+
+        });
     }
 
     private async presentToast(message){
@@ -46,22 +64,5 @@ export class AppComponent {
                     this.presentToast(msg.body);
                 }
             });
-    }
-
-    initializeApp() {
-        this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-            this.notificationSetup();
-
-            this.authenticationService.authenticationState.subscribe(state => {
-                if (state) {
-                    this.router.navigateByUrl('/tabs/(home:home)');
-                } else {
-                    this.router.navigate(['login']);
-                }
-            });
-
-        });
     }
 }

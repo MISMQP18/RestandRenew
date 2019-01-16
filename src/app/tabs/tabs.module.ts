@@ -12,7 +12,6 @@ import { SettingsPageModule } from '../settings/settings.module';
 import { HomePageModule } from '../members/home/home.module';
 import { SummaryPageModule } from '../summary/summary.module';
 import { JournalsPageModule } from '../journals/journals.module';
-//import { EditPageModule } from '../edit/edit.module';
 
 @NgModule({
   imports: [
