@@ -20,6 +20,9 @@ const routes: Routes = [
   { path: 'add', loadChildren: './add/add.module#AddPageModule' },
   { path: 'summary', loadChildren: './summary/summary.module#SummaryPageModule' },
   { path: 'habitDetails', loadChildren: './page/habit-details/habit-details.module#HabitDetailsPageModule' },
+  { path: 'journals', loadChildren: './journals/journals.module#JournalsPageModule' },
+  { path: 'add-journal', loadChildren: './add-journal/add-journal.module#AddJournalPageModule' },
+  { path: 'edit-journal', loadChildren: './edit-journal/edit-journal.module#EditJournalPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -12,6 +12,9 @@
   <ion-tab tab="summary">
     <ion-router-outlet name="summary"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="journals">
+    <ion-router-outlet name="journals"></ion-router-outlet>
+  </ion-tab>
 
 
   <ion-tab-bar slot="bottom">
@@ -29,6 +32,11 @@
     <ion-tab-button tab="summary" href="/tabs/(summary:summary)">
       <ion-icon name="ios-stats"></ion-icon>
       <ion-label>Weekly Summary</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="journals" href="/tabs/(journals:journals)">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>Journal</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
