@@ -29,7 +29,7 @@
 
     <ion-list #slidingList>
       <ion-item-sliding *ngFor="let item of journals">
-        <ion-item *ngIf="!item.archive" lines="inset" (click)="openEditJournalPage()">
+        <ion-item *ngIf="!item.archive" lines="inset" button [routerLink]="['/edit-journal', item.id]">
           <ion-label>
             {{ item.title }}
             <p>{{ item.date }}</p>

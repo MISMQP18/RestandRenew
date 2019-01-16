@@ -12,6 +12,10 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class EditJournalPage implements OnInit {
 
+    formattedDate;
+    shortDate;
+    matchDate;
+
     journal: Journal = {
         date: this.getFormattedDate(),
         title: null,
@@ -65,11 +69,6 @@ export class EditJournalPage implements OnInit {
     openJournalPage(){
         this.router.navigateByUrl('/tabs/(journals:journals)');
     }
-
-    currentDate;
-    formattedDate;
-    shortDate;
-    matchDate;
 
     getFormattedDate() {
         var dateObj = new Date();
