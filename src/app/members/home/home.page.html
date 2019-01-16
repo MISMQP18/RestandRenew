@@ -137,21 +137,23 @@
             </div>
         </ng-container>
 
-        <ion-item-sliding *ngFor="let item of habitListQuery()">
-            <ion-item *ngIf="item.incomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
-                <ion-label>
-                    {{ item.name }}
-                </ion-label>
-                <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-            </ion-item>
+        <ion-list #slidingList>
+            <ion-item-sliding *ngFor="let item of habitListQuery()">
+                <ion-item *ngIf="item.incomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
+                    <ion-label>
+                        {{ item.name }}
+                    </ion-label>
+                    <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
+                </ion-item>
 
-            <ion-item-options side="end">
-                <ion-item-option (click)="hideHabit(item)" color="secondary">
-                    Complete
-                    <ion-icon name="checkmark-circle" slot="end"></ion-icon>
-                </ion-item-option>
-            </ion-item-options>
-        </ion-item-sliding>
+                <ion-item-options side="end">
+                    <ion-item-option (click)="hideHabit(item)" color="secondary">
+                        Complete
+                        <ion-icon name="checkmark-circle" slot="end"></ion-icon>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
 
     </ion-card>
 

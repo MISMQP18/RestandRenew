@@ -1,6 +1,6 @@
 import { AuthenticationService } from '../../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
-import {LoadingController, NavController} from '@ionic/angular';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {LoadingController, NavController, List} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../../services/habit.service';
@@ -13,6 +13,7 @@ import {Observable} from 'rxjs';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
+
 export class HomePage implements OnInit {
 
     habit: Habit = {
@@ -61,6 +62,8 @@ export class HomePage implements OnInit {
     ionicNamedColor2: string = 'light';
     ionicNamedColor3: string = 'light';
     matchDate;
+
+    @ViewChild('slidingList') slidingList: List;
 
 
     constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
@@ -130,11 +133,13 @@ export class HomePage implements OnInit {
         });
     }
 
-    hideHabit(item) {
+    async hideHabit(item) {
         item.incomplete = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
+
+        await this.slidingList.closeSlidingItems();
     }
 
 
