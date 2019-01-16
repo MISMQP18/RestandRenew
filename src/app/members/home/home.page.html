@@ -41,49 +41,56 @@
                 <ion-button *ngIf="(!(sundayIncompleteHabits.length == 0) && (this.matchDate == 0))" expand="block" fill="outline" size="small" color="light">Su</ion-button>
                 <ion-button *ngIf="(!(sundayIncompleteHabits.length == 0) && !(this.matchDate == 0) && (this.matchDate > 0))" expand="block" fill="solid" size="small" color="medium">Su</ion-button>
                 <ion-button *ngIf="(!(sundayIncompleteHabits.length == 0) && !(this.matchDate == 0) && (this.matchDate < 0))" expand="block" fill="solid" size="small" color="light">Su</ion-button>
-                <ion-button *ngIf="((sundayIncompleteHabits.length == 0) && !(this.matchDate == 0))" expand="block" fill="solid" size="small" color="success">Su</ion-button>
+                <ion-button *ngIf="((sundayIncompleteHabits.length == 0) && !(this.matchDate == 0) && (this.matchDate < 0))" expand="block" fill="solid" size="small" color="light">Su</ion-button>
+                <ion-button *ngIf="((sundayIncompleteHabits.length == 0) && !(this.matchDate == 0) && (this.matchDate > 0))" expand="block" fill="solid" size="small" color="success">Su</ion-button>
                 <ion-button *ngIf="((sundayIncompleteHabits.length == 0) && (this.matchDate == 0))" expand="block" fill="outline" size="small" color="success">Su</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(mondayIncompleteHabits.length == 0) && (this.matchDate == 1))" expand="block" fill="outline" size="small" color="light">M</ion-button>
                 <ion-button *ngIf="(!(mondayIncompleteHabits.length == 0) && !(this.matchDate == 1) && (this.matchDate > 1))" expand="block" fill="solid" size="small" color="medium">M</ion-button>
                 <ion-button *ngIf="(!(mondayIncompleteHabits.length == 0) && !(this.matchDate == 1) && (this.matchDate < 1))" expand="block" fill="solid" size="small" color="light">M</ion-button>
-                <ion-button *ngIf="((mondayIncompleteHabits.length == 0) && !(this.matchDate == 1))" expand="block" fill="solid" size="small" color="success">M</ion-button>
+                <ion-button *ngIf="((mondayIncompleteHabits.length == 0) && !(this.matchDate == 1) && (this.matchDate < 1))" expand="block" fill="solid" size="small" color="light">M</ion-button>
+                <ion-button *ngIf="((mondayIncompleteHabits.length == 0) && !(this.matchDate == 1) && (this.matchDate > 1))" expand="block" fill="solid" size="small" color="success">M</ion-button>
                 <ion-button *ngIf="((mondayIncompleteHabits.length == 0) && (this.matchDate == 1))" expand="block" fill="outline" size="small" color="success">M</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(tuesdayIncompleteHabits.length == 0) && (this.matchDate == 2))" expand="block" fill="outline" size="small" color="light">T</ion-button>
                 <ion-button *ngIf="(!(tuesdayIncompleteHabits.length == 0) && !(this.matchDate == 2) && (this.matchDate > 2))" expand="block" fill="solid" size="small" color="medium">T</ion-button>
                 <ion-button *ngIf="(!(tuesdayIncompleteHabits.length == 0) && !(this.matchDate == 2) && (this.matchDate < 2))" expand="block" fill="solid" size="small" color="light">T</ion-button>
-                <ion-button *ngIf="((tuesdayIncompleteHabits.length == 0) && !(this.matchDate == 2))" expand="block" fill="solid" size="small" color="success">T</ion-button>
+                <ion-button *ngIf="((tuesdayIncompleteHabits.length == 0) && !(this.matchDate == 2) && (this.matchDate < 2))" expand="block" fill="solid" size="small" color="light">T</ion-button>
+                <ion-button *ngIf="((tuesdayIncompleteHabits.length == 0) && !(this.matchDate == 2) && (this.matchDate > 2))" expand="block" fill="solid" size="small" color="success">T</ion-button>
                 <ion-button *ngIf="((tuesdayIncompleteHabits.length == 0) && (this.matchDate == 2))" expand="block" fill="outline" size="small" color="success">T</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(wednesdayIncompleteHabits.length == 0) && (this.matchDate == 3))" expand="block" fill="outline" size="small" color="light">W</ion-button>
                 <ion-button *ngIf="(!(wednesdayIncompleteHabits.length == 0) && !(this.matchDate == 3) && (this.matchDate > 3))" expand="block" fill="solid" size="small" color="medium">W</ion-button>
                 <ion-button *ngIf="(!(wednesdayIncompleteHabits.length == 0) && !(this.matchDate == 3) && (this.matchDate < 3))" expand="block" fill="solid" size="small" color="light">W</ion-button>
-                <ion-button *ngIf="((wednesdayIncompleteHabits.length == 0) && !(this.matchDate == 3))" expand="block" fill="solid" size="small" color="success">W</ion-button>
+                <ion-button *ngIf="((wednesdayIncompleteHabits.length == 0) && !(this.matchDate == 3) && (this.matchDate < 3))" expand="block" fill="solid" size="small" color="light">W</ion-button>
+                <ion-button *ngIf="((wednesdayIncompleteHabits.length == 0) && !(this.matchDate == 3) && (this.matchDate > 3))" expand="block" fill="solid" size="small" color="success">W</ion-button>
                 <ion-button *ngIf="((wednesdayIncompleteHabits.length == 0) && (this.matchDate == 3))" expand="block" fill="outline" size="small" color="success">W</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(thursdayIncompleteHabits.length == 0) && (this.matchDate == 4))" expand="block" fill="outline" size="small" color="light">Th</ion-button>
                 <ion-button *ngIf="(!(thursdayIncompleteHabits.length == 0) && !(this.matchDate == 4) && (this.matchDate > 4))" expand="block" fill="solid" size="small" color="medium">Th</ion-button>
                 <ion-button *ngIf="(!(thursdayIncompleteHabits.length == 0) && !(this.matchDate == 4) && (this.matchDate < 4))" expand="block" fill="solid" size="small" color="light">Th</ion-button>
-                <ion-button *ngIf="((thursdayIncompleteHabits.length == 0) && !(this.matchDate == 4))" expand="block" fill="solid" size="small" color="success">Th</ion-button>
+                <ion-button *ngIf="((thursdayIncompleteHabits.length == 0) && !(this.matchDate == 4) && (this.matchDate < 4))" expand="block" fill="solid" size="small" color="light">Th</ion-button>
+                <ion-button *ngIf="((thursdayIncompleteHabits.length == 0) && !(this.matchDate == 4) && (this.matchDate > 4))" expand="block" fill="solid" size="small" color="success">Th</ion-button>
                 <ion-button *ngIf="((thursdayIncompleteHabits.length == 0) && (this.matchDate == 4))" expand="block" fill="outline" size="small" color="success">Th</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(fridayIncompleteHabits.length == 0) && (this.matchDate == 5))" expand="block" fill="outline" size="small" color="light">F</ion-button>
                 <ion-button *ngIf="(!(fridayIncompleteHabits.length == 0) && !(this.matchDate == 5) && (this.matchDate > 5))" expand="block" fill="solid" size="small" color="medium">F</ion-button>
                 <ion-button *ngIf="(!(fridayIncompleteHabits.length == 0) && !(this.matchDate == 5) && (this.matchDate < 5))" expand="block" fill="solid" size="small" color="light">F</ion-button>
-                <ion-button *ngIf="((fridayIncompleteHabits.length == 0) && !(this.matchDate == 5))" expand="block" fill="solid" size="small" color="success">F</ion-button>
+                <ion-button *ngIf="((fridayIncompleteHabits.length == 0) && !(this.matchDate == 5) && (this.matchDate < 5))" expand="block" fill="solid" size="small" color="light">F</ion-button>
+                <ion-button *ngIf="((fridayIncompleteHabits.length == 0) && !(this.matchDate == 5) && (this.matchDate > 5))" expand="block" fill="solid" size="small" color="success">F</ion-button>
                 <ion-button *ngIf="((fridayIncompleteHabits.length == 0) && (this.matchDate == 5))" expand="block" fill="outline" size="small" color="success">F</ion-button>
             </ion-col>
             <ion-col>
                 <ion-button *ngIf="(!(saturdayIncompleteHabits.length == 0) && (this.matchDate == 6))" expand="block" fill="outline" size="small" color="light">Sa</ion-button>
                 <ion-button *ngIf="(!(saturdayIncompleteHabits.length == 0) && !(this.matchDate == 6) && (this.matchDate > 6))" expand="block" fill="solid" size="small" color="medium">Sa</ion-button>
                 <ion-button *ngIf="(!(saturdayIncompleteHabits.length == 0) && !(this.matchDate == 6) && (this.matchDate < 6))" expand="block" fill="solid" size="small" color="light">Sa</ion-button>
-                <ion-button *ngIf="((saturdayIncompleteHabits.length == 0) && !(this.matchDate == 6))" expand="block" fill="solid" size="small" color="success">Sa</ion-button>
+                <ion-button *ngIf="((saturdayIncompleteHabits.length == 0) && !(this.matchDate == 6) && (this.matchDate < 6))" expand="block" fill="solid" size="small" color="light">Sa</ion-button>
+                <ion-button *ngIf="((saturdayIncompleteHabits.length == 0) && !(this.matchDate == 6) && (this.matchDate > 6))" expand="block" fill="solid" size="small" color="success">Sa</ion-button>
                 <ion-button *ngIf="((saturdayIncompleteHabits.length == 0) && (this.matchDate == 6))" expand="block" fill="outline" size="small" color="success">Sa</ion-button>
             </ion-col>
         </ion-row>
