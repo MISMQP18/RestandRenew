@@ -1,6 +1,6 @@
 import { AuthenticationService } from '../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
-import {LoadingController, NavController} from '@ionic/angular';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {LoadingController, NavController, List} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../services/habit.service';
@@ -36,6 +36,8 @@ export class SettingsPage implements OnInit {
 
     habits: Habit[];
 
+    @ViewChild('slidingList') slidingList: List;
+
     constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
     }
 
@@ -68,13 +70,15 @@ export class SettingsPage implements OnInit {
         });
     }
 
-    archiveHabit(item) {
+    async archiveHabit(item) {
         item.archive = true;
         item.on = false;
         item.notifications = false;
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
+
+        await this.slidingList.closeSlidingItems();
     }
 
     /*

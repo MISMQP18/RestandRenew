@@ -28,23 +28,25 @@
         </div>
       </ng-container>
 
-      <ion-item-sliding *ngFor="let item of habits">
-        <ion-item *ngIf="item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
-            <ion-label>
-              {{ item.name }}
-              <p>{{ item.time }}</p>
-            </ion-label>
-            <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOff(item)"></ion-toggle>
-        </ion-item>
+      <ion-list #slidingList>
+        <ion-item-sliding *ngFor="let item of habits">
+          <ion-item *ngIf="item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
+              <ion-label>
+                {{ item.name }}
+                <p>{{ item.time }}</p>
+              </ion-label>
+              <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
+            <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOff(item)"></ion-toggle>
+          </ion-item>
 
-        <ion-item-options side="end">
-          <ion-item-option (click)="archiveHabit(item)" color="danger">
-            Delete
-            <ion-icon name="close-circle" slot="end"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+          <ion-item-options side="end">
+            <ion-item-option (click)="archiveHabit(item)" color="danger">
+              Delete
+              <ion-icon name="close-circle" slot="end"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 
     </ion-list>
   </ion-card>
@@ -62,23 +64,25 @@
         </div>
       </ng-container>
 
-      <ion-item-sliding *ngFor="let item of habits">
-        <ion-item *ngIf="!item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
-          <ion-label>
-            {{ item.name }}
-            <p>{{ item.time }}</p>
-          </ion-label>
-          <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
-          <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn(item)"></ion-toggle>
-        </ion-item>
+      <ion-list #slidingList>
+        <ion-item-sliding *ngFor="let item of habits">
+          <ion-item *ngIf="!item.on && !item.archive" lines="inset" button [routerLink]="['/edit', item.id]">
+            <ion-label>
+              {{ item.name }}
+              <p>{{ item.time }}</p>
+            </ion-label>
+            <ion-note slot="end" color="primary">{{ item.time }}</ion-note>
+            <ion-toggle slot="end" [(ngModel)]="item.on" (ionChange)="habitOn(item)"></ion-toggle>
+          </ion-item>
 
-        <ion-item-options side="end">
-          <ion-item-option (click)="archiveHabit(item)" color="danger">
-            Delete
-            <ion-icon name="close-circle" slot="end"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+          <ion-item-options side="end">
+            <ion-item-option (click)="archiveHabit(item)" color="danger">
+              Delete
+              <ion-icon name="close-circle" slot="end"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 
     </ion-list>
   </ion-card>
