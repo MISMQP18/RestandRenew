@@ -58,9 +58,6 @@ export class HomePage implements OnInit {
     currentDate;
     formattedDate;
     shortDate;
-    ionicNamedColor: string = 'light';
-    ionicNamedColor2: string = 'light';
-    ionicNamedColor3: string = 'light';
     matchDate;
 
     @ViewChild('slidingList') slidingList: List;
@@ -172,13 +169,13 @@ export class HomePage implements OnInit {
     }
 
     getFormattedDate() {
-        var dateObj = new Date()
+        var dateObj = new Date();
 
-        var year = dateObj.getFullYear().toString()
-        var month = dateObj.getMonth().toString()
-        var date = dateObj.getDate().toString()
-        var day = dateObj.getDay()
-        var dayText
+        var year = dateObj.getFullYear().toString();
+        var month = dateObj.getMonth().toString();
+        var date = dateObj.getDate().toString();
+        var day = dateObj.getDay();
+        var dayText;
 
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -198,7 +195,7 @@ export class HomePage implements OnInit {
             dayText = 'Saturday';
         }
 
-        var dayArray = ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa']
+        var dayArray = ['Su', 'M', 'T', 'W', 'T', 'F', 'Sa'];
 
         this.matchDate = day;
 
@@ -239,30 +236,6 @@ export class HomePage implements OnInit {
             return this.fridayHabits;
         } else {
             return this.saturdayHabits;
-        }
-    }
-
-    public toggleNamedColor(): void {
-        if (this.ionicNamedColor === 'medium') {
-            this.ionicNamedColor = 'light'
-        } else {
-            this.ionicNamedColor = 'medium'
-        }
-    }
-
-    public toggleNamedColor2(): void {
-        if (this.ionicNamedColor2 === 'medium') {
-            this.ionicNamedColor2 = 'light'
-        } else {
-            this.ionicNamedColor2 = 'medium'
-        }
-    }
-
-    public toggleNamedColor3(): void {
-        if (this.ionicNamedColor3 === 'medium') {
-            this.ionicNamedColor3 = 'light'
-        } else {
-            this.ionicNamedColor3 = 'medium'
         }
     }
 
