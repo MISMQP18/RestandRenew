@@ -23,7 +23,7 @@ export class JournalService {
     private journals: Observable<Journal[]>;
 
     constructor(private db: AngularFirestore) {
-        this.journalCollection = this.db.collection<Journal>('journals');
+        this.journalCollection = this.db.collection('journals', ref => ref.orderBy('createdAt', 'desc'));
 
         this.journals = this.journalCollection.snapshotChanges().pipe(
             map(actions => {
