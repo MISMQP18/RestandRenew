@@ -15,8 +15,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { FcmService } from './fcm1.service';
-import { ToastService } from './toast.service';
+import { FcmService } from './services/fcm1.service';
+import { ToastService } from './services/toast.service';
 
 import { App, Config, Platform } from 'ionic-angular';
 

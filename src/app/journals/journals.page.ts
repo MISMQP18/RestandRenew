@@ -12,10 +12,12 @@ import {Habit} from '../services/habit.service';
   templateUrl: './journals.page.html',
   styleUrls: ['./journals.page.scss'],
 })
+
 export class JournalsPage implements OnInit {
 
     journal: Journal = {
-      date: this.getFormattedDate(),
+        createdAt: new Date().getTime(),
+        date: this.getFormattedDate(),
         title: null,
         entry: null,
         archive: false

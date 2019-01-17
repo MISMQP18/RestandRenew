@@ -17,6 +17,7 @@ export class AddJournalPage implements OnInit {
     matchDate;
 
     journal: Journal = {
+        createdAt: new Date().getTime(),
         date: this.getFormattedDate(),
         title: null,
         entry: null,

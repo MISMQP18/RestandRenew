@@ -7,6 +7,7 @@ import {Habit} from './habit.service';
 
 export interface Journal {
     id?: string;
+    createdAt: number;
     date: string;
     title: string;
     entry: string;

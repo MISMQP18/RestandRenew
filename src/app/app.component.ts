@@ -7,10 +7,10 @@ import { ToastController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { FcmService } from './fcm1.service';
-import { ToastService } from './toast.service';
-
-import { App } from 'ionic-angular';
+import { FcmService } from './services/fcm1.service';
+import { ToastService } from './services/toast.service';
+import {Habit, HabitService} from './services/habit.service';
+import {Journal, JournalService} from './services/journal.service';
 
 @Component({
     selector: 'app-root',
@@ -26,10 +26,15 @@ export class AppComponent {
         private toastr: ToastService,
         private authenticationService: AuthenticationService,
         private router: Router,
-        private toastController: ToastController
+        private toastController: ToastController,
+        private habitService: HabitService,
+        private journalService: JournalService
     ) {
         this.initializeApp();
     }
+
+    public habits: Habit[];
+    public journals: Journal[];
 
     initializeApp() {
         this.platform.ready().then(() => {
@@ -45,6 +50,14 @@ export class AppComponent {
                 }
             });
 
+        });
+
+        this.habitService.getHabits().subscribe(res => {
+            this.habits = res;
+        });
+
+        this.journalService.getJournals().subscribe(res => {
+            this.journals = res;
         });
     }
 
