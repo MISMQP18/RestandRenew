@@ -50,6 +50,7 @@ export class ViewJournalPage implements OnInit {
         this.router.navigateByUrl('/tabs/(journals:journals)');
     }
 
+
     getFormattedDate() {
         var dateObj = new Date();
 
