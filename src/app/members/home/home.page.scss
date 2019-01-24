@@ -14,3 +14,9 @@
 .fake-skeleton {
   width: 60%;
 }
+
+.yourClass {
+  .toast-wrapper {
+    transform: translateY(70px) !important;
+  }
+}

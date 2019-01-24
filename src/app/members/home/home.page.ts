@@ -1,6 +1,6 @@
 import { AuthenticationService } from '../../services/authentication.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {LoadingController, NavController, List} from '@ionic/angular';
+import {LoadingController, NavController, List, ToastController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../../services/habit.service';
@@ -63,7 +63,7 @@ export class HomePage implements OnInit {
     @ViewChild('slidingList') slidingList: List;
 
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
+    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController, private toastController: ToastController) {
         this.currentDate = new Date();
         this.getFormattedDate();
     }
@@ -237,6 +237,26 @@ export class HomePage implements OnInit {
         } else {
             return this.saturdayHabits;
         }
+    }
+
+    async presentToastNextWeek() {
+        const toast = await this.toastController.create({
+            message: 'Next Week',
+            duration: 2000,
+            showCloseButton: true,
+            position: "middle"
+        });
+        toast.present();
+    }
+
+    async presentToastLastWeek() {
+        const toast = await this.toastController.create({
+            message: 'Previous Week',
+            duration: 2000,
+            showCloseButton: true,
+            position: "middle"
+        });
+        toast.present();
     }
 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
-import {NavController} from "@ionic/angular";
+import {NavController, ToastController} from "@ionic/angular";
 
 @Component({
   selector: 'app-summary',
@@ -15,7 +15,7 @@ export class SummaryPage implements OnInit {
 
     barChart: any;
 
-    constructor(private authService: AuthenticationService, private router: Router, public navCtrl: NavController) {
+    constructor(private authService: AuthenticationService, private router: Router, public navCtrl: NavController, public toastController: ToastController) {
     }
 
     ngOnInit() {
@@ -27,6 +27,24 @@ export class SummaryPage implements OnInit {
 
     openHabitSettingsPage() {
         this.router.navigateByUrl('/tabs/(settings:settings)');
+    }
+
+    async presentToast() {
+        const toast = await this.toastController.create({
+            message: 'Your settings have been saved.',
+            duration: 2000
+        });
+        toast.present();
+    }
+
+    async presentToastWithOptions() {
+        const toast = await this.toastController.create({
+            message: 'Click to Close',
+            showCloseButton: true,
+            position: 'top',
+            closeButtonText: 'Done'
+        });
+        toast.present();
     }
 
    /* ionViewDidLoad() {
