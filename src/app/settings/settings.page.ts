@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../services/habit.service';
 import { reorderArray } from 'ionic-angular';
+import {IdService} from '../services/id.service';
 
 @Component({
   selector: 'app-settings',
@@ -29,7 +30,8 @@ export class SettingsPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true
+        incomplete: true,
+        userID: this.globalID.userID
     };
 
     habitId = null;
@@ -38,7 +40,7 @@ export class SettingsPage implements OnInit {
 
     @ViewChild('slidingList') slidingList: List;
 
-    constructor(private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
+    constructor(public globalID: IdService, private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
     }
 
     ngOnInit() {

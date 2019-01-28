@@ -4,6 +4,7 @@ import { NavController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Journal, JournalService } from '../services/journal.service';
 import {AuthenticationService} from '../services/authentication.service';
+import {IdService} from '../services/id.service';
 
 @Component({
   selector: 'app-add-journal',
@@ -21,14 +22,15 @@ export class AddJournalPage implements OnInit {
         date: this.getFormattedDate(),
         title: null,
         entry: null,
-        archive: false
+        archive: false,
+        userID: this.globalID.userID
     }
 
     journalId = null;
 
     journals: Journal[];
 
-    constructor(private router: Router, private authService: AuthenticationService, private journalService: JournalService, private loadingController: LoadingController) {
+    constructor(public globalID: IdService, private router: Router, private authService: AuthenticationService, private journalService: JournalService, private loadingController: LoadingController) {
     }
 
     ngOnInit() {

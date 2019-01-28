@@ -19,6 +19,7 @@ import { FcmService } from './services/fcm1.service';
 import { ToastService } from './services/toast.service';
 
 import { App, Config, Platform } from 'ionic-angular';
+import {IdService} from './services/id.service';
 
 
 /*const config = {
@@ -51,6 +52,7 @@ import { App, Config, Platform } from 'ionic-angular';
       App,
       Config,
       Platform,
+      IdService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

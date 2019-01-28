@@ -2,6 +2,7 @@ import { Habit, HabitService } from '../../services/habit.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
+import {IdService} from '../../services/id.service';
 
 @Component({
     selector: 'app-habit-details',
@@ -27,12 +28,13 @@ export class HabitDetailsPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: null
+        incomplete: null,
+        userID: this.globalID.userID
     };
 
     habitId = null;
 
-    constructor(private route: ActivatedRoute, private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
+    constructor(public globalID: IdService, private route: ActivatedRoute, private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
 
     ngOnInit() {
         this.habitId = this.route.snapshot.params['id'];

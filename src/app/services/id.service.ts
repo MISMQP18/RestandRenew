@@ -3,17 +3,19 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface UserID {
+/*export interface UserID {
     id?: string;
     userID: number;
-}
+}*/
 
 @Injectable({
   providedIn: 'root'
 })
 export class IdService {
 
-    private idCollection: AngularFirestoreCollection<UserID>;
+  public userID: number;
+
+    /*private idCollection: AngularFirestoreCollection<UserID>;
 
     private ids: Observable<UserID[]>;
 
@@ -59,5 +61,5 @@ export class IdService {
 
     removeID(id) {
         return this.idCollection.doc(id).delete();
-    }
+    }*/
 }

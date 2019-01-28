@@ -12,6 +12,7 @@ export interface Journal {
     title: string;
     entry: string;
     archive: boolean;
+    userID: number;
 }
 
 @Injectable({

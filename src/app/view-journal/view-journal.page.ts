@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Journal, JournalService } from '../services/journal.service';
+import {IdService} from '../services/id.service';
 
 @Component({
   selector: 'app-view-journal',
@@ -20,12 +21,13 @@ export class ViewJournalPage implements OnInit {
         date: this.getFormattedDate(),
         title: null,
         entry: null,
-        archive: false
+        archive: false,
+        userID: this.globalID.userID
     }
 
     journalId = null;
 
-    constructor(private route: ActivatedRoute, private router: Router,  private nav: NavController, private journalService: JournalService, private loadingController: LoadingController) { }
+    constructor(public globalID: IdService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private journalService: JournalService, private loadingController: LoadingController) { }
 
     ngOnInit() {
         this.journalId = this.route.snapshot.params['id'];

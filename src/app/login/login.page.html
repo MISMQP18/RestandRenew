@@ -18,13 +18,13 @@
 
 
   <ion-item>
-    <ion-input type="text" placeholder="Username" [(ngModel)]="id.userID"></ion-input>
+    <ion-input type="text" placeholder="Username" [(ngModel)]="this.userid"></ion-input>
   </ion-item>
   <ion-item>
     <ion-input type="password" placeholder="Password"></ion-input>
   </ion-item>
 
-  <ion-button (click)="login()" class="button button-block button-positive" color="light">Login</ion-button>
+  <ion-button (click)="login(); saveUserID()" class="button button-block button-positive" color="light">Login</ion-button>
   <ion-button class="button button-block button-positive button-small" color="warning" href="/register" routerDirection="forward">Forgot Password?</ion-button>
 
 

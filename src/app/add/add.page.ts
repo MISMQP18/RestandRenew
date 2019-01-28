@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../services/habit.service';
-import {UserID, IdService} from '../services/id.service';
+import {IdService} from '../services/id.service';
+//import {UserID, IdService} from '../services/id.service';
 
 @Component({
     selector: 'app-add',
@@ -31,16 +32,13 @@ export class AddPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true
-    };
-
-    id: UserID = {
-        userID: null
+        incomplete: true,
+        userID: this.globalID.userID
     };
 
     habitId = null;
 
-    constructor(private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private idService: IdService, private loadingController: LoadingController) { }
+    constructor(public globalID: IdService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
 
     ngOnInit() {
     }

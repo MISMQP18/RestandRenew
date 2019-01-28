@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Habit, HabitService } from '../services/habit.service';
+import {IdService} from '../services/id.service';
 //import {ifTrue} from 'codelyzer/util/function';
 //import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { ToastController } from 'ionic-angular/components/toast/toast-controller';
@@ -34,12 +35,13 @@ export class EditPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true
+        incomplete: true,
+        userID: this.globalID.userID
     };
 
     habitId = null;
 
-    constructor(private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
+    constructor(public globalID: IdService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private habitService: HabitService, private loadingController: LoadingController) { }
 
     ngOnInit() {
         this.habitId = this.route.snapshot.params['id'];

@@ -7,6 +7,7 @@ import { Habit, HabitService } from '../../services/habit.service';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {IdService} from '../../services/id.service';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,8 @@ export class HomePage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true
+        incomplete: true,
+        userID: this.globalID.userID
     };
 
     habitId = null;
@@ -63,7 +65,7 @@ export class HomePage implements OnInit {
     @ViewChild('slidingList') slidingList: List;
 
 
-    constructor(private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController, private toastController: ToastController) {
+    constructor(public globalID: IdService, private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController, private toastController: ToastController) {
         this.currentDate = new Date();
         this.getFormattedDate();
     }

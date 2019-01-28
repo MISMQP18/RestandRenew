@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {IdService} from '../services/id.service';
 
 export interface Habit {
     id?: string;
@@ -21,6 +22,7 @@ export interface Habit {
     on: boolean;
     archive: boolean;
     incomplete: boolean;
+    userID: number;
 }
 
 @Injectable({
@@ -63,15 +65,15 @@ export class HabitService {
     private fridayIncompleteHabits: Observable<Habit[]>;
     private saturdayIncompleteHabits: Observable<Habit[]>;
 
-    constructor(private db: AngularFirestore) {
-        this.habitsCollection = this.db.collection<Habit>('habits');
+    constructor(public globalID: IdService, private db: AngularFirestore) {
+        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', this.globalID.userID));
 
         this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
                     const id = a.payload.doc.id;
-                    return { id, ...data };
+                    return {id, ...data};
                 });
             })
         );
@@ -110,7 +112,6 @@ export class HabitService {
     /*
     QUERIES
      */
-
     getBySunday() {
         this.sundayCollection = this.db.collection('habits', ref => ref.where('sunday', '==', true));
 

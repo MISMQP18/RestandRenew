@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Journal, JournalService} from '../services/journal.service';
 import { reorderArray } from 'ionic-angular';
 import {Habit} from '../services/habit.service';
+import {IdService} from '../services/id.service';
 
 @Component({
   selector: 'app-journals',
@@ -20,7 +21,8 @@ export class JournalsPage implements OnInit {
         date: this.getFormattedDate(),
         title: null,
         entry: null,
-        archive: false
+        archive: false,
+        userID: this.globalID.userID
     }
 
     journalId = null;
@@ -29,7 +31,7 @@ export class JournalsPage implements OnInit {
 
     @ViewChild('slidingList') slidingList: List;
 
-    constructor(private router: Router, private authService: AuthenticationService, private journalService: JournalService, private loadingController: LoadingController) {
+    constructor(public globalID: IdService, private router: Router, private authService: AuthenticationService, private journalService: JournalService, private loadingController: LoadingController) {
     }
 
     ngOnInit() {
