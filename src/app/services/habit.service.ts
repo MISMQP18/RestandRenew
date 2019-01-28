@@ -66,7 +66,7 @@ export class HabitService {
     private saturdayIncompleteHabits: Observable<Habit[]>;
 
     constructor(public globalID: IdService, private db: AngularFirestore) {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', this.globalID.userID));
+        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', 'this.globalID.userID'));
 
         this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
