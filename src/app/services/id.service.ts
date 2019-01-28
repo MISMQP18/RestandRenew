@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Journal} from './journal.service';
 
 export interface UserID {
     id?: string;
@@ -50,8 +49,12 @@ export class IdService {
         return this.idCollection.doc<UserID>(id).valueChanges();
     }
 
-    addID(id: UserID) {
-        return this.idCollection.add(id);
+    updateID(userid: UserID, id: string) {
+        return this.idCollection.doc(id).update(userid);
+    }
+
+    addID(userid: UserID) {
+        return this.idCollection.add(userid);
     }
 
     removeID(id) {

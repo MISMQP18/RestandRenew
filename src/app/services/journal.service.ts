@@ -17,6 +17,7 @@ export interface Journal {
 @Injectable({
   providedIn: 'root'
 })
+
 export class JournalService {
     private journalCollection: AngularFirestoreCollection<Journal>;
 
