@@ -67,7 +67,7 @@ export class HabitService {
 
     constructor(public globalID: IdService, private db: AngularFirestore) {
 
-        this.habitsCollection = this.db.collection<Habit>('habits');
+        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', '1234'));
 
         this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
@@ -83,8 +83,6 @@ export class HabitService {
     public userID = this.globalID.userID;
 
     getHabits() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', '1234'));
-
         return this.habits = this.habitsCollection.valueChanges();
 
         /*this.habits = this.habitsCollection.snapshotChanges().pipe(
@@ -123,7 +121,9 @@ export class HabitService {
         this.sundayCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.sundayHabits = this.sundayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -142,7 +142,9 @@ export class HabitService {
         this.mondayCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.mondayHabits = this.mondayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -161,7 +163,9 @@ export class HabitService {
         this.tuesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
-                .where('userID', '==', '1234'));
+                .where('userID', '==', '1234')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.tuesdayHabits = this.tuesdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -180,7 +184,9 @@ export class HabitService {
         this.wednesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.wednesdayHabits = this.wednesdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -199,7 +205,9 @@ export class HabitService {
         this.thursdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.thursdayHabits = this.thursdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -218,7 +226,9 @@ export class HabitService {
         this.fridayCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.fridayHabits = this.fridayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -237,7 +247,9 @@ export class HabitService {
         this.saturdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', 'userID')
+                .orderBy('time', 'desc')
+                .orderBy('name', 'asc'));
 
         this.saturdayHabits = this.saturdayCollection.snapshotChanges().pipe(
             map(actions => {
