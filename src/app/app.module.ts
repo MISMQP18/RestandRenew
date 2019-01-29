@@ -19,8 +19,9 @@ import { FcmService } from './services/fcm1.service';
 import { ToastService } from './services/toast.service';
 
 import { App, Config, Platform } from 'ionic-angular';
-import {IdService} from './services/id.service';
-
+import { HabitService } from './services/habit.service';
+import { JournalService } from './services/journal.service';
+import { IdService } from './services/id.service';
 
 /*const config = {
     apiKey: "AIzaSyC-_TjGZ3Sl_JYWSg3uag4IyiQHhIH8Yds",
@@ -52,6 +53,8 @@ import {IdService} from './services/id.service';
       App,
       Config,
       Platform,
+      HabitService,
+      JournalService,
       IdService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
