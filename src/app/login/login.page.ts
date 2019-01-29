@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
         userID: null
     };*/
 
-    userid = null;
+    // userid = null;
 
     constructor(public globalID: IdService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private loadingController: LoadingController) { }
 
@@ -29,8 +29,8 @@ export class LoginPage implements OnInit {
         this.authService.login();
     }
 
-    saveUserID() {
-        this.globalID.userID = this.userid;
+    async saveUserID() {
+        // this.globalID.userID;
     }
 
     /*async login() {

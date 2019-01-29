@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Journal } from './journal.service';
-import {Habit} from './habit.service';
 
 export interface Journal {
     id?: string;
@@ -12,7 +11,7 @@ export interface Journal {
     title: string;
     entry: string;
     archive: boolean;
-    userID: number;
+    userID: string;
 }
 
 @Injectable({

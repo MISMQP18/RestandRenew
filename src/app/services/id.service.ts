@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class IdService {
 
-  public userID: number;
+  public userID: string;
 
     /*private idCollection: AngularFirestoreCollection<UserID>;
 
