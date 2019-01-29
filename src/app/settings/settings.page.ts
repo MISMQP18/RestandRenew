@@ -38,13 +38,15 @@ export class SettingsPage implements OnInit {
 
     habits: Habit[];
 
+    public userID = this.globalID.userID;
+
     @ViewChild('slidingList') slidingList: List;
 
     constructor(public globalID: IdService, private router: Router, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController) {
     }
 
     ngOnInit() {
-        this.habitService.getHabits().subscribe(res => {
+        this.habitService.getHabits('1234').subscribe(res => {
             this.habits = res;
         });
     }

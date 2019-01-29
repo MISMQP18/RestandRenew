@@ -29,7 +29,9 @@ export interface Habit {
     providedIn: 'root'
 })
 export class HabitService {
+
     private habitsCollection: AngularFirestoreCollection<Habit>;
+    private habits: Observable<Habit[]>;
 
     private sundayCollection: AngularFirestoreCollection<Habit>;
     private mondayCollection: AngularFirestoreCollection<Habit>;
@@ -46,8 +48,6 @@ export class HabitService {
     private thursdayIncompleteCollection: AngularFirestoreCollection<Habit>;
     private fridayIncompleteCollection: AngularFirestoreCollection<Habit>;
     private saturdayIncompleteCollection: AngularFirestoreCollection<Habit>;
-
-    private habits: Observable<Habit[]>;
 
     private sundayHabits: Observable<Habit[]>;
     private mondayHabits: Observable<Habit[]>;
@@ -67,25 +67,25 @@ export class HabitService {
 
     constructor(public globalID: IdService, private db: AngularFirestore) {
 
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', '1234'));
+        this.habitsCollection = this.db.collection('habits');
 
         this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
                     const id = a.payload.doc.id;
-                    return {id, ...data};
+                    return { id, ...data };
                 });
             })
         );
     }
 
-    public userID = this.globalID.userID;
+    getHabits(globalID) {
+        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', globalID));
 
-    getHabits() {
-        return this.habits = this.habitsCollection.valueChanges();
+        // return this.habits = this.habitsCollection.valueChanges();
 
-        /*this.habits = this.habitsCollection.snapshotChanges().pipe(
+        return this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -95,7 +95,6 @@ export class HabitService {
             })
         );
 
-        return this.habits;*/
     }
 
     getHabit(id) {
@@ -138,11 +137,11 @@ export class HabitService {
         return this.sundayHabits;
     }
 
-    getByMonday() {
+    getByMonday(globalID) {
         this.mondayCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -159,11 +158,11 @@ export class HabitService {
         return this.mondayHabits;
     }
 
-    getByTuesday() {
+    getByTuesday(globalID) {
         this.tuesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
-                .where('userID', '==', '1234')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -306,13 +305,13 @@ export class HabitService {
         return this.mondayIncompleteHabits;
     }
 
-    tuesdayIncomplete() {
+    tuesdayIncomplete(globalID) {
         this.tuesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.tuesdayIncompleteHabits = this.tuesdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {

@@ -29,13 +29,15 @@ export class AppComponent {
         private router: Router,
         private toastController: ToastController,
         private habitService: HabitService,
-        private journalService: JournalService
+        private journalService: JournalService,
+        public globalID: IdService
     ) {
         this.initializeApp();
     }
 
     public habits: Habit[];
     public journals: Journal[];
+    public userID = this.globalID.userID;
 
     initializeApp() {
         this.platform.ready().then(() => {
@@ -53,7 +55,7 @@ export class AppComponent {
 
         });
 
-        this.habitService.getHabits().subscribe(res => {
+        this.habitService.getHabits('1234').subscribe(res => {
             this.habits = res;
         });
 

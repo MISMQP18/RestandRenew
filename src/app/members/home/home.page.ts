@@ -1,5 +1,5 @@
 import { AuthenticationService } from '../../services/authentication.service';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Inject} from '@angular/core';
 import {LoadingController, NavController, List, ToastController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -62,16 +62,20 @@ export class HomePage implements OnInit {
     shortDate;
     matchDate;
 
+    public userID = this.globalID.userID;
+
+
     @ViewChild('slidingList') slidingList: List;
 
 
     constructor(public globalID: IdService, private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController, private toastController: ToastController) {
         this.currentDate = new Date();
         this.getFormattedDate();
+
     }
 
     ngOnInit() {
-        this.habitService.getHabits().subscribe(res => {
+        this.habitService.getHabits('1234').subscribe(res => {
             this.habits = res;
         });
 
@@ -79,11 +83,11 @@ export class HomePage implements OnInit {
             this.sundayHabits = res;
         });
 
-        this.habitService.getByMonday().subscribe(res => {
+        this.habitService.getByMonday('1234').subscribe(res => {
             this.mondayHabits = res;
         });
 
-        this.habitService.getByTuesday().subscribe(res => {
+        this.habitService.getByTuesday('1234').subscribe(res => {
             this.tuesdayHabits = res;
         });
 
@@ -111,7 +115,7 @@ export class HomePage implements OnInit {
             this.mondayIncompleteHabits = res;
         });
 
-        this.habitService.tuesdayIncomplete().subscribe(res => {
+        this.habitService.tuesdayIncomplete(this.userID).subscribe(res => {
             this.tuesdayIncompleteHabits = res;
         });
 

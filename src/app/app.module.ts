@@ -41,7 +41,7 @@ import { IdService } from './services/id.service';
       AppRoutingModule,
       IonicStorageModule.forRoot(),
       AngularFireModule.initializeApp(environment.firebase),
-      AngularFirestoreModule],
+      AngularFirestoreModule.enablePersistence()],
 
   providers: [
     StatusBar,
