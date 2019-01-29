@@ -83,9 +83,11 @@ export class HabitService {
     public userID = this.globalID.userID;
 
     getHabits() {
-        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', 'this.userID'));
+        this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', '1234'));
 
-        this.habits = this.habitsCollection.snapshotChanges().pipe(
+        return this.habits = this.habitsCollection.valueChanges();
+
+        /*this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -95,7 +97,7 @@ export class HabitService {
             })
         );
 
-        return this.habits;
+        return this.habits;*/
     }
 
     getHabit(id) {
@@ -140,7 +142,7 @@ export class HabitService {
         this.mondayCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
-                .where('userID', '==', 'this.userID'));
+                .where('userID', '==', 'userID'));
 
         this.mondayHabits = this.mondayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -159,7 +161,7 @@ export class HabitService {
         this.tuesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', '1234'));
 
         this.tuesdayHabits = this.tuesdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -277,7 +279,7 @@ export class HabitService {
                 .where('monday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'this.userID'));
+                .where('userID', '==', 'userID'));
 
         this.mondayIncompleteHabits = this.mondayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -298,7 +300,7 @@ export class HabitService {
                 .where('tuesday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', '1234'));
 
         this.tuesdayIncompleteHabits = this.tuesdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {

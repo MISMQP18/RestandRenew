@@ -18,8 +18,6 @@ export class LoginPage implements OnInit {
         userID: null
     };*/
 
-    // userid = null;
-
     constructor(public globalID: IdService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private loadingController: LoadingController) { }
 
     ngOnInit() {
