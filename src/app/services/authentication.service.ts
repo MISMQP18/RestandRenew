@@ -2,6 +2,7 @@ import { Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
+import { IdService } from './id.service'
 
 const TOKEN_KEY = 'auth-token';
 
@@ -10,9 +11,11 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
+    public userID = "'" + this.globalID.userID + "'";
+
     authenticationState = new BehaviorSubject(false);
 
-    constructor(private storage: Storage, private plt: Platform) {
+    constructor(public globalID: IdService, private storage: Storage, private plt: Platform) {
         this.plt.ready().then(() => {
             this.checkToken();
         });
@@ -27,7 +30,7 @@ export class AuthenticationService {
     }
 
     login() {
-        return this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
+        return this.storage.set(TOKEN_KEY, this.userID).then(() => {
             this.authenticationState.next(true);
         });
     }
