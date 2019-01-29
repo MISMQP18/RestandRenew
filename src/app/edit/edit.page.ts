@@ -36,7 +36,7 @@ export class EditPage implements OnInit {
         on: null,
         archive: false,
         incomplete: true,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     };
 
     habitId = null;

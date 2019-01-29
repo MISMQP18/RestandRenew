@@ -31,14 +31,14 @@ export class SettingsPage implements OnInit {
         on: null,
         archive: false,
         incomplete: true,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     };
 
     habitId = null;
 
     habits: Habit[];
 
-    public userID = this.globalID.userID;
+    public userID = "'" + this.globalID.userID + "'";
 
     @ViewChild('slidingList') slidingList: List;
 
@@ -46,7 +46,7 @@ export class SettingsPage implements OnInit {
     }
 
     ngOnInit() {
-        this.habitService.getHabits('1234').subscribe(res => {
+        this.habitService.getHabits(this.userID).subscribe(res => {
             this.habits = res;
         });
     }

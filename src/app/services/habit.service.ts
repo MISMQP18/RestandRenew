@@ -116,11 +116,11 @@ export class HabitService {
     /*
     QUERIES
      */
-    getBySunday() {
+    getBySunday(globalID) {
         this.sundayCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -179,11 +179,11 @@ export class HabitService {
         return this.tuesdayHabits;
     }
 
-    getByWednesday() {
+    getByWednesday(globalID) {
         this.wednesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -200,11 +200,11 @@ export class HabitService {
         return this.wednesdayHabits;
     }
 
-    getByThursday() {
+    getByThursday(globalID) {
         this.thursdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -221,11 +221,11 @@ export class HabitService {
         return this.thursdayHabits;
     }
 
-    getByFriday() {
+    getByFriday(globalID) {
         this.fridayCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -242,11 +242,11 @@ export class HabitService {
         return this.fridayHabits;
     }
 
-    getBySaturday() {
+    getBySaturday(globalID) {
         this.saturdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
-                .where('userID', '==', 'userID')
+                .where('userID', '==', globalID)
                 .orderBy('time', 'desc')
                 .orderBy('name', 'asc'));
 
@@ -263,13 +263,13 @@ export class HabitService {
         return this.saturdayHabits;
     }
 
-    sundayIncomplete() {
+    sundayIncomplete(globalID) {
         this.sundayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.sundayIncompleteHabits = this.sundayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -284,13 +284,13 @@ export class HabitService {
         return this.sundayIncompleteHabits;
     }
 
-    mondayIncomplete() {
+    mondayIncomplete(globalID) {
         this.mondayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', '1234'));
+                .where('userID', '==', globalID));
 
         this.mondayIncompleteHabits = this.mondayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -326,13 +326,13 @@ export class HabitService {
         return this.tuesdayIncompleteHabits;
     }
 
-    wednesdayIncomplete() {
+    wednesdayIncomplete(globalID) {
         this.wednesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.wednesdayIncompleteHabits = this.wednesdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -347,13 +347,13 @@ export class HabitService {
         return this.wednesdayIncompleteHabits;
     }
 
-    thursdayIncomplete() {
+    thursdayIncomplete(globalID) {
         this.thursdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.thursdayIncompleteHabits = this.thursdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -368,13 +368,13 @@ export class HabitService {
         return this.thursdayIncompleteHabits;
     }
 
-    fridayIncomplete() {
+    fridayIncomplete(globalID) {
         this.fridayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.fridayIncompleteHabits = this.fridayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {
@@ -389,13 +389,13 @@ export class HabitService {
         return this.fridayIncompleteHabits;
     }
 
-    saturdayIncomplete() {
+    saturdayIncomplete(globalID) {
         this.saturdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
                 .where('incomplete','==',true)
                 .where('on','==',true)
-                .where('userID', '==', 'userID'));
+                .where('userID', '==', globalID));
 
         this.saturdayIncompleteHabits = this.saturdayIncompleteCollection.snapshotChanges().pipe(
             map(actions => {

@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
         on: null,
         archive: false,
         incomplete: true,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     };
 
     habitId = null;
@@ -62,7 +62,7 @@ export class HomePage implements OnInit {
     shortDate;
     matchDate;
 
-    public userID = this.globalID.userID;
+    public userID = "'" + this.globalID.userID + "'";
 
 
     @ViewChild('slidingList') slidingList: List;
@@ -75,43 +75,43 @@ export class HomePage implements OnInit {
     }
 
     ngOnInit() {
-        this.habitService.getHabits('1234').subscribe(res => {
+        this.habitService.getHabits(this.userID).subscribe(res => {
             this.habits = res;
         });
 
-        this.habitService.getBySunday().subscribe(res => {
+        this.habitService.getBySunday(this.userID).subscribe(res => {
             this.sundayHabits = res;
         });
 
-        this.habitService.getByMonday('1234').subscribe(res => {
+        this.habitService.getByMonday(this.userID).subscribe(res => {
             this.mondayHabits = res;
         });
 
-        this.habitService.getByTuesday('1234').subscribe(res => {
+        this.habitService.getByTuesday(this.userID).subscribe(res => {
             this.tuesdayHabits = res;
         });
 
-        this.habitService.getByWednesday().subscribe(res => {
+        this.habitService.getByWednesday(this.userID).subscribe(res => {
             this.wednesdayHabits = res;
         });
 
-        this.habitService.getByThursday().subscribe(res => {
+        this.habitService.getByThursday(this.userID).subscribe(res => {
             this.thursdayHabits = res;
         });
 
-        this.habitService.getByFriday().subscribe(res => {
+        this.habitService.getByFriday(this.userID).subscribe(res => {
             this.fridayHabits = res;
         });
 
-        this.habitService.getBySaturday().subscribe(res => {
+        this.habitService.getBySaturday(this.userID).subscribe(res => {
             this.saturdayHabits = res;
         });
 
-        this.habitService.sundayIncomplete().subscribe(res => {
+        this.habitService.sundayIncomplete(this.userID).subscribe(res => {
             this.sundayIncompleteHabits = res;
         });
 
-        this.habitService.mondayIncomplete().subscribe(res => {
+        this.habitService.mondayIncomplete(this.userID).subscribe(res => {
             this.mondayIncompleteHabits = res;
         });
 
@@ -119,19 +119,19 @@ export class HomePage implements OnInit {
             this.tuesdayIncompleteHabits = res;
         });
 
-        this.habitService.wednesdayIncomplete().subscribe(res => {
+        this.habitService.wednesdayIncomplete(this.userID).subscribe(res => {
             this.wednesdayIncompleteHabits = res;
         });
 
-        this.habitService.thursdayIncomplete().subscribe(res => {
+        this.habitService.thursdayIncomplete(this.userID).subscribe(res => {
             this.thursdayIncompleteHabits = res;
         });
 
-        this.habitService.fridayIncomplete().subscribe(res => {
+        this.habitService.fridayIncomplete(this.userID).subscribe(res => {
             this.fridayIncompleteHabits = res;
         });
 
-        this.habitService.saturdayIncomplete().subscribe(res => {
+        this.habitService.saturdayIncomplete(this.userID).subscribe(res => {
             this.saturdayIncompleteHabits = res;
         });
     }

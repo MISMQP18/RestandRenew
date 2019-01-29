@@ -37,7 +37,7 @@ export class AppComponent {
 
     public habits: Habit[];
     public journals: Journal[];
-    public userID = this.globalID.userID;
+    public userID = "'" + this.globalID.userID + "'";
 
     initializeApp() {
         this.platform.ready().then(() => {
@@ -55,7 +55,7 @@ export class AppComponent {
 
         });
 
-        this.habitService.getHabits('1234').subscribe(res => {
+        this.habitService.getHabits(this.userID).subscribe(res => {
             this.habits = res;
         });
 
