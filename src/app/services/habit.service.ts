@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {IdService} from './id.service';
+import {LoadingController, NavController} from '@ionic/angular';
 
 export interface Habit {
     id?: string;
@@ -65,7 +66,7 @@ export class HabitService {
     private fridayIncompleteHabits: Observable<Habit[]>;
     private saturdayIncompleteHabits: Observable<Habit[]>;
 
-    constructor(public globalID: IdService, private db: AngularFirestore) {
+    constructor(public globalID: IdService, private db: AngularFirestore, private loadingController: LoadingController) {
 
         this.habitsCollection = this.db.collection('habits');
 
@@ -82,8 +83,6 @@ export class HabitService {
 
     getHabits(globalID) {
         this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', globalID));
-
-        // return this.habits = this.habitsCollection.valueChanges();
 
         return this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {

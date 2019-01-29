@@ -23,10 +23,12 @@ export class EditJournalPage implements OnInit {
         title: null,
         entry: null,
         archive: false,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     }
 
     journalId = null;
+
+    public userID = "'" + this.globalID.userID + "'";
 
     constructor(public globalID: IdService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private journalService: JournalService, private loadingController: LoadingController) { }
 

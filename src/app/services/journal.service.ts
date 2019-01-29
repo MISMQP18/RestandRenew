@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Journal } from './journal.service';
+import {IdService} from './id.service';
 
 export interface Journal {
     id?: string;
@@ -23,8 +24,8 @@ export class JournalService {
 
     private journals: Observable<Journal[]>;
 
-    constructor(private db: AngularFirestore) {
-        this.journalCollection = this.db.collection('journals', ref => ref.orderBy('createdAt', 'desc'));
+    constructor(public globalID: IdService, private db: AngularFirestore) {
+        this.journalCollection = this.db.collection('journals');
 
         this.journals = this.journalCollection.snapshotChanges().pipe(
             map(actions => {
@@ -37,7 +38,12 @@ export class JournalService {
         );
     }
 
-    getJournals() {
+    getJournals(globalID) {
+        this.journalCollection = this.db.collection('journals', ref =>
+            ref
+                .where('userID', '==', globalID)
+                .orderBy('createdAt', 'desc'));
+
         this.journals = this.journalCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {

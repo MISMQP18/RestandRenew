@@ -22,12 +22,14 @@ export class JournalsPage implements OnInit {
         title: null,
         entry: null,
         archive: false,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     }
 
     journalId = null;
 
     journals: Journal[];
+
+    public userID = "'" + this.globalID.userID + "'";
 
     @ViewChild('slidingList') slidingList: List;
 
@@ -35,7 +37,7 @@ export class JournalsPage implements OnInit {
     }
 
     ngOnInit() {
-        this.journalService.getJournals().subscribe(res => {
+        this.journalService.getJournals(this.userID).subscribe(res => {
             this.journals = res;
         });
     }

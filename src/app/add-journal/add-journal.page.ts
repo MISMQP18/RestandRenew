@@ -23,12 +23,14 @@ export class AddJournalPage implements OnInit {
         title: null,
         entry: null,
         archive: false,
-        userID: this.globalID.userID
+        userID: "'" + this.globalID.userID + "'"
     }
 
     journalId = null;
 
     journals: Journal[];
+
+    public userID = "'" + this.globalID.userID + "'";
 
     constructor(public globalID: IdService, private router: Router, private authService: AuthenticationService, private journalService: JournalService, private loadingController: LoadingController) {
     }

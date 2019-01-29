@@ -59,7 +59,7 @@ export class AppComponent {
             this.habits = res;
         });
 
-        this.journalService.getJournals().subscribe(res => {
+        this.journalService.getJournals(this.userID).subscribe(res => {
             this.journals = res;
         });
     }
