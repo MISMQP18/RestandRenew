@@ -36,6 +36,7 @@
     <ion-item-divider color="light">{{journal.entry}}</ion-item-divider>
   </ion-card>-->
 
+  <ion-button color="secondary" class="button button-block button-positive" [routerLink]="['/edit-journal', this.journalId]">Edit Journal Entry</ion-button>
   <ion-button color="light" class="button button-block button-positive" (click)="openJournalPage()">Close Journal Entry</ion-button>
 
 </ion-content>

@@ -61,7 +61,7 @@ export class EditJournalPage implements OnInit {
         if (this.journalId) {
             this.journalService.updateJournal(this.journal, this.journalId).then(() => {
                 loading.dismiss();
-                this.router.navigateByUrl('/tabs/(journals:journals)');
+                // this.router.navigateByUrl('/view-journal');
             });
         } else {
             this.journalService.addJournal(this.journal).then(() => {
@@ -72,7 +72,7 @@ export class EditJournalPage implements OnInit {
     }
 
     openJournalPage(){
-        this.router.navigateByUrl('/tabs/(journals:journals)');
+        this.router.navigateByUrl('/view-journal');
     }
 
     getFormattedDate() {

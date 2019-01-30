@@ -22,6 +22,6 @@
     </ion-item>
   </ion-item-group>
 
-  <ion-button color="light" class="button button-block button-positive" (click)="saveJournal(); openJournalPage()">Save Journal Entry</ion-button>
+  <ion-button color="light" class="button button-block button-positive" [routerLink]="['/view-journal', this.journalId]" (click)="saveJournal()">Save Journal Entry</ion-button>
 
 </ion-content>

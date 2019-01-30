@@ -37,10 +37,10 @@
         </ion-item>
 
         <ion-item-options side="end">
-          <ion-item-option button [routerLink]="['/edit-journal', item.id]" color="secondary">
+          <!--<ion-item-option button [routerLink]="['/edit-journal', item.id]" color="secondary">
             Edit
             <ion-icon name="construct" slot="end"></ion-icon>
-          </ion-item-option>
+          </ion-item-option>-->
           <ion-item-option (click)="archiveJournal(item)" color="danger">
             Delete
             <ion-icon name="close-circle" slot="end"></ion-icon>
