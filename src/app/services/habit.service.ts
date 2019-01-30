@@ -84,7 +84,7 @@ export class HabitService {
     getHabits(globalID) {
         this.habitsCollection = this.db.collection('habits', ref => ref.where('userID', '==', globalID));
 
-        return this.habits = this.habitsCollection.snapshotChanges().pipe(
+        this.habits = this.habitsCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -94,6 +94,7 @@ export class HabitService {
             })
         );
 
+        return this.habits;
     }
 
     getHabit(id) {
@@ -119,9 +120,7 @@ export class HabitService {
         this.sundayCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.sundayHabits = this.sundayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -140,9 +139,7 @@ export class HabitService {
         this.mondayCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.mondayHabits = this.mondayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -161,9 +158,7 @@ export class HabitService {
         this.tuesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.tuesdayHabits = this.tuesdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -182,9 +177,7 @@ export class HabitService {
         this.wednesdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.wednesdayHabits = this.wednesdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -203,9 +196,7 @@ export class HabitService {
         this.thursdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.thursdayHabits = this.thursdayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -224,9 +215,7 @@ export class HabitService {
         this.fridayCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.fridayHabits = this.fridayCollection.snapshotChanges().pipe(
             map(actions => {
@@ -245,9 +234,7 @@ export class HabitService {
         this.saturdayCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
-                .where('userID', '==', globalID)
-                .orderBy('time', 'desc')
-                .orderBy('name', 'asc'));
+                .where('userID', '==', globalID));
 
         this.saturdayHabits = this.saturdayCollection.snapshotChanges().pipe(
             map(actions => {
