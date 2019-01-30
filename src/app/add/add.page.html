@@ -88,7 +88,11 @@
         <ion-label>Time</ion-label>
       </div>
 
-      <select [(ngModel)]="habit.time">
+      <ion-item>
+        <ion-datetime displayFormat="h:mm a" [(ngModel)]="habit.time"></ion-datetime>
+      </ion-item>
+
+      <!--<select [(ngModel)]="habit.time">
         <option selected>12:00 AM</option>
         <option>1:00 AM</option>
         <option>2:00 AM</option>
@@ -113,7 +117,7 @@
         <option>9:00 PM</option>
         <option>10:00 PM</option>
         <option>11:00 PM</option>
-      </select>
+      </select>-->
     </label>
   </ion-item-group>
 

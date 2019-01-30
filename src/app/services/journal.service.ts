@@ -41,8 +41,8 @@ export class JournalService {
     getJournals(globalID) {
         this.journalCollection = this.db.collection('journals', ref =>
             ref
-                .where('userID', '==', globalID)
-                .orderBy('createdAt', 'desc'));
+                .where('userID', '==', globalID));
+                // .orderBy('createdAt', 'desc'));
 
         this.journals = this.journalCollection.snapshotChanges().pipe(
             map(actions => {
