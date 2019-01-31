@@ -25,13 +25,13 @@ export class EditPage implements OnInit {
         name: '',
         createdAt: new Date().getTime(),
         notifications: null,
-        sunday: null,
-        monday: null,
-        tuesday: null,
-        wednesday: null,
-        thursday: null,
-        friday: null,
-        saturday: null,
+        sunday: false,
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
         time: null,
         on: null,
         archive: false,
@@ -56,6 +56,50 @@ export class EditPage implements OnInit {
         }
     }
 
+    correctIncomplete() {
+        if (this.habit.sunday) {
+            this.habit.sundayIncomplete = true;
+        } else {
+            this.habit.sundayIncomplete = false;
+        }
+
+        if (this.habit.monday) {
+            this.habit.mondayIncomplete = true;
+        } else {
+            this.habit.mondayIncomplete = false;
+        }
+
+        if (this.habit.tuesday) {
+            this.habit.tuesdayIncomplete = true;
+        } else {
+            this.habit.tuesdayIncomplete = false;
+        }
+
+        if (this.habit.wednesday) {
+            this.habit.wednesdayIncomplete = true;
+        } else {
+            this.habit.wednesdayIncomplete = false;
+        }
+
+        if (this.habit.thursday) {
+            this.habit.thursdayIncomplete = true;
+        } else {
+            this.habit.thursdayIncomplete = false;
+        }
+
+        if (this.habit.friday) {
+            this.habit.fridayIncomplete = true;
+        } else {
+            this.habit.fridayIncomplete = false;
+        }
+
+        if (this.habit.saturday) {
+            this.habit.saturdayIncomplete = true;
+        } else {
+            this.habit.saturdayIncomplete = false;
+        }
+    }
+
     async loadHabit() {
         const loading = await this.loadingController.create({
             message: 'Loading Habit..'
@@ -69,6 +113,8 @@ export class EditPage implements OnInit {
     }
 
     async saveHabit() {
+
+        this.correctIncomplete();
 
         const loading = await this.loadingController.create({
             message: 'Saving Habit..'
