@@ -257,6 +257,24 @@ export class HomePage implements OnInit {
         }
     }
 
+    checkDayIncomplete(item) {
+        if (this.matchDate == 0) {
+            return item.sundayIncomplete;
+        } else if (this.matchDate == 1) {
+            return item.mondayIncomplete;
+        } else if (this.matchDate == 2) {
+            return item.tuesdayIncomplete;
+        } else if (this.matchDate == 3) {
+            return item.wednesdayIncomplete;
+        } else if (this.matchDate == 4) {
+            return item.thursdayIncomplete;
+        } else if (this.matchDate == 5 ) {
+            return item.fridayIncomplete;
+        } else {
+            return item.saturday;
+        }
+    }
+
     habitListQuery() {
         if (this.matchDate == 0) {
             return this.sundayHabits;
