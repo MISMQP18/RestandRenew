@@ -68,6 +68,8 @@ export class HomePage implements OnInit {
     shortDate;
     matchDate;
 
+    showPage;
+
     public userID = "'" + this.globalID.userID + "'";
 
 
@@ -77,7 +79,16 @@ export class HomePage implements OnInit {
     constructor(public globalID: IdService, private router: Router, public navCtrl: NavController, private authService: AuthenticationService, private habitService: HabitService, private loadingController: LoadingController, private toastController: ToastController) {
         this.currentDate = new Date();
         this.getFormattedDate();
+        this.show();
 
+    }
+
+    show () {
+        if (this.globalID.userID == null) {
+            this.showPage = false;
+        } else {
+            this.showPage = true;
+        }
     }
 
     ngOnInit() {
