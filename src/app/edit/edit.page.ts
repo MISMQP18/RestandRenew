@@ -35,7 +35,13 @@ export class EditPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true,
+        sundayIncomplete: null,
+        mondayIncomplete: null,
+        tuesdayIncomplete: null,
+        wednesdayIncomplete: null,
+        thursdayIncomplete: null,
+        fridayIncomplete: null,
+        saturdayIncomplete: null,
         userID: "'" + this.globalID.userID + "'"
     };
 

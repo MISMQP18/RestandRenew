@@ -22,7 +22,13 @@ export interface Habit {
     time: number;
     on: boolean;
     archive: boolean;
-    incomplete: boolean;
+    sundayIncomplete: boolean;
+    mondayIncomplete: boolean;
+    tuesdayIncomplete: boolean;
+    wednesdayIncomplete: boolean;
+    thursdayIncomplete: boolean;
+    fridayIncomplete: boolean;
+    saturdayIncomplete: boolean;
     userID: string;
 }
 
@@ -253,7 +259,7 @@ export class HabitService {
         this.sundayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('sunday', '==', true)
-                .where('incomplete','==',true)
+                .where('sundayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -274,7 +280,7 @@ export class HabitService {
         this.mondayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('monday', '==', true)
-                .where('incomplete','==',true)
+                .where('mondayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -295,7 +301,7 @@ export class HabitService {
         this.tuesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('tuesday', '==', true)
-                .where('incomplete','==',true)
+                .where('tuesdayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -316,7 +322,7 @@ export class HabitService {
         this.wednesdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('wednesday', '==', true)
-                .where('incomplete','==',true)
+                .where('wednesdayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -337,7 +343,7 @@ export class HabitService {
         this.thursdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('thursday', '==', true)
-                .where('incomplete','==',true)
+                .where('thursdayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -358,7 +364,7 @@ export class HabitService {
         this.fridayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('friday', '==', true)
-                .where('incomplete','==',true)
+                .where('fridayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 
@@ -379,7 +385,7 @@ export class HabitService {
         this.saturdayIncompleteCollection = this.db.collection('habits', ref =>
             ref
                 .where('saturday', '==', true)
-                .where('incomplete','==',true)
+                .where('saturdayIncomplete','==',true)
                 .where('on','==',true)
                 .where('userID', '==', globalID));
 

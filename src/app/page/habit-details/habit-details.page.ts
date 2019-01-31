@@ -28,7 +28,13 @@ export class HabitDetailsPage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: null,
+        sundayIncomplete: null,
+        mondayIncomplete: null,
+        tuesdayIncomplete: null,
+        wednesdayIncomplete: null,
+        thursdayIncomplete: null,
+        fridayIncomplete: null,
+        saturdayIncomplete: null,
         userID: this.globalID.userID
     };
 

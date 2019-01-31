@@ -28,31 +28,31 @@
   <ion-item-group *ngIf="habit.notifications">
     <ion-item>
       <ion-label>Sunday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.sunday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.sunday" [(ngModel)]="habit.sundayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Monday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.monday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.monday" [(ngModel)]="habit.mondayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Tuesday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.tuesday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.tuesday" [(ngModel)]="habit.tuesdayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Wednesday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.wednesday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.wednesday" [(ngModel)]="habit.wednesdayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Thursday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.thursday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.thursday" [(ngModel)]="habit.thursdayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Friday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.friday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.friday" [(ngModel)]="habit.fridayIncomplete"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Saturday</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="habit.saturday"></ion-checkbox>
+      <ion-checkbox color="dark" [(ngModel)]="habit.saturday" [(ngModel)]="habit.saturdayIncomplete"></ion-checkbox>
     </ion-item>
   </ion-item-group>
 

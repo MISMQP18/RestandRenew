@@ -37,6 +37,14 @@
             </ion-col>
         </ion-row>
         <ion-row>
+            <!--
+            1. If there are incomplete habits & today it is that day, show white outline
+            2. If there are incomplete habits & today is after that day, show grey block
+            3. If there are incomplete habits & today is before that day, show white block
+            4. If the habits are complete & today is before that day, show white block
+            5. If the habits are complete & today is after that day, show green block
+            6. If the habits are complete & today is tha day, show green outline
+            -->
             <ion-col>
                 <ion-button *ngIf="(!(sundayIncompleteHabits.length == 0) && (this.matchDate == 0))" expand="block" fill="outline" size="small" color="light">Su</ion-button>
                 <ion-button *ngIf="(!(sundayIncompleteHabits.length == 0) && !(this.matchDate == 0) && (this.matchDate > 0))" expand="block" fill="solid" size="small" color="medium">Su</ion-button>
@@ -146,7 +154,7 @@
 
         <ion-list #slidingList>
             <ion-item-sliding *ngFor="let item of habitListQuery()">
-                <ion-item *ngIf="item.incomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
+                <ion-item *ngIf="item.wednesdayIncomplete && item.on && checkDay(item)" lines="inset" button [routerLink]="['/edit', item.id]">
                     <ion-label>
                         {{ item.name }}
                     </ion-label>

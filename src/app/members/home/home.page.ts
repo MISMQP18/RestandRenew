@@ -33,7 +33,13 @@ export class HomePage implements OnInit {
         time: null,
         on: null,
         archive: false,
-        incomplete: true,
+        sundayIncomplete: null,
+        mondayIncomplete: null,
+        tuesdayIncomplete: null,
+        wednesdayIncomplete: null,
+        thursdayIncomplete: null,
+        fridayIncomplete: null,
+        saturdayIncomplete: null,
         userID: "'" + this.globalID.userID + "'"
     };
 
@@ -137,14 +143,27 @@ export class HomePage implements OnInit {
     }
 
     async hideHabit(item) {
-        item.incomplete = false;
+        if (this.matchDate == 0) {
+            item.sundayIncomplete = false;
+        } else if (this.matchDate == 1) {
+            item.mondayIncomplete = false;
+        } else if (this.matchDate == 2) {
+            item.tuesdayIncomplete = false;
+        } else if (this.matchDate == 3) {
+            item.wednesdayIncomplete = false;
+        } else if (this.matchDate == 4) {
+            item.thursdayIncomplete = false;
+        } else if (this.matchDate == 5 ) {
+            item.fridayIncomplete = false;
+        } else {
+            item.saturdayIncomplete = false;
+        }
 
         this.habitService.updateHabit(item, item.id).then(() => {
         });
 
         await this.slidingList.closeSlidingItems();
     }
-
 
     openAddHabitPage() {
         this.router.navigate(['/add']);
