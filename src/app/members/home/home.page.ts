@@ -85,9 +85,9 @@ export class HomePage implements OnInit {
 
     show () {
         if (this.globalID.userID == null) {
-            this.showPage = false;
+            return this.showPage = false;
         } else {
-            this.showPage = true;
+            return this.showPage = true;
         }
     }
 
