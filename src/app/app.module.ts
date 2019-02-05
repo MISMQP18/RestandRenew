@@ -23,14 +23,14 @@ import { HabitService } from './services/habit.service';
 import { JournalService } from './services/journal.service';
 import { IdService } from './services/id.service';
 
-/*const config = {
+const config = {
     apiKey: "AIzaSyC-_TjGZ3Sl_JYWSg3uag4IyiQHhIH8Yds",
     authDomain: "rest-and-renew.firebaseapp.com",
     databaseURL: "https://rest-and-renew.firebaseio.com",
     projectId: "rest-and-renew",
     storageBucket: "rest-and-renew.appspot.com",
     messagingSenderId: "888747261921"
-};*/
+};
 
 @NgModule({
   declarations: [AppComponent],

@@ -9,9 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { FcmService } from './services/fcm1.service';
 import { ToastService } from './services/toast.service';
-import {Habit, HabitService} from './services/habit.service';
-import {Journal, JournalService} from './services/journal.service';
-import {IdService} from './services/id.service';
+import { Habit, HabitService } from './services/habit.service';
+import { Journal, JournalService } from './services/journal.service';
+import { IdService } from './services/id.service';
 
 @Component({
     selector: 'app-root',
