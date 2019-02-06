@@ -316,46 +316,48 @@ export class HomePage implements OnInit {
     }
 
     async presentToastHabitsCompleted() {
-        const toast = await this.toastController.create({
+        const allCompleteToast = await this.toastController.create({
             message: 'Congratulations! You have completed all of your habits today!',
             duration: 1000,
-            position: 'middle',
+            position: 'top',
             color: 'secondary'
 
         });
 
-        const toast2 = await this.toastController.create({
+        const singleCompleteToast = await this.toastController.create({
             message: 'Good job completing your habit!',
             duration: 1000,
-            position: 'middle',
+            position: 'top',
             color: 'secondary'
         });
 
-        if ((this.sundayIncompleteHabits.length == 0) && (this.matchDate == 0)) {
-            toast.dismiss();
-            toast.present();
+        singleCompleteToast.present();
+
+        /*if ((this.sundayIncompleteHabits.length == 0) && (this.matchDate == 0)) {
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.mondayIncompleteHabits.length == 0) && (this.matchDate == 1)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.tuesdayIncompleteHabits.length == 0) && (this.matchDate == 2)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.wednesdayIncompleteHabits.length == 0) && (this.matchDate == 3)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.thursdayIncompleteHabits.length == 0) && (this.matchDate == 4)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.fridayIncompleteHabits.length == 0) && (this.matchDate == 5)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else if ((this.saturdayIncompleteHabits.length == 0) && (this.matchDate == 6)) {
-            toast.dismiss();
-            toast.present();
+            allCompleteToast.dismiss();
+            allCompleteToast.present();
         } else {
-            toast2.dismiss();
-            toast2.present();
-        }
+            singleCompleteToast.dismiss();
+            singleCompleteToast.present();
+        }*/
     }
 
     /*checkHabitsCompleted() {
@@ -387,19 +389,19 @@ export class HomePage implements OnInit {
     }
 
     async presentToastHabitsCompleted() {
-        const toast = await this.toastController.create({
+        const allCompleteToast = await this.toastController.create({
             message: 'Congratulations! You have completed all of your habits today!',
             duration: 1000,
             position: 'top'
         });
 
-        const toast2 = await this.toastController.create({
+        const singleCompleteToast = await this.toastController.create({
             message: 'Fake Toast',
             duration: 1000,
             position: 'top'
         });
 
-        toast.present();
+        allCompleteToast.present();
 
     }*/
 
