@@ -300,7 +300,7 @@ export class HomePage implements OnInit {
             message: 'Next Week',
             duration: 2000,
             showCloseButton: true,
-            position: "middle"
+            position: 'middle'
         });
         toast.present();
     }
@@ -310,7 +310,7 @@ export class HomePage implements OnInit {
             message: 'Previous Week',
             duration: 2000,
             showCloseButton: true,
-            position: "middle"
+            position: 'middle'
         });
         toast.present();
     }
@@ -318,25 +318,32 @@ export class HomePage implements OnInit {
     async presentToastHabitsCompleted() {
         const toast = await this.toastController.create({
             message: 'Congratulations! You have completed all of your habits today!',
-            showCloseButton: true,
-            position: 'top',
-            closeButtonText: 'Done'
+            duration: 1000,
+            position: 'middle'
         });
 
-        if ((this.matchDate == 0) && (this.sundayIncompleteHabits.length == 0)) {
+        const toast2 = await this.toastController.create({
+            message: 'Fake Toast',
+            duration: 1000,
+            position: 'middle'
+        });
+
+        if ((this.sundayIncompleteHabits.length == 0) && (this.matchDate == 0)) {
             toast.present();
-        } else if ((this.matchDate == 1) && (this.mondayIncompleteHabits.length == 0)) {
+        } else if ((this.mondayIncompleteHabits.length == 0) && (this.matchDate == 1)) {
             toast.present();
-        } else if ((this.matchDate == 2) && (this.tuesdayIncompleteHabits.length == 0)) {
+        } else if ((this.tuesdayIncompleteHabits.length == 0) && (this.matchDate == 2)) {
             toast.present();
-        } else if ((this.matchDate == 3) && (this.wednesdayIncompleteHabits.length == 0)) {
+        } else if ((this.wednesdayIncompleteHabits.length == 0) && (this.matchDate == 3)) {
             toast.present();
-        } else if ((this.matchDate == 4) && (this.thursdayIncompleteHabits.length == 0)) {
+        } else if ((this.thursdayIncompleteHabits.length == 0) && (this.matchDate == 4)) {
             toast.present();
-        } else if ((this.matchDate == 5) && (this.fridayIncompleteHabits.length == 0)) {
+        } else if ((this.fridayIncompleteHabits.length == 0) && (this.matchDate == 5)) {
             toast.present();
-        } else if ((this.matchDate == 6) && (this.saturdayIncompleteHabits.length == 0)) {
+        } else if ((this.saturdayIncompleteHabits.length == 0) && (this.matchDate == 6)) {
             toast.present();
+        } else {
+            toast2.present();
         }
     }
 
