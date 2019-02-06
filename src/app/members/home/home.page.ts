@@ -319,13 +319,16 @@ export class HomePage implements OnInit {
         const toast = await this.toastController.create({
             message: 'Congratulations! You have completed all of your habits today!',
             duration: 1000,
-            position: 'middle'
+            position: 'middle',
+            color: 'secondary'
+
         });
 
         const toast2 = await this.toastController.create({
-            message: 'Fake Toast',
+            message: 'Good job completing your habit!',
             duration: 1000,
-            position: 'middle'
+            position: 'middle',
+            color: 'secondary'
         });
 
         if ((this.sundayIncompleteHabits.length == 0) && (this.matchDate == 0)) {
