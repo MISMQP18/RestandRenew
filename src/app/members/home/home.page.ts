@@ -329,22 +329,75 @@ export class HomePage implements OnInit {
         });
 
         if ((this.sundayIncompleteHabits.length == 0) && (this.matchDate == 0)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.mondayIncompleteHabits.length == 0) && (this.matchDate == 1)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.tuesdayIncompleteHabits.length == 0) && (this.matchDate == 2)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.wednesdayIncompleteHabits.length == 0) && (this.matchDate == 3)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.thursdayIncompleteHabits.length == 0) && (this.matchDate == 4)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.fridayIncompleteHabits.length == 0) && (this.matchDate == 5)) {
+            toast.dismiss();
             toast.present();
         } else if ((this.saturdayIncompleteHabits.length == 0) && (this.matchDate == 6)) {
+            toast.dismiss();
             toast.present();
         } else {
+            toast2.dismiss();
             toast2.present();
         }
     }
+
+    /*checkHabitsCompleted() {
+        if ((this.sundayIncompleteHabits.length === 0) && (this.matchDate === 0)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.mondayIncompleteHabits.length === 0) && (this.matchDate === 1)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.tuesdayIncompleteHabits.length === 0) && (this.matchDate === 2)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.wednesdayIncompleteHabits.length === 0) && (this.matchDate === 3)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.thursdayIncompleteHabits.length === 0) && (this.matchDate === 4)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.fridayIncompleteHabits.length === 0) && (this.matchDate === 5)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else if ((this.saturdayIncompleteHabits.length === 0) && (this.matchDate === 6)) {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        } else {
+            this.dayComplete = true;
+            this.presentToastHabitsCompleted();
+        }
+    }
+
+    async presentToastHabitsCompleted() {
+        const toast = await this.toastController.create({
+            message: 'Congratulations! You have completed all of your habits today!',
+            duration: 1000,
+            position: 'top'
+        });
+
+        const toast2 = await this.toastController.create({
+            message: 'Fake Toast',
+            duration: 1000,
+            position: 'top'
+        });
+
+        toast.present();
+
+    }*/
 
 }
