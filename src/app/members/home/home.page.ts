@@ -69,6 +69,7 @@ export class HomePage implements OnInit {
     matchDate;
 
     showPage;
+    incompleteDay;
 
     public userID = "'" + this.globalID.userID + "'";
 
@@ -151,6 +152,7 @@ export class HomePage implements OnInit {
         this.habitService.saturdayIncomplete(this.userID).subscribe(res => {
             this.saturdayIncompleteHabits = res;
         });
+
     }
 
     async hideHabit(item) {
@@ -313,5 +315,29 @@ export class HomePage implements OnInit {
         toast.present();
     }
 
-}
+    async presentToastHabitsCompleted() {
+        const toast = await this.toastController.create({
+            message: 'Congratulations! You have completed all of your habits today!',
+            showCloseButton: true,
+            position: 'top',
+            closeButtonText: 'Done'
+        });
 
+        if ((this.matchDate == 0) && (this.sundayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 1) && (this.mondayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 2) && (this.tuesdayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 3) && (this.wednesdayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 4) && (this.thursdayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 5) && (this.fridayIncompleteHabits.length == 0)) {
+            toast.present();
+        } else if ((this.matchDate == 6) && (this.saturdayIncompleteHabits.length == 0)) {
+            toast.present();
+        }
+    }
+
+}

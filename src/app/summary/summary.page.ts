@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
-import {NavController, ToastController} from "@ionic/angular";
+import {NavController, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-summary',

@@ -162,7 +162,7 @@
                 </ion-item>
 
                 <ion-item-options side="end">
-                    <ion-item-option (click)="hideHabit(item)" color="secondary">
+                    <ion-item-option (click)="hideHabit(item); presentToastHabitsCompleted()" color="secondary">
                         Complete
                         <ion-icon name="checkmark-circle" slot="end"></ion-icon>
                     </ion-item-option>
