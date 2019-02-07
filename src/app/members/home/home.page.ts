@@ -67,6 +67,7 @@ export class HomePage implements OnInit {
     formattedDate;
     shortDate;
     matchDate;
+    currentTime;
 
     showPage;
     incompleteDay;
@@ -213,6 +214,7 @@ export class HomePage implements OnInit {
         var month = dateObj.getMonth().toString();
         var date = dateObj.getDate().toString();
         var day = dateObj.getDay();
+        //var time = dateObj.getTime().toLocaleString();
         var dayText;
 
         var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -237,7 +239,9 @@ export class HomePage implements OnInit {
 
         this.matchDate = day;
 
-        this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year;
+        this.currentTime = time;
+
+        this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year; // + ", " + time;
         this.shortDate = dayArray[day];
     }
 
@@ -294,6 +298,17 @@ export class HomePage implements OnInit {
             return this.saturdayHabits;
         }
     }
+
+    /*async presentToastHabitNotification(item) {
+        const habitNotificationToast = await this.toastController.create({
+            message: 'Complete your habit:' + ' ' + item.name + ' ' + item.time,
+            duration: 1000
+        })
+
+        if (item.time == this.currentTime) {
+            habitNotificationToast.present();
+        }
+    }*/
 
     async presentToastNextWeek() {
         const toast = await this.toastController.create({
