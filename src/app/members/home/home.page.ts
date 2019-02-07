@@ -239,7 +239,7 @@ export class HomePage implements OnInit {
 
         this.matchDate = day;
 
-        this.currentTime = time;
+        // this.currentTime = time;
 
         this.formattedDate = dayText + ", " + monthArray[month] + " " + date + ", " + year; // + ", " + time;
         this.shortDate = dayArray[day];
