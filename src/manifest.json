@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "Rest & Renew",
+  "short_name": "R&R",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

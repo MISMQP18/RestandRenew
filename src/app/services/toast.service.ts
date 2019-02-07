@@ -1,14 +1,20 @@
 
 import { Injectable } from '@angular/core';
-import { Toast, ToastController } from 'ionic-angular';
+import { ToastController } from '@ionic/angular';
+// import { Toast } from 'ionic-angular';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
+
 export class ToastService {
 
-    toast: Toast;
-    constructor(private toastCtrl: ToastController) { }
+    // toast: Toast;
+    constructor(private toastCtrl: ToastController) {
 
-    create(message, ok = false, duration = 2000) {
+    }
+
+    /* create(message, ok = false, duration = 2000) {
         if (this.toast) {
             this.toast.dismiss();
         }
@@ -21,19 +27,14 @@ export class ToastService {
             closeButtonText: 'OK'
         });
         this.toast.present();
-    }
+    } */
 
-    /*presentToast() {
-        let toast = this.toastCtrl.create({
+    async presentToast() {
+        const toast = await this.toastCtrl.create({
             message: 'User was added successfully',
             duration: 3000,
             position: 'top'
         });
-
-        toast.onDidDismiss(() => {
-            console.log('Dismissed toast');
-        });
-
         toast.present();
-    }*/
+    }
 }

@@ -70,7 +70,6 @@ export class HomePage implements OnInit {
     currentTime;
 
     showPage;
-    incompleteDay;
 
     public userID = "'" + this.globalID.userID + "'";
 
