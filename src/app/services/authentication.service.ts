@@ -42,13 +42,13 @@ export class AuthenticationService implements OnInit {
     }
 
     login() {
-        if (this.userid) {
+        if (this.users.length == 0) {
             return this.storage.set(TOKEN_KEY, this.userid).then(() => {
-                this.authenticationState.next(true);
+                this.authenticationState.next(false);
             });
         } else {
             return this.storage.set(TOKEN_KEY, this.userid).then(() => {
-                this.authenticationState.next(false);
+                this.authenticationState.next(true);
             });
         }
     }
