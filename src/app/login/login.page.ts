@@ -1,8 +1,9 @@
 import { AuthenticationService } from '../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import {IdService} from '../services/id.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {LoadingController, NavController} from '@ionic/angular';
+import { UserID, IdService } from '../services/id.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import {LoadingController, NavController, ToastController} from '@ionic/angular';
+import {Habit} from '../services/habit.service';
 
 @Component({
     selector: 'app-login',
@@ -14,13 +15,21 @@ export class LoginPage implements OnInit {
     imgSrc = 'https://trello-attachments.s3.amazonaws.com/5be071b1dbe32d8252ae07bd/5c114a1a42e8df46da86acd3/25716ec329e1f409b50e70a1ada6d940/WPI_Inst_Prim_FulClr_PREVIEW.png';
     image = 'https://trello-attachments.s3.amazonaws.com/5be071b1dbe32d8252ae07bd/5c114a1a42e8df46da86acd3/9579d734e59aedfd8654f1095a024455/reliant-brand-2016-small.png';
 
-    /*id: UserID = {
+    user: UserID = {
         userID: null
-    };*/
+    };
 
-    constructor(public globalID: IdService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private loadingController: LoadingController) { }
+    users: UserID[];
+
+    public userid = "'" + this.globalID.userID + "'";
+
+    constructor(private toastController: ToastController, public globalID: IdService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router,  private nav: NavController, private loadingController: LoadingController) {
+    }
 
     ngOnInit() {
+        this.globalID.getIDs(this.userid).subscribe(res => {
+            this.users = res;
+        });
     }
 
     login() {
@@ -31,20 +40,20 @@ export class LoginPage implements OnInit {
         // this.globalID.userID;
     }
 
-    /*async login() {
+   /*async login() {
 
         const loading = await this.loadingController.create({
-            message: 'Saving ID..'
+            message: 'Logging in..'
         });
         await loading.present();
 
         if (this.userid) {
-            this.idService.updateID(this.id, this.userid).then(() => {
+            this.globalID.updateID(this.id, this.userid).then(() => {
                 loading.dismiss();
                 this.authService.login();
             });
         } else {
-            this.idService.addID(this.id).then(() => {
+            this.globalID.addID(this.id).then(() => {
                 loading.dismiss();
                 this.authService.login();
             });

@@ -1,17 +1,23 @@
 import { Platform } from '@ionic/angular';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
-import { IdService } from './id.service'
+import {IdService, UserID} from './id.service';
 
 const TOKEN_KEY = 'auth-token';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService implements OnInit {
 
-    public userID = "'" + this.globalID.userID + "'";
+    user: UserID = {
+        userID: null
+    };
+
+    users: UserID[];
+
+    public userid = "'" + this.globalID.userID + "'";
 
     authenticationState = new BehaviorSubject(false);
 
@@ -21,18 +27,30 @@ export class AuthenticationService {
         });
     }
 
+    ngOnInit() {
+        this.globalID.getIDs(this.userid).subscribe(res => {
+            this.users = res;
+        });
+    }
+
     checkToken() {
         this.storage.get(TOKEN_KEY).then(res => {
             if (res) {
                 this.authenticationState.next(true);
             }
-        })
+        });
     }
 
     login() {
-        return this.storage.set(TOKEN_KEY, this.userID).then(() => {
-            this.authenticationState.next(true);
-        });
+        if (this.userid) {
+            return this.storage.set(TOKEN_KEY, this.userid).then(() => {
+                this.authenticationState.next(true);
+            });
+        } else {
+            return this.storage.set(TOKEN_KEY, this.userid).then(() => {
+                this.authenticationState.next(false);
+            });
+        }
     }
 
     logout() {

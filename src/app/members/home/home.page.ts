@@ -7,7 +7,7 @@ import { Habit, HabitService } from '../../services/habit.service';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {IdService} from '../../services/id.service';
+import {IdService, UserID} from '../../services/id.service';
 
 @Component({
   selector: 'app-home',
@@ -63,6 +63,14 @@ export class HomePage implements OnInit {
     fridayIncompleteHabits: Habit[];
     saturdayIncompleteHabits: Habit[];
 
+    user: UserID = {
+        userID: null
+    };
+
+    users: UserID[];
+
+    public userid = "'" + this.globalID.userID + "'";
+
     currentDate;
     formattedDate;
     shortDate;
@@ -93,6 +101,10 @@ export class HomePage implements OnInit {
     }
 
     ngOnInit() {
+        this.globalID.getIDs(this.userid).subscribe(res => {
+            this.users = res;
+        });
+
         this.habitService.getHabits(this.userID).subscribe(res => {
             this.habits = res;
         });

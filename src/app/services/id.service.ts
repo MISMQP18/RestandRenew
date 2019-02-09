@@ -3,10 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-/*export interface UserID {
-    id?: string;
+export interface UserID {
     userID: number;
-}*/
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,51 +14,53 @@ export class IdService {
 
   userID: string;
 
-    /*private idCollection: AngularFirestoreCollection<UserID>;
+  private userCollection: AngularFirestoreCollection<UserID>;
 
-    private ids: Observable<UserID[]>;
+  private users: Observable<UserID[]>;
 
-    constructor(private db: AngularFirestore) {
-        this.idCollection = this.db.collection('ids', ref => ref.orderBy('createdAt', 'desc'));
+  constructor(private db: AngularFirestore) {
+      this.userCollection = this.db.collection('ids');
 
-        this.ids = this.idCollection.snapshotChanges().pipe(
-            map(actions => {
-                return actions.map(a => {
-                    const data = a.payload.doc.data();
-                    const id = a.payload.doc.id;
-                    return { id, ...data };
-                });
-            })
-        );
-    }
+      this.users = this.userCollection.snapshotChanges().pipe(
+          map(actions => {
+              return actions.map(a => {
+                  const data = a.payload.doc.data();
+                  const id = a.payload.doc.id;
+                  return { id, ...data };
+              });
+          })
+      );
+  }
 
-    getIDs() {
-        this.ids = this.idCollection.snapshotChanges().pipe(
-            map(actions => {
-                return actions.map(a => {
-                    const data = a.payload.doc.data();
-                    const id = a.payload.doc.id;
-                    return { id, ...data };
-                });
-            })
-        );
+  getIDs(globalID) {
+      this.userCollection = this.db.collection('habits', ref => ref.where('userID', '==', globalID));
 
-        return this.ids;
-    }
+      this.users = this.userCollection.snapshotChanges().pipe(
+          map(actions => {
+              return actions.map(a => {
+                  const data = a.payload.doc.data();
+                  const id = a.payload.doc.id;
+                  return { id, ...data };
+              });
+          })
+      );
 
-    getID(id) {
-        return this.idCollection.doc<UserID>(id).valueChanges();
-    }
+      return this.users;
+  }
 
-    updateID(userid: UserID, id: string) {
-        return this.idCollection.doc(id).update(userid);
-    }
+  getID(id) {
+      return this.userCollection.doc<UserID>(id).valueChanges();
+  }
 
-    addID(userid: UserID) {
-        return this.idCollection.add(userid);
-    }
+  updateID(userid: UserID, id: string) {
+      return this.userCollection.doc(id).update(userid);
+  }
 
-    removeID(id) {
-        return this.idCollection.doc(id).delete();
-    }*/
+  addID(userid: UserID) {
+      return this.userCollection.add(userid);
+  }
+
+  removeID(id) {
+      return this.userCollection.doc(id).delete();
+  }
 }
