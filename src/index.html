@@ -28,12 +28,29 @@
   <meta name="apple-mobile-web-app-title" content="Rest & Renew">
   <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
 
-
-
   <link rel="manifest" href="manifest.json">
 
 </head>
+
 <body>
+
   <app-root></app-root>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyC-_TjGZ3Sl_JYWSg3uag4IyiQHhIH8Yds",
+          authDomain: "rest-and-renew.firebaseapp.com",
+          databaseURL: "https://rest-and-renew.firebaseio.com",
+          projectId: "rest-and-renew",
+          storageBucket: "rest-and-renew.appspot.com",
+          messagingSenderId: "888747261921"
+      };
+      firebase.initializeApp(config);
+  </script>
+
 </body>
+
 </html>
