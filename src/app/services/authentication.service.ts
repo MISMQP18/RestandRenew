@@ -42,7 +42,7 @@ export class AuthenticationService implements OnInit {
     }
 
     login() {
-        /*if (this.users.length == 0) {
+        /*if (!this.users || this.users.length == 0) {
             return this.storage.set(TOKEN_KEY, this.userid).then(() => {
                 this.authenticationState.next(false);
             });
